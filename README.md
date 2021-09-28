@@ -107,18 +107,27 @@ fun printCakeBottom(age: Int, layers: Int) {
 
 
 - 使用 `${}` 将输出语句的文本中的变量和计算括起来。例如：`${age}`，其中的 `age` 就是变量。
+
 - 使用 `val` 关键字和名称创建变量。此值设定后即无法更改。使用等号为变量赋值。值的示例包括文本和数字。
+
 - `String` 是用引号括起来的文本，例如 `"Hello"`。
+
 - `Int` 是正整数或负整数，例如 0、23 或 -1024。
+
 - 您可以将一个或多个参数传入函数中供函数使用，例如：`fun printCakeBottom(age:Int, layers:Int) {}`
+
 - 使用 `repeat() {}` 语句重复一组指令若干次。例如，`repeat (23) { print("%") }` 或 `repeat (layers) { print("@@@@@@@@@@") }`
+
 - 循环是用于多次重复某指令的一个指令。`repeat()` 语句就是循环的一个示例。
+
 - 您可以嵌套循环，即，将循环放到循环内。例如，您可以在 `repeat()` 语句内创建一个 `repeat()` 语句，用于将符号输出若干次和若干行，就像您对蛋糕层所做的那样。
 
   **有关函数参数用法的摘要**：如需使用包含参数的函数，您需要执行以下三项操作：
 
 - 将参数和类型添加到函数定义中：`printBorder(border: String)`
+
 - 在函数内使用参数：`println(border)`
+
 - 在调用函数时提供参数：`printBorder(border)`
 
 
@@ -494,7 +503,7 @@ Android 应用中的 `Views` 并非独自悬浮在屏幕上。各个 `Views` 之
 
 6. 在 **text** 字段中输入您对朋友的生日祝福（例如：“Happy Birthday, Sam!”），然后按 **Enter** 键。![df20bb9a9fecaaeb.png](https://developer.android.com/codelabs/basic-android-kotlin-training-birthday-card-app/img/df20bb9a9fecaaeb.png)
 
-1. 注意，**Design** 视图会随即更新，以呈现应用的外观。![da933f736e60ee9b.png](https://developer.android.com/codelabs/basic-android-kotlin-training-birthday-card-app/img/da933f736e60ee9b.png)
+7. 注意，**Design** 视图会随即更新，以呈现应用的外观。![da933f736e60ee9b.png](https://developer.android.com/codelabs/basic-android-kotlin-training-birthday-card-app/img/da933f736e60ee9b.png)
 
 ### ⑥添加并放置另一个 TextView
 
@@ -770,10 +779,7 @@ class MainActivity : AppCompatActivity() {
 1. 查找 `onCreate()` 方法，该方法类似于以下代码。
 
 ```
-   override fun onCreate(savedInstanceState: Bundle?) {
-       super.onCreate(savedInstanceState)
-       setContentView(R.layout.activity_main)
-   }
+   override fun onCreate(savedInstanceState: Bundle?) {       super.onCreate(savedInstanceState)       setContentView(R.layout.activity_main)   }
 ```
 
 您将在后面的 Codelab 中了解 `override`（目前不用操心）。`onCreate()` 方法的其余部分使用导入中的代码设置 `MainActivity`，并通过 `setContentView()` 设置起始布局。
@@ -815,20 +821,13 @@ val rollButton: Button = findViewById(R.id.button)
 `onCreate()` 方法现在应如下所示：
 
 ```
-override fun onCreate(savedInstanceState: Bundle?) {
-   super.onCreate(savedInstanceState)
-   setContentView(R.layout.activity_main)
-
-   val rollButton: Button = findViewById(R.id.button)
-}
+override fun onCreate(savedInstanceState: Bundle?) {   super.onCreate(savedInstanceState)   setContentView(R.layout.activity_main)   val rollButton: Button = findViewById(R.id.button)}
 ```
 
 验证 Android Studio 是否自动为 `Button` 添加了 `import` 语句。请注意，现在有 3 个 import 语句，第三个语句是自动添加的。
 
 ```
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.Button
+import androidx.appcompat.app.AppCompatActivityimport android.os.Bundleimport android.widget.Button
 ```
 
 **注意**：如果未能启用自动导入功能，`Button` 将以红色突出显示。您可以手动添加正确的导入操作，方法是将文本光标置于 `Button` 内，然后按 `Alt+Enter`（在 Mac 上，按 `Option+Enter`）。
@@ -840,8 +839,7 @@ import android.widget.Button
 当前您需要注意的是，在大括号内，给出了在点按按钮时应执行的操作的说明。您可以让应用显示消息框，其中显示有关下一步的简短消息。
 
 ```
-rollButton.setOnClickListener {
-}
+rollButton.setOnClickListener {}
 ```
 
 在输入过程中，Android Studio 可能会显示多个建议。在本例中，请选择 **setOnClickListener {...}** 选项。
@@ -865,19 +863,7 @@ toast.show()
 更新后的 `MainActivity` 类如下所示；`package` 和 `import` 语句仍位于文件顶部：
 
 ```
-class MainActivity : AppCompatActivity() {
-
-   override fun onCreate(savedInstanceState: Bundle?) {
-       super.onCreate(savedInstanceState)
-       setContentView(R.layout.activity_main)
-
-       val rollButton: Button = findViewById(R.id.button)
-       rollButton.setOnClickListener {
-           val toast = Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT)
-           toast.show()
-       }
-   }
-}
+class MainActivity : AppCompatActivity() {   override fun onCreate(savedInstanceState: Bundle?) {       super.onCreate(savedInstanceState)       setContentView(R.layout.activity_main)       val rollButton: Button = findViewById(R.id.button)       rollButton.setOnClickListener {           val toast = Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT)           toast.show()       }   }}
 ```
 
 您可以将点击监听器中的两行合并为一行，而不使用变量。该模式一种常见模式，您在其他代码中也可以找到。
@@ -909,9 +895,7 @@ Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT).show()
 5. 删除用于创建和显示 `Toast` 的代码行。
 
    ```
-   rollButton.setOnClickListener {
-   
-   }
+   rollButton.setOnClickListener {}
    ```
 
 6. 在其中创建一个名为 `resultTextView` 的新变量来存储 `TextView`。
@@ -935,19 +919,7 @@ resultTextView.text = "6"
 `MainActivity` 类的内容应如下所示：
 
 ```
-class MainActivity : AppCompatActivity() {
-
-   override fun onCreate(savedInstanceState: Bundle?) {
-       super.onCreate(savedInstanceState)
-       setContentView(R.layout.activity_main)
-
-       val rollButton: Button = findViewById(R.id.button)
-       rollButton.setOnClickListener {
-           val resultTextView: TextView = findViewById(R.id.textView)
-           resultTextView.text = "6"
-       }
-   }
-}
+class MainActivity : AppCompatActivity() {   override fun onCreate(savedInstanceState: Bundle?) {       super.onCreate(savedInstanceState)       setContentView(R.layout.activity_main)       val rollButton: Button = findViewById(R.id.button)       rollButton.setOnClickListener {           val resultTextView: TextView = findViewById(R.id.textView)           resultTextView.text = "6"       }   }}
 ```
 
 运行应用。点击按钮。它应将 `TextView` 更新为“6”。
@@ -982,9 +954,7 @@ class MainActivity : AppCompatActivity() {
 - 再后跟一对大括号 `{}`。在大括号内放置条件结果为 `true` 时要执行的代码。
 
 ```
-if (condition-is-true) {
-    execute-this-code
-}
+if (condition-is-true) {    execute-this-code}
 ```
 
 **提示**：在 if-else 代码块中，只能有一个 `if` 语句和一个 `else` 语句；但在两者之间，可以有任意数量的 `else if` 语句。
@@ -1014,27 +984,7 @@ if (condition-is-true) {
 使用 `when` 语句。`when` 语句以关键字 `when` 开头，后跟括号 `()`。括号内放置要测试的值。后跟大括号 `{}`，这样可以针对不同的条件执行代码。
 
 ```
-fun main() {
-    val myFirstDice = Dice(6)
-    val rollResult = myFirstDice.roll()
-    val luckyNumber = 4
-
-    when (rollResult) {
-        luckyNumber -> println("You won!")
-        1 -> println("So sorry! You rolled a 1. Try again!")
-        2 -> println("Sadly, you rolled a 2. Try again!")
-        3 -> println("Unfortunately, you rolled a 3. Try again!")
-        5 -> println("Don't cry! You rolled a 5. Try again!")
-        6 -> println("Apologies! you rolled a 6. Try again!")
-   }
-}
-
-class Dice(val numSides: Int) {
-    fun roll(): Int {
-        return (1..numSides).random()
-    }
-}
-
+fun main() {    val myFirstDice = Dice(6)    val rollResult = myFirstDice.roll()    val luckyNumber = 4    when (rollResult) {        luckyNumber -> println("You won!")        1 -> println("So sorry! You rolled a 1. Try again!")        2 -> println("Sadly, you rolled a 2. Try again!")        3 -> println("Unfortunately, you rolled a 3. Try again!")        5 -> println("Don't cry! You rolled a 5. Try again!")        6 -> println("Apologies! you rolled a 6. Try again!")   }}class Dice(val numSides: Int) {    fun roll(): Int {        return (1..numSides).random()    }}
 ```
 
 与之前一样，首先测试 `rollResult` 是否与 `luckyNumber` 相同。
@@ -1067,25 +1017,13 @@ luckyNumber -> println("You win!")
 **if-else 的常规形式**：
 
 ```
-if (`*`condition-is-true`*`) {
-*`execute-this-code`*
-} else if (`*`condition-is-true`*`) {
-*`execute-this-code`*
-} else {
-*`execute-this-code`*
-}
+if (`*`condition-is-true`*`) {*`execute-this-code`*} else if (`*`condition-is-true`*`) {*`execute-this-code`*} else {*`execute-this-code`*}
 ```
 
 **when 语句**：
 
 ```
-when (`***`variable`\***`) {
-`matches-value -&gt;` *`execute-this-code`*
-
-`matches-value -&gt;` *`execute-this-code`*
-
-`...`
-}
+when (`***`variable`\***`) {`matches-value -&gt;` *`execute-this-code`*`matches-value -&gt;` *`execute-this-code`*`...`}
 ```
 
 
@@ -1155,13 +1093,7 @@ when (`***`variable`\***`) {
 抽象类的声明以 `abstract` 关键字开头。
 
 ```
-abstract class Dweling(private var residents: Int){
-    abstract val buildingMaterial: String
-    abstract val capacity: Int
-    fun hasRoom(): Boolean {
-        return residents < capacity
-    }
-}
+abstract class Dweling(private var residents: Int){    abstract val buildingMaterial: String    abstract val capacity: Int    fun hasRoom(): Boolean {        return residents < capacity    }}
 ```
 
 ### ④创建子类
@@ -1213,9 +1145,7 @@ class SquareCabin(residents: Int) : Dwelling(residents)
 当您使用某个类的特定实例，并需要访问该实例的多个属性和函数时，您可以使用 `with` 语句表明“对此实例对象执行以下所有操作”。先输入关键字 `with`，再在圆括号内输入实例名称，然后再输入大括号并在其中指明您想要执行的操作。
 
 ```
-with (instanceName) {
-    // all operations to do with instanceName
-}
+with (instanceName) {    // all operations to do with instanceName}
 ```
 
 
@@ -1223,10 +1153,7 @@ with (instanceName) {
 默认情况下，在 Kotlin 中，[类是最终层级](https://kotlinlang.org/docs/reference/classes.html#inheritance)，无法被子类化。您只能从 `abstract` 类或标记有 `open` 关键字的类继承。因此，您需要使用 `open` 关键字标记 子类，使其能够被继承。
 
 ```
-open class RoundHut(residents: Int) : Dwelling(residents) {
-   override val buildingMaterial = "Straw"
-   override val capacity = 4
-}
+open class RoundHut(residents: Int) : Dwelling(residents) {   override val buildingMaterial = "Straw"   override val capacity = 4}
 ```
 
 
@@ -1236,178 +1163,7 @@ open class RoundHut(residents: Int) : Dwelling(residents) {
 
 
 ```
-/**
-* Program that implements classes for different kinds of dwellings.
-* Shows how to:
-* Create class hierarchy, variables and functions with inheritance,
-* abstract class, overriding, and private vs. public variables.
-*/
-
-import kotlin.math.PI
-import kotlin.math.sqrt
-
-fun main() {
-   val squareCabin = SquareCabin(6, 50.0)
-   val roundHut = RoundHut(3, 10.0)
-   val roundTower = RoundTower(4, 15.5)
-
-   with(squareCabin) {
-       println("\nSquare Cabin\n============")
-       println("Capacity: ${capacity}")
-       println("Material: ${buildingMaterial}")
-       println("Floor area: ${floorArea()}")
-   }
-
-   with(roundHut) {
-       println("\nRound Hut\n=========")
-       println("Material: ${buildingMaterial}")
-       println("Capacity: ${capacity}")
-       println("Floor area: ${floorArea()}")
-       println("Has room? ${hasRoom()}")
-       getRoom()
-       println("Has room? ${hasRoom()}")
-       getRoom()
-       println("Carpet size: ${calculateMaxCarpetSize()}")
-   }
-
-   with(roundTower) {
-       println("\nRound Tower\n==========")
-       println("Material: ${buildingMaterial}")
-       println("Capacity: ${capacity}")
-       println("Floor area: ${floorArea()}")
-       println("Carpet size: ${calculateMaxCarpetSize()}")
-   }
-}
-
-/**
-* Defines properties common to all dwellings.
-* All dwellings have floorspace,
-* but its calculation is specific to the subclass.
-* Checking and getting a room are implemented here
-* because they are the same for all Dwelling subclasses.
-*
-* @param residents Current number of residents
-*/
-abstract class Dwelling(private var residents: Int) {
-   abstract val buildingMaterial: String
-   abstract val capacity: Int
-
-   /**
-    * Calculates the floor area of the dwelling.
-    * Implemented by subclasses where shape is determined.
-    *
-    * @return floor area
-    */
-   abstract fun floorArea(): Double
-
-   /**
-    * Checks whether there is room for another resident.
-    *
-    * @return true if room available, false otherwise
-    */
-   fun hasRoom(): Boolean {
-       return residents < capacity
-   }
-
-   /**
-    * Compares the capacity to the number of residents and
-    * if capacity is larger than number of residents,
-    * add resident by increasing the number of residents.
-    * Print the result.
-    */
-   fun getRoom() {
-       if (capacity > residents) {
-           residents++
-           println("You got a room!")
-       } else {
-           println("Sorry, at capacity and no rooms left.")
-       }
-   }
-
-   }
-
-/**
-* A square cabin dwelling.
-*
-*  @param residents Current number of residents
-*  @param length Length
-*/
-class SquareCabin(residents: Int, val length: Double) : Dwelling(residents) {
-   override val buildingMaterial = "Wood"
-   override val capacity = 6
-
-   /**
-    * Calculates floor area for a square dwelling.
-    *
-    * @return floor area
-    */
-   override fun floorArea(): Double {
-       return length * length
-   }
-
-}
-
-/**
-* Dwelling with a circular floorspace
-*
-* @param residents Current number of residents
-* @param radius Radius
-*/
-open class RoundHut(
-       val residents: Int, val radius: Double) : Dwelling(residents) {
-
-   override val buildingMaterial = "Straw"
-   override val capacity = 4
-
-   /**
-    * Calculates floor area for a round dwelling.
-    *
-    * @return floor area
-    */
-   override fun floorArea(): Double {
-       return PI * radius * radius
-   }
-
-   /**
-    *  Calculates the max length for a square carpet
-    *  that fits the circular floor.
-    *
-    * @return length of carpet
-    */
-   fun calculateMaxCarpetSize(): Double {
-       val diameter = 2 * radius
-       return sqrt(diameter * diameter / 2)
-   }
-
-}
-
-/**
-* Round tower with multiple stories.
-*
-* @param residents Current number of residents
-* @param radius Radius
-* @param floors Number of stories
-*/
-class RoundTower(
-       residents: Int,
-       radius: Double,
-       val floors: Int = 2) : RoundHut(residents, radius) {
-
-   override val buildingMaterial = "Stone"
-
-   // Capacity depends on the number of floors.
-   override val capacity = floors * 4
-
-   /**
-    * Calculates the total floor area for a tower dwelling
-    * with multiple stories.
-    *
-    * @return floor area
-    */
-   override fun floorArea(): Double {
-       return super.floorArea() * floors
-   }
-}
+/*** Program that implements classes for different kinds of dwellings.* Shows how to:* Create class hierarchy, variables and functions with inheritance,* abstract class, overriding, and private vs. public variables.*/import kotlin.math.PIimport kotlin.math.sqrtfun main() {   val squareCabin = SquareCabin(6, 50.0)   val roundHut = RoundHut(3, 10.0)   val roundTower = RoundTower(4, 15.5)   with(squareCabin) {       println("\nSquare Cabin\n============")       println("Capacity: ${capacity}")       println("Material: ${buildingMaterial}")       println("Floor area: ${floorArea()}")   }   with(roundHut) {       println("\nRound Hut\n=========")       println("Material: ${buildingMaterial}")       println("Capacity: ${capacity}")       println("Floor area: ${floorArea()}")       println("Has room? ${hasRoom()}")       getRoom()       println("Has room? ${hasRoom()}")       getRoom()       println("Carpet size: ${calculateMaxCarpetSize()}")   }   with(roundTower) {       println("\nRound Tower\n==========")       println("Material: ${buildingMaterial}")       println("Capacity: ${capacity}")       println("Floor area: ${floorArea()}")       println("Carpet size: ${calculateMaxCarpetSize()}")   }}/*** Defines properties common to all dwellings.* All dwellings have floorspace,* but its calculation is specific to the subclass.* Checking and getting a room are implemented here* because they are the same for all Dwelling subclasses.** @param residents Current number of residents*/abstract class Dwelling(private var residents: Int) {   abstract val buildingMaterial: String   abstract val capacity: Int   /**    * Calculates the floor area of the dwelling.    * Implemented by subclasses where shape is determined.    *    * @return floor area    */   abstract fun floorArea(): Double   /**    * Checks whether there is room for another resident.    *    * @return true if room available, false otherwise    */   fun hasRoom(): Boolean {       return residents < capacity   }   /**    * Compares the capacity to the number of residents and    * if capacity is larger than number of residents,    * add resident by increasing the number of residents.    * Print the result.    */   fun getRoom() {       if (capacity > residents) {           residents++           println("You got a room!")       } else {           println("Sorry, at capacity and no rooms left.")       }   }   }/*** A square cabin dwelling.**  @param residents Current number of residents*  @param length Length*/class SquareCabin(residents: Int, val length: Double) : Dwelling(residents) {   override val buildingMaterial = "Wood"   override val capacity = 6   /**    * Calculates floor area for a square dwelling.    *    * @return floor area    */   override fun floorArea(): Double {       return length * length   }}/*** Dwelling with a circular floorspace** @param residents Current number of residents* @param radius Radius*/open class RoundHut(       val residents: Int, val radius: Double) : Dwelling(residents) {   override val buildingMaterial = "Straw"   override val capacity = 4   /**    * Calculates floor area for a round dwelling.    *    * @return floor area    */   override fun floorArea(): Double {       return PI * radius * radius   }   /**    *  Calculates the max length for a square carpet    *  that fits the circular floor.    *    * @return length of carpet    */   fun calculateMaxCarpetSize(): Double {       val diameter = 2 * radius       return sqrt(diameter * diameter / 2)   }}/*** Round tower with multiple stories.** @param residents Current number of residents* @param radius Radius* @param floors Number of stories*/class RoundTower(       residents: Int,       radius: Double,       val floors: Int = 2) : RoundHut(residents, radius) {   override val buildingMaterial = "Stone"   // Capacity depends on the number of floors.   override val capacity = floors * 4   /**    * Calculates the total floor area for a tower dwelling    * with multiple stories.    *    * @return floor area    */   override fun floorArea(): Double {       return super.floorArea() * floors   }}
 ```
 
 ### ⑤小结
@@ -1435,11 +1191,7 @@ class RoundTower(
 每个界面元素都由 XML 文件中的 XML 元素表示。每个元素都以标记作为开头和结尾，而每个标记都以 `<` 开头，并以 `>` 结尾。正如您可以使用**布局编辑器（设计）**对界面元素设置属性一样，XML 元素也可以具有属性。简化过后，上述界面元素的 XML 可能会如下所示：
 
 ```
-<ConstraintLayout>
-    <TextView
-        text="Hello World!">
-    </TextView>
-</ConstraintLayout>
+<ConstraintLayout>    <TextView        text="Hello World!">    </TextView></ConstraintLayout>
 ```
 
 ![9e3f433a224ba1f4.png](https://developer.android.com/codelabs/basic-android-kotlin-training-xml-layouts/img/9e3f433a224ba1f4.png) 
@@ -1457,25 +1209,7 @@ class RoundTower(
    `activity_main.xml` 中的 XML 应如下所示：
 
    ```
-   <?xml version="1.0" encoding="utf-8"?>
-   <androidx.constraintlayout.widget.ConstraintLayout
-       xmlns:android="http://schemas.android.com/apk/res/android"
-       xmlns:app="http://schemas.android.com/apk/res-auto"
-       xmlns:tools="http://schemas.android.com/tools"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       tools:context=".MainActivity">
-   
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Hello World!"
-           app:layout_constraintBottom_toBottomOf="parent"
-           app:layout_constraintLeft_toLeftOf="parent"
-           app:layout_constraintRight_toRightOf="parent"
-           app:layout_constraintTop_toTopOf="parent" />
-   
-   </androidx.constraintlayout.widget.ConstraintLayout>
+   <?xml version="1.0" encoding="utf-8"?><androidx.constraintlayout.widget.ConstraintLayout    xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"    xmlns:tools="http://schemas.android.com/tools"    android:layout_width="match_parent"    android:layout_height="match_parent"    tools:context=".MainActivity">    <TextView        android:layout_width="wrap_content"        android:layout_height="wrap_content"        android:text="Hello World!"        app:layout_constraintBottom_toBottomOf="parent"        app:layout_constraintLeft_toLeftOf="parent"        app:layout_constraintRight_toRightOf="parent"        app:layout_constraintTop_toTopOf="parent" /></androidx.constraintlayout.widget.ConstraintLayout>
    ```
 
    这与简化的示例相比要复杂得多，但 Android Studio 会执行一些操作来帮助确保 XML 更易于阅读，就像它针对 Kotlin 代码的处理方式一样。
@@ -1493,27 +1227,19 @@ class RoundTower(
 2. 您可能已经注意到以 `xmlns:` 开头，后跟 `android`、`app` 以及 `tools` 的代码行。
 
    ```
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:app="http://schemas.android.com/apk/res-auto"
-   xmlns:tools="http://schemas.android.com/tools"
+   xmlns:android="http://schemas.android.com/apk/res/android"xmlns:app="http://schemas.android.com/apk/res-auto"xmlns:tools="http://schemas.android.com/tools"
    ```
 
    `xmlns` 表示 XML 命名空间，并且每行代码都定义了一个架构，或者与这些字词相关的属性的词汇。例如，`android:` 命名空间标记了由 Android 系统定义的属性。布局 XML 中的所有属性均以其中一个命名空间开头。
 
 3. 在 XML 元素之间增加空白字符并不会改变其对计算机的含义，但这有助于用户更加轻松地阅读 XML。
 
-    Android Studio 会自动添加一些空白字符并进行缩进，以提升易读性。您稍后将了解如何使 Android Studio 确保您的 XML 遵循编码样式规范。
+   Android Studio 会自动添加一些空白字符并进行缩进，以提升易读性。您稍后将了解如何使 Android Studio 确保您的 XML 遵循编码样式规范。
 
 4. 您可以像为 Kotlin 代码添加注释一样为 XML 添加注释。注释应以 `<!--` 开头，以 `-->` 结束。请注意文件的第一行：
 
    ```
-   <!-- this is a comment in XML -->
-   
-   <!-- this is a
-   multi-line
-   Comment.
-   And another
-   Multi-line comment -->
+   <!-- this is a comment in XML --><!-- this is amulti-lineComment.And anotherMulti-line comment -->
    ```
 
 5. 请注意文件的第一行：
@@ -1547,28 +1273,13 @@ class RoundTower(
 1. 您现在不需要 `TextView`，因此请将其删除。请务必删除从 `<TextView` 到结束标记 `/>` 之间的所有内容。
 
    ```
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Hello World!"
-       app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintLeft_toLeftOf="parent"
-       app:layout_constraintRight_toRightOf="parent"
-       app:layout_constraintTop_toTopOf="parent" />
+   <TextView    android:layout_width="wrap_content"    android:layout_height="wrap_content"    android:text="Hello World!"    app:layout_constraintBottom_toBottomOf="parent"    app:layout_constraintLeft_toLeftOf="parent"    app:layout_constraintRight_toRightOf="parent"    app:layout_constraintTop_toTopOf="parent" />
    ```
 
    文件中剩余的所有内容便是 `ConstraintLayout`：
 
    ```
-   <androidx.constraintlayout.widget.ConstraintLayout
-       xmlns:android="http://schemas.android.com/apk/res/android"
-       xmlns:app="http://schemas.android.com/apk/res-auto"
-       xmlns:tools="http://schemas.android.com/tools"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       tools:context=".MainActivity">
-   
-   </androidx.constraintlayout.widget.ConstraintLayout>
+   <androidx.constraintlayout.widget.ConstraintLayout    xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"    xmlns:tools="http://schemas.android.com/tools"    android:layout_width="match_parent"    android:layout_height="match_parent"    tools:context=".MainActivity"></androidx.constraintlayout.widget.ConstraintLayout>
    ```
 
 2. 向 `ConstraintLayout` 添加 16dp 的内边距，避免界面被挤到屏幕的边缘。
@@ -1576,12 +1287,7 @@ class RoundTower(
 内边距与外边距类似，但它会向 `ConstraintLayout` 的内侧增加空间，而不是在外侧增加空间。
 
 ```
-<androidx.constraintlayout.widget.ConstraintLayout
-    ...
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+<androidx.constraintlayout.widget.ConstraintLayout    ...    android:layout_width="match_parent"    android:layout_height="match_parent"    android:padding="16dp"    tools:context=".MainActivity">
 ```
 
 **注意**：为简洁起见，此 Codelab 中的一些代码段并未显示完整内容。未更改或与当前步骤无关的代码将会用英文省略号（3 个连续的点 `...)`）表示，以便您能够专注于代码中最重要的部分。
@@ -1601,22 +1307,7 @@ class RoundTower(
 此时，您的布局文件应如下所示：
 
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <EditText
-        android:id="@+id/plain_text_input"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:inputType="text"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+<?xml version="1.0" encoding="utf-8"?><androidx.constraintlayout.widget.ConstraintLayout    xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"    xmlns:tools="http://schemas.android.com/tools"    android:layout_width="match_parent"    android:layout_height="match_parent"    tools:context=".MainActivity">    <EditText        android:id="@+id/plain_text_input"        android:layout_height="wrap_content"        android:layout_width="match_parent"        android:inputType="text"/></androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 您可能还不完全理解上述代码，我们会在以下步骤中进行介绍。
@@ -1629,8 +1320,7 @@ class RoundTower(
 1. 将这些约束条件添加到 `EditText`，以将其锚定到父级的左上角。
 
 ```
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintStart_toStartOf="parent"app:layout_constraintTop_toTopOf="parent"
 ```
 
 如果您使用英语或其他从左到右 (LTR) 书写的语言编写代码，起始边缘位于左侧。但某些语言（例如阿拉伯语）是从右到左 (RTL)  书写的，因此起始边缘位于右侧。这就是约束条件使用“start”的原因，这样它才能与 LTR 或 RTL  语言搭配使用。同样，约束条件使用“end”，而不是“right”。
@@ -1640,13 +1330,7 @@ app:layout_constraintTop_toTopOf="parent"
 添加新的约束条件后，`EditText` 元素将如下所示：
 
 ```
-<EditText
-    android:id="@+id/plain_text_input"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:inputType="text"/>
+<EditText    android:id="@+id/plain_text_input"    android:layout_height="wrap_content"    android:layout_width="match_parent"    app:layout_constraintStart_toStartOf="parent"    app:layout_constraintTop_toTopOf="parent"    android:inputType="text"/>
 ```
 
 **检查 EditText 属性**
@@ -1710,26 +1394,7 @@ app:layout_constraintTop_toTopOf="parent"
 非常棒！它的作用还不是很大，但是您已经有一个良好的开端，并且对 XML 进行了一些修改。您用于创建布局的 XML 应如下所示。
 
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".MainActivity">
-
-    <EditText
-        android:id="@+id/cost_of_service"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:hint="Cost of Service"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+<?xml version="1.0" encoding="utf-8"?><androidx.constraintlayout.widget.ConstraintLayout    xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"    xmlns:tools="http://schemas.android.com/tools"    android:layout_width="match_parent"    android:layout_height="match_parent"    android:padding="16dp"    tools:context=".MainActivity">    <EditText        android:id="@+id/cost_of_service"        android:layout_width="160dp"        android:layout_height="wrap_content"        android:hint="Cost of Service"        android:inputType="numberDecimal"        app:layout_constraintStart_toStartOf="parent"        app:layout_constraintTop_toTopOf="parent" /></androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 **添加服务问题**
@@ -1745,11 +1410,7 @@ app:layout_constraintTop_toTopOf="parent"
 4. 添加 `text` 属性，将其设置为 `"How was the service?"`
 
    ```
-    <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="How was the service?"
-   
+    <TextView       android:layout_width="wrap_content"       android:layout_height="wrap_content"       android:text="How was the service?"
    ```
 
 5. 以 `/>` 结束标记。
@@ -1793,33 +1454,7 @@ android:id="@+id/service_question"
 此时，您的 XML 应如下所示。
 
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <EditText
-        android:id="@+id/cost_of_service"
-        android:hint="Cost of Service"
-        android:layout_height="wrap_content"
-        android:layout_width="160dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:inputType="numberDecimal"/>
-
-    <TextView
-        android:id="@+id/service_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="How was the service?"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cost_of_service"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+<?xml version="1.0" encoding="utf-8"?><androidx.constraintlayout.widget.ConstraintLayout    xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"    xmlns:tools="http://schemas.android.com/tools"    android:layout_width="match_parent"    android:layout_height="match_parent"    tools:context=".MainActivity">    <EditText        android:id="@+id/cost_of_service"        android:hint="Cost of Service"        android:layout_height="wrap_content"        android:layout_width="160dp"        app:layout_constraintStart_toStartOf="parent"        app:layout_constraintTop_toTopOf="parent"        android:inputType="numberDecimal"/>    <TextView        android:id="@+id/service_question"        android:layout_width="wrap_content"        android:layout_height="wrap_content"        android:text="How was the service?"        app:layout_constraintStart_toStartOf="parent"        app:layout_constraintTop_toBottomOf="@id/cost_of_service"/></androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 
@@ -1855,9 +1490,7 @@ android:id="@+id/service_question"
 2. 在 `android` 部分中，添加以下代码行：
 
    ```
-   buildFeatures {
-       viewBinding = true
-   }
+   buildFeatures {    viewBinding = true}
    ```
 
 3. 注意以下消息：**Gradle files have changed since last project sync**。
@@ -1881,16 +1514,7 @@ android:id="@+id/service_question"
 2. 将 `MainActivity` 类的所有现有代码替换为以下代码，设置 `MainActivity` 以使用视图绑定：
 
    ```
-   class MainActivity : AppCompatActivity() {
-   
-       lateinit var binding: ActivityMainBinding
-   
-       override fun onCreate(savedInstanceState: Bundle?) {
-           super.onCreate(savedInstanceState)
-           binding = ActivityMainBinding.inflate(layoutInflater)
-           setContentView(binding.root)
-       }
-   }
+   class MainActivity : AppCompatActivity() {    lateinit var binding: ActivityMainBinding    override fun onCreate(savedInstanceState: Bundle?) {        super.onCreate(savedInstanceState)        binding = ActivityMainBinding.inflate(layoutInflater)        setContentView(binding.root)    }}
    ```
 
 3. 以下代码行在类中为绑定对象声明一个顶级变量。之所以在此级别上定义该变量，是因为将在 `MainActivity` 类的多个方法中使用它。
@@ -1916,16 +1540,7 @@ android:id="@+id/service_question"
 现在，当您需要在应用中引用 `View` 时，您可以从 `binding` 对象获取它，而不是调用 `findViewById()`。`binding` 对象可自动为应用中具有 ID 的每个 `View` 定义引用。使用视图绑定要简洁得多，通常您甚至不需要创建一个变量来保存 `View` 的引用，只需直接从绑定对象使用它即可。
 
 ```
-// Old way with findViewById()
-val myButton: Button = findViewById(R.id.my_button)
-myButton.text = "A button"
-
-// Better way with view binding
-val myButton: Button = binding.myButton
-myButton.text = "A button"
-
-// Best way with view binding and no extra variable
-binding.myButton.text = "A button"
+// Old way with findViewById()val myButton: Button = findViewById(R.id.my_button)myButton.text = "A button"// Better way with view bindingval myButton: Button = binding.myButtonmyButton.text = "A button"// Best way with view binding and no extra variablebinding.myButton.text = "A button"
 ```
 
 这样是不是很棒！
@@ -1965,14 +1580,7 @@ val cost = stringInTextField.toDouble()
 3. 在 **Logcat** 文本中向上滚动，直到您找到包含 `FATAL EXCEPTION` 文本的行。
 
    ```
-   2020-06-24 10:09:41.564 24423-24423/com.example.tiptime E/AndroidRuntime: FATAL EXCEPTION: main
-       Process: com.example.tiptime, PID: 24423
-       java.lang.NumberFormatException: empty String
-           at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:1842)
-           at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
-           at java.lang.Double.parseDouble(Double.java:538)
-           at com.example.tiptime.MainActivity.calculateTip(MainActivity.kt:22)
-           at com.example.tiptime.MainActivity$onCreate$1.onClick(MainActivity.kt:17)
+   2020-06-24 10:09:41.564 24423-24423/com.example.tiptime E/AndroidRuntime: FATAL EXCEPTION: main    Process: com.example.tiptime, PID: 24423    java.lang.NumberFormatException: empty String        at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:1842)        at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)        at java.lang.Double.parseDouble(Double.java:538)        at com.example.tiptime.MainActivity.calculateTip(MainActivity.kt:22)        at com.example.tiptime.MainActivity$onCreate$1.onClick(MainActivity.kt:17)
    ```
 
 4. 向下读，直到您找到包含 `NumberFormatException` 的行。
@@ -2022,9 +1630,7 @@ null 是一个特殊值，表示“无值”。它与值为 `0.0` 的 `Double` �
 2. 在该行后面，添加一个语句来检查 `cost` 是否为 `null`，如果是，则从方法返回。`return` 指令表示退出方法而不执行其余指令。如果方法需要返回一个值，您可以使用带有表达式的 `return` 指令来指定它。
 
    ```
-   if (cost == null) {
-       return
-   }
+   if (cost == null) {    return}
    ```
 
 3. 再次运行应用。
@@ -2050,10 +1656,7 @@ null 是一个特殊值，表示“无值”。它与值为 `0.0` 的 `Double` �
 2. 在刚刚添加的 `if` 内，在 `return` 语句前面，添加一个代码行以将 `tipResult` 的 `text` 属性设置为一个空字符串。
 
 ```
-if (cost == null) {
-    binding.tipResult.text = ""
-    return
-}
+if (cost == null) {    binding.tipResult.text = ""    return}
 ```
 
 这样将在从 `calculateTip()` 返回之前清除小费金额。
@@ -2087,9 +1690,7 @@ Android Studio 不再有任何检查结果。不过，如果您仔细看一下�
 2. 将下一行中的 `roundUp` 替换为您刚刚复制的表达式 `binding.roundUpSwitch.isChecked`。
 
    ```
-   if (binding.roundUpSwitch.isChecked) {
-       tip = kotlin.math.ceil(tip)
-   }
+   if (binding.roundUpSwitch.isChecked) {    tip = kotlin.math.ceil(tip)}
    ```
 
 3. 删除包含 `roundUp` 的行，因为不再需要这一行。
@@ -2107,41 +1708,19 @@ Android Studio 不再有任何检查结果。不过，如果您仔细看一下�
 1. 识别 `MainActivity.kt` 中的重复代码。这些代码行可以在 `calculateTip()` 函数中使用多次，一次用于 `0.0` 的情况，一次用于一般情况。
 
 ```
-val formattedTip = NumberFormat.getCurrencyInstance().format(0.0)
-binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
+val formattedTip = NumberFormat.getCurrencyInstance().format(0.0)binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
 ```
 
 1. 将重复代码移至其自己的函数。对代码的一项更改是采用小费参数，这样代码就可以在多个位置使用。
 
 ```
-private fun displayTip(tip : Double) {
-   val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
-   binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
-}
+private fun displayTip(tip : Double) {   val formattedTip = NumberFormat.getCurrencyInstance().format(tip)   binding.tipResult.text = getString(R.string.tip_amount, formattedTip)}
 ```
 
 1. 更新 `calculateTip()` 函数以使用 `displayTip()` 辅助函数并检查 `0.0`。
 
 ```
-MainActivity.kt
-private fun calculateTip() {
-    ...
-
-        // If the cost is null or 0, then display 0 tip and exit this function early.
-        if (cost == null || cost == 0.0) {
-            displayTip(0.0)
-            return
-        }
-
-    ...
-    val roundUp = binding.roundUpSwitch.isChecked
-    if (roundUp) {
-        tip = kotlin.math.ceil(tip)
-    }
-
-    // Display the formatted tip value on screen
-    displayTip(tip)
-}
+MainActivity.ktprivate fun calculateTip() {    ...        // If the cost is null or 0, then display 0 tip and exit this function early.        if (cost == null || cost == 0.0) {            displayTip(0.0)            return        }    ...    val roundUp = binding.roundUpSwitch.isChecked    if (roundUp) {        tip = kotlin.math.ceil(tip)    }    // Display the formatted tip value on screen    displayTip(tip)}
 ```
 
 **备注**
@@ -2192,8 +1771,7 @@ private fun calculateTip() {
 您可能已在 Android 应用的 `colors.xml` 文件中看到了一些示例，其中包括 100% 黑色（R=#00、G=#00、B=#00）和 100% 白色（R=#FF, G=#FF、B=#FF）：
 
 ```
-<color name="black">#FF000000</color>
-<color name="white">#FFFFFFFF</color>
+<color name="black">#FF000000</color><color name="white">#FFFFFFFF</color>
 ```
 
 ### 小结
@@ -2270,10 +1848,7 @@ Material Design 组件 (MDC) 库需要作为依赖项添加到项目中。如果
 app/build.gradle
 
 ```
-dependencies {
-    ...
-    implementation 'com.google.android.material:material:<version>'
-}
+dependencies {    ...    implementation 'com.google.android.material:material:<version>'}
 ```
 
 ### ②添加图标
@@ -2298,36 +1873,36 @@ dependencies {
 
    您可以直接在 Android Studio 中的 **Asset Studio** 中将这些图标创建为矢量可绘制对象。
 
-1. 打开应用窗口左侧的 **Resource Manager** 标签页。
+4. 打开应用窗口左侧的 **Resource Manager** 标签页。
 
-2. 点击 + 图标，然后选择 **Vector Asset**。
+5. 点击 + 图标，然后选择 **Vector Asset**。
 
    ![6a692157a2ada3f6.png](https://developer.android.com/codelabs/basic-android-kotlin-training-polished-user-experience/img/6a692157a2ada3f6.png)
 
-3. 对于 **Asset Type**，请确保选中加标签 **Clip Art** 的单选按钮。
+6. 对于 **Asset Type**，请确保选中加标签 **Clip Art** 的单选按钮。
 
    ![698ab1c8dc2d1714.png](https://developer.android.com/codelabs/basic-android-kotlin-training-polished-user-experience/img/698ab1c8dc2d1714.png)
 
-4. 点击 **Clip Art:** 旁边的按钮，选择其他剪贴画图片。在显示的提示中，在出现的窗口中输入“call made”。您将使用此箭头图标表示“round up tip”选项。选中该图标，然后点击 **OK**。
+7. 点击 **Clip Art:** 旁边的按钮，选择其他剪贴画图片。在显示的提示中，在出现的窗口中输入“call made”。您将使用此箭头图标表示“round up tip”选项。选中该图标，然后点击 **OK**。
 
    ![50b0008ed6ab8d6d.png](https://developer.android.com/codelabs/basic-android-kotlin-training-polished-user-experience/img/50b0008ed6ab8d6d.png)
 
-5. 将图标重命名为 `ic_round_up`。（建议您在命名图标文件时使用前缀 ic_）。您可以将 **Size** 保留为 24 dp x 24 dp，将 **Color** 设置为黑色 000000。
+8. 将图标重命名为 `ic_round_up`。（建议您在命名图标文件时使用前缀 ic_）。您可以将 **Size** 保留为 24 dp x 24 dp，将 **Color** 设置为黑色 000000。
 
-6. 点击 **Next**。
+9. 点击 **Next**。
 
-7. 接受默认目录位置，然后点击 **Finish**。
+10. 接受默认目录位置，然后点击 **Finish**。
 
-   ![9f522a73be34ecf6.png](https://developer.android.com/codelabs/basic-android-kotlin-training-polished-user-experience/img/9f522a73be34ecf6.png)
+    ![9f522a73be34ecf6.png](https://developer.android.com/codelabs/basic-android-kotlin-training-polished-user-experience/img/9f522a73be34ecf6.png)
 
-8.  对其他两个图标重复步骤 2 - 7：
+11. 对其他两个图标重复步骤 2 - 7：
 
-   - **服务问题图标**：搜索“room service”图标，并将其另存为 `ic_service`。
-   - **服务费用图标**：搜索“store”图标，并将其另存为 `ic_store`。
+    - **服务问题图标**：搜索“room service”图标，并将其另存为 `ic_service`。
+    - **服务费用图标**：搜索“store”图标，并将其另存为 `ic_store`。
 
-   ![3c895747fbfa3793.png](https://developer.android.com/codelabs/basic-android-kotlin-training-polished-user-experience/img/3c895747fbfa3793.png)
+    ![3c895747fbfa3793.png](https://developer.android.com/codelabs/basic-android-kotlin-training-polished-user-experience/img/3c895747fbfa3793.png)
 
-9. 完成上述操作后，**Resource Manager** 看起来将类似于以下屏幕截图。您还将在 `res/drawable` 文件夹中列出这三个矢量可绘制对象（`ic_round_up`、`ic_service` 和 `ic_store`）。
+12. 完成上述操作后，**Resource Manager** 看起来将类似于以下屏幕截图。您还将在 `res/drawable` 文件夹中列出这三个矢量可绘制对象（`ic_round_up`、`ic_service` 和 `ic_store`）。
 
 
 
@@ -2342,14 +1917,7 @@ dependencies {
 如需让您的应用在这些较低版本的 Android 上正常工作（称为向后兼容性），请将 `vectorDrawables` 元素添加到应用的 `build.gradle` 文件。这样，您就能够在低于 API 21 的平台版本上使用矢量可绘制对象，而无需在构建项目时将其转换为 PNG。如需了解更多详情，请参阅[此处](https://developer.android.com/guide/topics/graphics/vector-drawable-resources#vector-drawables-backward-solution)。
 
 ```
-app/build.gradle
-android {
-  defaultConfig {
-    ...
-    vectorDrawables.useSupportLibrary = true
-   }
-   ...
-}
+app/build.gradleandroid {  defaultConfig {    ...    vectorDrawables.useSupportLibrary = true   }   ...}
 ```
 
 正确配置项目后，您现在可以开始将图标添加到布局中。
@@ -2369,9 +1937,7 @@ android {
 1. 在 **res > values** 目录中创建一个名为 `styles.xml` 的新文件（如果尚不存在此文件）。如需进行创建，请右键点击 **values** 目录，然后依次选择 **New > Values Resource File**。将其命名为 `styles.xml`。新文件将包含以下内容。
 
    ```
-   <?xml version="1.0" encoding="utf-8"?>
-   <resources>
-   </resources>
+   <?xml version="1.0" encoding="utf-8"?><resources></resources>
    ```
 
 2. 创建新的 `TextView` 样式，使文本在整个应用中保持一致。在 `styles.xml` 中定义一次样式，然后就可以将其应用于布局中的所有 `TextViews`。虽然可以从头开始定义样式，但您也可以从 MDC 库中的现有 `TextView` 样式进行扩展。
@@ -2387,8 +1953,7 @@ android {
    将其添加到 `styles.xml` 文件中 `resources` 起始标记和结束标记之间。
 
    ```
-   <style name="Widget.TipTime.TextView" parent="Widget.MaterialComponents.TextView">
-   </style>
+   <style name="Widget.TipTime.TextView" parent="Widget.MaterialComponents.TextView"></style>
    ```
 
    
@@ -2406,11 +1971,7 @@ android {
    将文本外观属性值设置为 `?attr/textAppearanceBody1`。TextAppearance 是围绕文本大小、字体和其他属性预制的一组样式。如需了解 Material 提供的其他可能的文本外观，请参阅此[类型缩放列表](https://material.io/develop/android/theming/typography)。
 
    ```
-   <style name="Widget.TipTime.TextView" parent="Widget.MaterialComponents.TextView">
-       <item name="android:minHeight">48dp</item>
-       <item name="android:gravity">center_vertical</item>
-       <item name="android:textAppearance">?attr/textAppearanceBody1</item>
-   </style>
+   <style name="Widget.TipTime.TextView" parent="Widget.MaterialComponents.TextView">    <item name="android:minHeight">48dp</item>    <item name="android:gravity">center_vertical</item>    <item name="android:textAppearance">?attr/textAppearanceBody1</item></style>
    ```
 
    
@@ -2418,10 +1979,7 @@ android {
 4. 通过为 `activity_main.xml` 中的每个 `TextView` 添加样式属性，将 `Widget.TipTime.TextView` 样式应用于 `service_question` `TextView`。
 
    ```
-   <TextView
-       android:id="@+id/service_question"
-       style="@style/Widget.TipTime.TextView"
-       ... />
+   <TextView    android:id="@+id/service_question"    style="@style/Widget.TipTime.TextView"    ... />
    ```
 
    添加样式前，`TextView` 看起来如下所示，采用较小字号的灰色字体：
@@ -2437,10 +1995,7 @@ android {
 5. 将相同的 `Widget.TipTime.TextView` 样式应用于 `tip_result` `TextView`。
 
    ```
-   <TextView
-       android:id="@+id/tip_result"
-       style="@style/Widget.TipTime.TextView"
-       ... />
+   <TextView    android:id="@+id/tip_result"    style="@style/Widget.TipTime.TextView"    ... />
    ```
 
    ![c45860bda6761be7.png](https://developer.android.com/codelabs/basic-android-kotlin-training-polished-user-experience/img/c45860bda6761be7.png)
@@ -2460,11 +2015,7 @@ android {
    您的样式名称：`Widget.TipTime.CompoundButton.Switch`。继承自父样式：`Widget.MaterialComponents.CompoundButton.Switch`
 
    ```
-   <style name="Widget.TipTime.CompoundButton.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
-      <item name="android:minHeight">48dp</item>
-      <item name="android:gravity">center_vertical</item>
-      <item name="android:textAppearance">?attr/textAppearanceBody1</item>
-   </style>
+   <style name="Widget.TipTime.CompoundButton.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">   <item name="android:minHeight">48dp</item>   <item name="android:gravity">center_vertical</item>   <item name="android:textAppearance">?attr/textAppearanceBody1</item></style>
    ```
 
    您还可以在此样式中指定特定于开关的其他属性，但在您的应用中，没有必要这样做。
@@ -2482,11 +2033,7 @@ android {
    ![25f75f5c36085e76.png](https://developer.android.com/codelabs/basic-android-kotlin-training-polished-user-experience/img/25f75f5c36085e76.png)
 
    ```
-   <style name="Widget.TipTime.CompoundButton.RadioButton"
-   parent="Widget.MaterialComponents.CompoundButton.RadioButton">
-      <item name="android:paddingStart">8dp</item>
-      <item name="android:textAppearance">?attr/textAppearanceBody1</item>
-   </style>
+   <style name="Widget.TipTime.CompoundButton.RadioButton"parent="Widget.MaterialComponents.CompoundButton.RadioButton">   <item name="android:paddingStart">8dp</item>   <item name="android:textAppearance">?attr/textAppearanceBody1</item></style>
    ```
 
    
@@ -2496,22 +2043,13 @@ android {
 在这个小型应用中，您重复进行了两次最小高度设置。目前这完全是可管理的，但如果有 4 个、6 个、10 个或更多的组件共用一个值，这就会变得难以掌控。记住分别更改所有组件非常乏味且容易出错。您可以在 **res > values** 中再创建一个名为 `dimens.xml` 的实用资源文件，用于存储您可以命名的常见维度。通过将常用值标准化为命名维度，可以更轻松地管理应用。TipTime 很小，所以我们不会在这个可选步骤之外使用它。不过，对于您可能会与设计团队合作处理的生产环境中的更复杂应用，您可以借助 `dimens.xml` 更频繁地轻松更改这些值。
 
 ```
-dimens.xml
-<resources>
-   <dimen name="min_text_height">48dp</dimen>
-</resources>
+dimens.xml<resources>   <dimen name="min_text_height">48dp</dimen></resources>
 ```
 
 您将更新 `styles.xml` 文件以使用 `@dimen/min_text_height`，而不是直接使用 `48dp`。
 
 ```
-...
-<style name="Widget.TipTime.TextView" parent="Widget.MaterialComponents.TextView">
-    <item name="android:minHeight">@dimen/min_text_height</item>
-    <item name="android:gravity">center_vertical</item>
-    <item name="android:textAppearance">?attr/textAppearanceBody1</item>
-</style>
-...
+...<style name="Widget.TipTime.TextView" parent="Widget.MaterialComponents.TextView">    <item name="android:minHeight">@dimen/min_text_height</item>    <item name="android:gravity">center_vertical</item>    <item name="android:textAppearance">?attr/textAppearanceBody1</item></style>...
 ```
 
 
@@ -2535,9 +2073,7 @@ dimens.xml
    将以下内容复制到 `res/values/themes.xml` 内应用主题的样式标记中。
 
    ```
-   <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
-   <item name="radioButtonStyle">@style/Widget.TipTime.CompoundButton.RadioButton</item>
-   <item name="switchStyle">@style/Widget.TipTime.CompoundButton.Switch</item>
+   <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item><item name="radioButtonStyle">@style/Widget.TipTime.CompoundButton.RadioButton</item><item name="switchStyle">@style/Widget.TipTime.CompoundButton.Switch</item>
    ```
 
    
@@ -2545,21 +2081,7 @@ dimens.xml
 2. 您的 `res/values/themes.xml` 文件看起来应如下所示。您可以根据需要在 XML 中添加注释（使用 `<!-` 和 `-->` 表示）。
 
    ```
-   <resources xmlns:tools="http://schemas.android.com/tools">
-   
-       <!-- Base application theme. -->
-       <style name="Theme.TipTime" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-           ...
-           <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-           <!-- Text input fields -->
-           <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
-           <!-- Radio buttons -->
-           <item name="radioButtonStyle">@style/Widget.TipTime.CompoundButton.RadioButton</item>
-           <!-- Switches -->
-           <item name="switchStyle">@style/Widget.TipTime.CompoundButton.Switch</item>
-       </style>
-   
-   </resources>
+   <resources xmlns:tools="http://schemas.android.com/tools">    <!-- Base application theme. -->    <style name="Theme.TipTime" parent="Theme.MaterialComponents.DayNight.DarkActionBar">        ...        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>        <!-- Text input fields -->        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>        <!-- Radio buttons -->        <item name="radioButtonStyle">@style/Widget.TipTime.CompoundButton.RadioButton</item>        <!-- Switches -->        <item name="switchStyle">@style/Widget.TipTime.CompoundButton.Switch</item>    </style></resources>
    ```
 
    
@@ -2567,21 +2089,7 @@ dimens.xml
 3. 务必对 **themes.xml (night)** 中的深色主题进行同样的更改。您的 `res/values-night/themes.xml` 文件看起来应如下所示：
 
    ```
-   <resources xmlns:tools="http://schemas.android.com/tools">
-   
-       <!-- Application theme for dark theme. -->
-       <style name="Theme.TipTime" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-           ...
-           <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-           <!-- Text input fields -->
-           <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
-           <!-- For radio buttons -->
-           <item name="radioButtonStyle">@style/Widget.TipTime.CompoundButton.RadioButton</item>
-           <!-- For switches -->
-           <item name="switchStyle">@style/Widget.TipTime.CompoundButton.Switch</item>
-       </style>
-   
-   </resources>
+   <resources xmlns:tools="http://schemas.android.com/tools">    <!-- Application theme for dark theme. -->    <style name="Theme.TipTime" parent="Theme.MaterialComponents.DayNight.DarkActionBar">        ...        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>        <!-- Text input fields -->        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>        <!-- For radio buttons -->        <item name="radioButtonStyle">@style/Widget.TipTime.CompoundButton.RadioButton</item>        <!-- For switches -->        <item name="switchStyle">@style/Widget.TipTime.CompoundButton.Switch</item>    </style></resources>
    ```
 
    
@@ -2621,24 +2129,7 @@ dimens.xml
 3. 如需解决此错误，请在 `ConstraintLayout` 周围添加一个 `ScrollView`。您的 XML 看起来大致如下。
 
    ```
-   <ScrollView
-      xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto"
-      xmlns:tools="http://schemas.android.com/tools"
-      android:layout_height="match_parent"
-      android:layout_width="match_parent">
-   
-      <androidx.constraintlayout.widget.ConstraintLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:padding="16dp"
-          tools:context=".MainActivity">
-   
-          ...
-   
-      </ConstraintLayout>
-   
-   </ScrollView>
+   <ScrollView   xmlns:android="http://schemas.android.com/apk/res/android"   xmlns:app="http://schemas.android.com/apk/res-auto"   xmlns:tools="http://schemas.android.com/tools"   android:layout_height="match_parent"   android:layout_width="match_parent">   <androidx.constraintlayout.widget.ConstraintLayout       android:layout_width="match_parent"       android:layout_height="wrap_content"       android:padding="16dp"       tools:context=".MainActivity">       ...   </ConstraintLayout></ScrollView>
    ```
 
    
@@ -2664,17 +2155,7 @@ dimens.xml
 1. 复制此辅助方法并将其粘贴到 `MainActivity` 类中。您可以将其插入到 `MainActivity` 类的右大括号前面。`handleKeyEvent()` 是一个私有辅助函数，用于在 `keyCode` 输入参数等于 `KeyEvent.``KEYCODE_ENTER` 时隐藏屏幕键盘。[InputMethodManager](https://developer.android.com/reference/android/view/inputmethod/InputMethodManager) 用于控制是显示还是隐藏软键盘，并且允许用户选择显示哪一个软键盘。如果键事件处理成功，此方法会返回 true，否则返回 false。
 
    ```
-   MainActivity.kt
-   private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
-      if (keyCode == KeyEvent.KEYCODE_ENTER) {
-          // Hide the keyboard
-          val inputMethodManager =
-              getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-          inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
-          return true
-      }
-      return false
-   }
+   MainActivity.ktprivate fun handleKeyEvent(view: View, keyCode: Int): Boolean {   if (keyCode == KeyEvent.KEYCODE_ENTER) {       // Hide the keyboard       val inputMethodManager =           getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager       inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)       return true   }   return false}
    ```
 
    
@@ -2688,17 +2169,7 @@ dimens.xml
    添加相应代码，以在 activity 的 `onCreate()` 方法内的文本字段中设置键监听器。这是因为创建布局后，您需要在用户开始与 activity 交互之前附加键监听器。
 
    ```
-   MainActivity.kt
-   override fun onCreate(savedInstanceState: Bundle?) {
-      ...
-   
-      setContentView(binding.root)
-   
-      binding.calculateButton.setOnClickListener { calculateTip() }
-   
-      binding.costOfServiceEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode)
-      }
-   }
+   MainActivity.ktoverride fun onCreate(savedInstanceState: Bundle?) {   ...   setContentView(binding.root)   binding.calculateButton.setOnClickListener { calculateTip() }   binding.costOfServiceEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode)   }}
    ```
 
    
@@ -2731,17 +2202,7 @@ dimens.xml
 正如我们在前文提到的那样，`VectorDrawables` 与位图图像相比有一个优势：即可以对图标进行缩放和色调调节。下面是表示铃铛图标的 XML。需要注意两个不同的颜色属性：`android:tint` 和 `android:fillColor`。
 
 ```
-ic_service.xml
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-   android:width="24dp"
-   android:height="24dp"
-   android:viewportWidth="24"
-   android:viewportHeight="24"
-   android:tint="?attr/colorControlNormal">
- <path
-     android:fillColor="@android:color/white"
-     android:pathData="M2,17h20v2L2,19zM13.84,7.79c0.1,-0.24 0.16,-0.51 0.16,-0.79 0,-1.1 -0.9,-2 -2,-2s-2,0.9 -2,2c0,0.28 0.06,0.55 0.16,0.79C6.25,8.6 3.27,11.93 3,16h18c-0.27,-4.07 -3.25,-7.4 -7.16,-8.21z"/>
-</vector>
+ic_service.xml<vector xmlns:android="http://schemas.android.com/apk/res/android"   android:width="24dp"   android:height="24dp"   android:viewportWidth="24"   android:viewportHeight="24"   android:tint="?attr/colorControlNormal"> <path     android:fillColor="@android:color/white"     android:pathData="M2,17h20v2L2,19zM13.84,7.79c0.1,-0.24 0.16,-0.51 0.16,-0.79 0,-1.1 -0.9,-2 -2,-2s-2,0.9 -2,2c0,0.28 0.06,0.55 0.16,0.79C6.25,8.6 3.27,11.93 3,16h18c-0.27,-4.07 -3.25,-7.4 -7.16,-8.21z"/></vector>
 ```
 
 ![bdddc76d0ca06573.png](https://developer.android.com/codelabs/basic-android-kotlin-training-polished-user-experience/img/bdddc76d0ca06573.png)
@@ -2765,16 +2226,7 @@ android:tint="?attr/colorPrimary"
 重复此操作，以更改其他矢量可绘制对象的色调。
 
 ```
-ic_store.xml
-<vector ...
-   android:tint="?attr/colorPrimary">
-   ...
-</vector>
-ic_round_up.xml
-<vector ...
-   android:tint="?attr/colorPrimary">
-   ...
-</vector>
+ic_store.xml<vector ...   android:tint="?attr/colorPrimary">   ...</vector>ic_round_up.xml<vector ...   android:tint="?attr/colorPrimary">   ...</vector>
 ```
 
 1. 运行应用。验证图标在浅色和深色主题中是否显示不同。
@@ -2841,8 +2293,7 @@ val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
 3. 输出列表的最后一个元素，可以通过 `numbers.size - 1` 来计算其索引，得出的结果应为 `5`。访问位于第 5 个索引处的元素应返回 `6` 作为输出。
 
    ```
-   println("Last index: ${numbers.size - 1}")
-   println("Last element: ${numbers[numbers.size - 1]}")
+   println("Last index: ${numbers.size - 1}")println("Last element: ${numbers[numbers.size - 1]}")
    ```
 
    
@@ -2850,8 +2301,7 @@ val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
 4. Kotlin 还支持对列表执行 `first()` 和 `last()` 操作。尝试调用 `numbers.first()` 和 `numbers.last()`，并查看输出结果。
 
    ```
-   println("First: ${numbers.first()}")
-   println("Last: ${numbers.last()}")
+   println("First: ${numbers.first()}")println("Last: ${numbers.last()}")
    ```
 
    您会看到，`numbers.first()` 返回列表的首个元素，而 `numbers.last()` 返回列表的最后一个元素。
@@ -2861,45 +2311,19 @@ val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
    在 `numbers` 列表中，使用列表中的某个整数调用 `contains()` 方法。`numbers.contains(4)` 会返回值 `true`。然后，使用不在列表中的某个整数调用 `contains()` 方法。`numbers.contains(7)` 会返回 `false`。
 
    ```
-   println("Contains 4? ${numbers.contains(4)}")
-   println("Contains 7? ${numbers.contains(7)}")
+   println("Contains 4? ${numbers.contains(4)}")println("Contains 7? ${numbers.contains(7)}")
    ```
 
 6. 完成后的代码应如下所示。注释为可选。
 
    ```
-   fun main() {
-       val numbers = listOf(1, 2, 3, 4, 5, 6)
-       println("List: $numbers")
-       println("Size: ${numbers.size}")
-   
-       // Access elements of the list
-       println("First element: ${numbers[0]}")
-       println("Second element: ${numbers[1]}")
-       println("Last index: ${numbers.size - 1}")
-       println("Last element: ${numbers[numbers.size - 1]}")
-       println("First: ${numbers.first()}")
-       println("Last: ${numbers.last()}")
-   
-       // Use the contains() method
-       println("Contains 4? ${numbers.contains(4)}")
-       println("Contains 7? ${numbers.contains(7)}")
-   }
+   fun main() {    val numbers = listOf(1, 2, 3, 4, 5, 6)    println("List: $numbers")    println("Size: ${numbers.size}")    // Access elements of the list    println("First element: ${numbers[0]}")    println("Second element: ${numbers[1]}")    println("Last index: ${numbers.size - 1}")    println("Last element: ${numbers[numbers.size - 1]}")    println("First: ${numbers.first()}")    println("Last: ${numbers.last()}")    // Use the contains() method    println("Contains 4? ${numbers.contains(4)}")    println("Contains 7? ${numbers.contains(7)}")}
    ```
 
 7. 运行您的代码。输出如下所示。
 
    ```
-   List: [1, 2, 3, 4, 5, 6]
-   Size: 6
-   First element: 1
-   Second element: 2
-   Last index: 5
-   Last element: 6
-   First: 1
-   Last: 6
-   Contains 4? true
-   Contains 7? false
+   List: [1, 2, 3, 4, 5, 6]Size: 6First element: 1Second element: 2Last index: 5Last element: 6First: 1Last: 6Contains 4? trueContains 7? false
    ```
 
    
@@ -2909,9 +2333,7 @@ val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
 1. 删除 Kotlin 园地中的代码，并替换为以下代码。`colors` 列表被初始化为以 `Strings` 形式表示的 3 种颜色的列表。
 
    ```
-   fun main() {
-       val colors = listOf("green", "orange", "blue")
-   }
+   fun main() {    val colors = listOf("green", "orange", "blue")}
    ```
 
    
@@ -2919,8 +2341,7 @@ val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
 2. 请记住，您不能在只读 `List` 中添加或更改元素。我们来看看，如果您尝试向列表中添加项，或者通过将列表中的某个元素设置为新值来修改该元素，会发生什么。
 
    ```
-   colors.add("purple")
-   colors[0] = "yellow"
+   colors.add("purple")colors[0] = "yellow"
    ```
 
    
@@ -2938,15 +2359,13 @@ val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
 6. 添加第二行代码，以输出原始的 `list` 列表，这样您就可以看到原始列表并未更改。
 
    ```
-   println("Reversed list: ${colors.reversed()}")
-   println("List: $colors")
+   println("Reversed list: ${colors.reversed()}")println("List: $colors")
    ```
 
 7. 以下便是输出的两个列表。
 
    ```
-   Reversed list: [blue, orange, green]
-   List: [green, orange, blue]
+   Reversed list: [blue, orange, green]List: [green, orange, blue]
    ```
 
 8. 添加代码，以使用 [`sorted()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted.html) 函数返回按照升序排列的 `List`。
@@ -2966,11 +2385,7 @@ val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
 9. 您还可以尝试对未排序的数字列表使用 `sorted()` 函数。
 
    ```
-   val oddNumbers = listOf(5, 3, 7, 1)
-   println("List: $oddNumbers")
-   println("Sorted list: ${oddNumbers.sorted()}")
-   List: [5, 3, 7, 1]
-   Sorted list: [1, 3, 5, 7]
+   val oddNumbers = listOf(5, 3, 7, 1)println("List: $oddNumbers")println("Sorted list: ${oddNumbers.sorted()}")List: [5, 3, 7, 1]Sorted list: [1, 3, 5, 7]
    ```
 
 **注意**：您不用记住所有可能的列表操作。在 Android Studio 中开发应用时，如果您使用列表和其他数据类型，Android Studio 会向您显示适用于这些数据类型的函数和属性，如以下屏幕截图中所示。
@@ -3042,29 +2457,25 @@ val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
 2. 输出列表，以确认已成功添加 `"noodles"`。
 
    ```
-   println("Add noodles: ${entrees.add("noodles")}")
-   println("Entrees: $entrees")
+   println("Add noodles: ${entrees.add("noodles")}")println("Entrees: $entrees")
    ```
 
    输出结果如下：
 
    ```
-   Add noodles: true
-   Entrees: [noodles]
+   Add noodles: trueEntrees: [noodles]
    ```
 
 3. 将另一个项 `"spaghetti"` 添加到列表中。
 
    ```
-   println("Add spaghetti: ${entrees.add("spaghetti")}")
-   println("Entrees: $entrees")
+   println("Add spaghetti: ${entrees.add("spaghetti")}")println("Entrees: $entrees")
    ```
 
    生成的 `entrees` 列表现在包含两个项。
 
    ```
-   Add spaghetti: true
-   Entrees: [noodles, spaghetti]
+   Add spaghetti: trueEntrees: [noodles, spaghetti]
    ```
 
    您可以不使用 `add()` 逐个添加元素，而使用 [`addAll()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/add-all.html) 一次添加多个元素，并将其传递到列表中。
@@ -3078,15 +2489,13 @@ val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
 5. 使用 `addAll()`，将新列表中的所有项添加到 `entrees` 中。输出生成的列表。
 
    ```
-   println("Add list: ${entrees.addAll(moreItems)}")
-   println("Entrees: $entrees")
+   println("Add list: ${entrees.addAll(moreItems)}")println("Entrees: $entrees")
    ```
 
    输出结果显示列表添加成功。`entrees` 列表现在共包含 5 个项。
 
    ```
-   Add list: true
-   Entrees: [noodles, spaghetti, ravioli, lasagna, fettuccine]
+   Add list: trueEntrees: [noodles, spaghetti, ravioli, lasagna, fettuccine]
    ```
 
 6. 现在，尝试向此列表中添加一个数字。
@@ -3110,50 +2519,43 @@ val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
 1. 调用 [`remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove.html) 以便从列表中移除 `"spaghetti"`。再次输出列表。
 
    ```
-   println("Remove spaghetti: ${entrees.remove("spaghetti")}")
-   println("Entrees: $entrees")
+   println("Remove spaghetti: ${entrees.remove("spaghetti")}")println("Entrees: $entrees")
    ```
 
 2. 移除 `"spaghetti"` 会返回 true，因为该元素存在于列表中，可以成功移除。该列表现在只剩下 4 个项。
 
    ```
-   Remove spaghetti: true
-   Entrees: [noodles, ravioli, lasagna, fettuccine]
+   Remove spaghetti: trueEntrees: [noodles, ravioli, lasagna, fettuccine]
    ```
 
 3. 如果尝试移除列表中不存在的项，会发生什么？尝试使用 `entrees.remove("rice")` 从列表中移除 `"rice"`。
 
    ```
-   println("Remove item that doesn't exist: ${entrees.remove("rice")}")
-   println("Entrees: $entrees")
+   println("Remove item that doesn't exist: ${entrees.remove("rice")}")println("Entrees: $entrees")
    ```
 
    `remove()` 方法会返回 `false`，因为该元素不存在，因此无法移除。列表保持不变，仍然只有 4 个项。输出结果如下：
 
    ```
-   Remove item that doesn't exist: false
-   Entrees: [noodles, ravioli, lasagna, fettuccine]
+   Remove item that doesn't exist: falseEntrees: [noodles, ravioli, lasagna, fettuccine]
    ```
 
 4. 您还可以指定要移除的元素的索引。使用 [`removeAt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove-at.html) 移除位于索引 `0` 处的项。
 
    ```
-   println("Remove first element: ${entrees.removeAt(0)}")
-   println("Entrees: $entrees")
+   println("Remove first element: ${entrees.removeAt(0)}")println("Entrees: $entrees")
    ```
 
    `removeAt(0)` 的返回值为已从列表中移除的首个元素 (`"noodles"`)。`entrees` 列表现在剩下 3 个项。
 
    ```
-   Remove first element: noodles
-   Entrees: [ravioli, lasagna, fettuccine]
+   Remove first element: noodlesEntrees: [ravioli, lasagna, fettuccine]
    ```
 
 5. 如果要清除整个列表，您可以调用 [`clear()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/clear.html)。
 
    ```
-   entrees.clear()
-   println("Entrees: $entrees")
+   entrees.clear()println("Entrees: $entrees")
    ```
 
    输出结果现在显示了一个空列表。
@@ -3179,38 +2581,7 @@ val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
 以下是您针对可变列表编写的所有代码。注释为可选。
 
 ```
-fun main() {
-    val entrees = mutableListOf<String>()
-    println("Entrees: $entrees")
-
-    // Add individual items using add()
-    println("Add noodles: ${entrees.add("noodles")}")
-    println("Entrees: $entrees")
-    println("Add spaghetti: ${entrees.add("spaghetti")}")
-    println("Entrees: $entrees")
-
-    // Add a list of items using addAll()
-    val moreItems = listOf("ravioli", "lasagna", "fettuccine")
-    println("Add list: ${entrees.addAll(moreItems)}")
-    println("Entrees: $entrees")
-
-    // Remove an item using remove()
-    println("Remove spaghetti: ${entrees.remove("spaghetti")}")
-    println("Entrees: $entrees")
-    println("Remove item that doesn't exist: ${entrees.remove("rice")}")
-    println("Entrees: $entrees")
-
-    // Remove an item using removeAt() with an index
-    println("Remove first element: ${entrees.removeAt(0)}")
-    println("Entrees: $entrees")
-
-    // Clear out the list
-    entrees.clear()
-    println("Entrees: $entrees")
-
-    // Check if the list is empty
-    println("Empty? ${entrees.isEmpty()}")
-}
+fun main() {    val entrees = mutableListOf<String>()    println("Entrees: $entrees")    // Add individual items using add()    println("Add noodles: ${entrees.add("noodles")}")    println("Entrees: $entrees")    println("Add spaghetti: ${entrees.add("spaghetti")}")    println("Entrees: $entrees")    // Add a list of items using addAll()    val moreItems = listOf("ravioli", "lasagna", "fettuccine")    println("Add list: ${entrees.addAll(moreItems)}")    println("Entrees: $entrees")    // Remove an item using remove()    println("Remove spaghetti: ${entrees.remove("spaghetti")}")    println("Entrees: $entrees")    println("Remove item that doesn't exist: ${entrees.remove("rice")}")    println("Entrees: $entrees")    // Remove an item using removeAt() with an index    println("Remove first element: ${entrees.removeAt(0)}")    println("Entrees: $entrees")    // Clear out the list    entrees.clear()    println("Entrees: $entrees")    // Check if the list is empty    println("Empty? ${entrees.isEmpty()}")}
 ```
 
 
@@ -3226,9 +2597,7 @@ fun main() {
 有一种类型的循环是 [`while`](https://kotlinlang.org/docs/reference/control-flow.html#while-loops) 循环。在 Kotlin 中，`while` 循环以 `while` 关键字开头。这类循环包含一个代码块（位于大括号内），只要括号中的表达式为  true，该代码块就会反复不停地执行下去。为了防止代码永久执行下去（即无限循环），该代码块必须包含用于更改表达式的值的逻辑，以便表达式最终变为  false，进而停止执行循环。这时，您就可以退出 `while` 循环，并继续执行该循环之后的代码。
 
 ```
-while (expression) {
-    // While the expression is true, execute this code block
-}
+while (expression) {    // While the expression is true, execute this code block}
 ```
 
 **注意**：`while` 循环不一定要包含列表（点击[此处](https://play.kotlinlang.org/byExample/02_control_flow/02_Loops)查看示例），但它对于列表来说非常有用。
@@ -3258,9 +2627,7 @@ while (expression) {
 5. 编写一个 `while` 循环，以遍历列表。条件是只要 `index` 值小于列表大小，便继续执行代码块。
 
    ```
-   while (index < guestsPerFamily.size) {
-   
-   }
+   while (index < guestsPerFamily.size) {}
    ```
 
 6. 在该循环中，会获取列表中位于当前 `index` 处的元素，并将其加到宾客总数变量中。请注意，`totalGuests += guestsPerFamily[index]` 与 `totalGuests = totalGuests + guestsPerFamily[index].` 的作用相同。
@@ -3268,19 +2635,13 @@ while (expression) {
    请注意，循环的最后一行使用 `index++` 使 `index` 变量按 1 递增，以便循环的下一次迭代查看列表中的下一个家庭。
 
    ```
-   while (index < guestsPerFamily.size) {
-       totalGuests += guestsPerFamily[index]
-       index++
-   }
+   while (index < guestsPerFamily.size) {    totalGuests += guestsPerFamily[index]    index++}
    ```
 
 7. 在 `while` 循环之后，您可以输出结果。
 
    ```
-   while ... {
-       ...
-   }
-   println("Total Guest Count: $totalGuests")
+   while ... {    ...}println("Total Guest Count: $totalGuests")
    ```
 
 8. 运行程序，输出结果如下所示。您可以通过手动合计列表中的数字来验证输出的结果是否正确。
@@ -3292,14 +2653,7 @@ while (expression) {
 以下是完整的代码段：
 
 ```
-val guestsPerFamily = listOf(2, 4, 1, 3)
-var totalGuests = 0
-var index = 0
-while (index < guestsPerFamily.size) {
-    totalGuests += guestsPerFamily[index]
-    index++
-}
-println("Total Guest Count: $totalGuests")
+val guestsPerFamily = listOf(2, 4, 1, 3)var totalGuests = 0var index = 0while (index < guestsPerFamily.size) {    totalGuests += guestsPerFamily[index]    index++}println("Total Guest Count: $totalGuests")
 ```
 
 **注意**：对变量执行简单操作并将结果存回变量的做法很常见，于是我们针对此提供了简化的运算符，即 `+=`。对于减法、乘法和除法同样有这种简化的运算符，它们分别是：`-=`、`*=` 和 `/=`。有关更多详情，请点击[此处](https://kotlinlang.org/docs/reference/operator-overloading.html#assignments)。
@@ -3313,9 +2667,7 @@ println("Total Guest Count: $totalGuests")
 [`for`](https://kotlinlang.org/docs/reference/control-flow.html#for-loops) 循环是另一种类型的循环。它可以更轻松地遍历列表。在 Kotlin 中，这种循环以 `for` 关键字开头，其代码块含在大括号中。执行代码块的条件在圆括号中指定。
 
 ```
-for (number in numberList) {
-   // For each element in the list, execute this code block
-}
+for (number in numberList) {   // For each element in the list, execute this code block}
 ```
 
 在此示例中，变量 `number` 被设置为等于 `numberList` 的首个元素，并开始执行代码块。然后，`number` 变量自动更新为 `numberList` 的下一个元素，并再次执行代码块。这种操作会针对列表中的每个元素重复执行，直到达到 `numberList` 的末尾。
@@ -3323,17 +2675,13 @@ for (number in numberList) {
 1. 删除 Kotlin 园地中的现有代码，并替换为以下代码：
 
    ```
-   fun main() {
-       val names = listOf("Jessica", "Henry", "Alicia", "Jose")
-   }
+   fun main() {    val names = listOf("Jessica", "Henry", "Alicia", "Jose")}
    ```
 
 2. 添加一个 `for` 循环，以输出 `names` 列表中的所有项。
 
    ```
-   for (name in names) {
-       println(name)
-   }
+   for (name in names) {    println(name)}
    ```
 
    相对于必须用 `while` 循环编写，这种方法要简单得多！
@@ -3341,10 +2689,7 @@ for (number in numberList) {
 3. 输出结果如下
 
    ```
-   Jessica
-   Henry
-   Alicia
-   Jose
+   JessicaHenryAliciaJose
    ```
 
    一种常见的列表操作是对列表中的每个元素执行某种操作。
@@ -3352,19 +2697,13 @@ for (number in numberList) {
 4. 修改循环，以同时输出人员姓名中包含的字符数。提示：您可以使用 `String` 的 [`length`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/length.html) 属性来确定该 `String` 中的字符数。
 
    ```
-   val names = listOf("Jessica", "Henry", "Alicia", "Jose")
-   for (name in names) {
-       println("$name - Number of characters: ${name.length}")
-   }
+   val names = listOf("Jessica", "Henry", "Alicia", "Jose")for (name in names) {    println("$name - Number of characters: ${name.length}")}
    ```
 
    输出结果如下：
 
    ```
-   Jessica - Number of characters: 7
-   Henry - Number of characters: 5
-   Alicia - Number of characters: 6
-   Jose - Number of characters: 4
+   Jessica - Number of characters: 7Henry - Number of characters: 5Alicia - Number of characters: 6Jose - Number of characters: 4
    ```
 
    循环中的代码并未更改原始 `List`，而只是影响了输出结果。
@@ -3376,11 +2715,7 @@ for (number in numberList) {
    **注意**：以下是关于使用 `for` 循环可以完成的操作的另一些示例，包括为它们指定范围以执行特定步骤（而不是每次递增 1）。
 
    ```
-   for (item in list) print(item) // Iterate over items in a list
-   for (item in 'b'..'g') print(item) // Range of characters in an alphabet
-   for (item in 1..5) print(item) // Range of numbers
-   for (item in 5 downTo 1) print(item) // Going backward
-   for (item in 3..6 step 2) print(item) // Prints: 35
+   for (item in list) print(item) // Iterate over items in a listfor (item in 'b'..'g') print(item) // Range of characters in an alphabetfor (item in 1..5) print(item) // Range of numbersfor (item in 5 downTo 1) print(item) // Going backwardfor (item in 3..6 step 2) print(item) // Prints: 35
    ```
 
    如需查看更多示例，请参阅本 Codelab 末尾列出的文档。
@@ -3394,88 +2729,7 @@ for (number in numberList) {
    以下是 `Item`、`Noodles`、`Vegetables` 和 `Order` 类的解决方案代码。`main()` 函数还展示了如何使用这些类。有多种方法可以实现此程序，因此您的代码有可能略有不同。
 
    ```
-   open class Item(val name: String, val price: Int)
-   
-   class Noodles : Item("Noodles", 10) {
-       override fun toString(): String {
-           return name
-       }
-   }
-   
-   class Vegetables(vararg val toppings: String) : Item("Vegetables", 5) {
-       override fun toString(): String {
-           if (toppings.isEmpty()) {
-               return "$name Chef's Choice"
-           } else {
-               return name + " " + toppings.joinToString()
-           }
-       }
-   }
-   
-   class Order(val orderNumber: Int) {
-       private val itemList = mutableListOf<Item>()
-   
-       fun addItem(newItem: Item): Order {
-           itemList.add(newItem)
-           return this
-       }
-   
-       fun addAll(newItems: List<Item>): Order {
-           itemList.addAll(newItems)
-           return this
-       }
-   
-       fun print() {
-           println("Order #${orderNumber}")
-           var total = 0
-           for (item in itemList) {
-               println("${item}: $${item.price}")
-               total += item.price
-           }
-           println("Total: $${total}")
-       }
-   }
-   
-   fun main() {
-       val ordersList = mutableListOf<Order>()
-   
-       // Add an item to an order
-       val order1 = Order(1)
-       order1.addItem(Noodles())
-       ordersList.add(order1)
-   
-       // Add multiple items individually
-       val order2 = Order(2)
-       order2.addItem(Noodles())
-       order2.addItem(Vegetables())
-       ordersList.add(order2)
-   
-       // Add a list of items at one time
-       val order3 = Order(3)
-       val items = listOf(Noodles(), Vegetables("Carrots", "Beans", "Celery"))
-       order3.addAll(items)
-       ordersList.add(order3)
-   
-       // Use builder pattern
-       val order4 = Order(4)
-           .addItem(Noodles())
-           .addItem(Vegetables("Cabbage", "Onion"))
-       ordersList.add(order4)
-   
-       // Create and add order directly
-       ordersList.add(
-           Order(5)
-               .addItem(Noodles())
-               .addItem(Noodles())
-               .addItem(Vegetables("Spinach"))
-       )
-   
-       // Print out each order
-       for (order in ordersList) {
-           order.print()
-           println()
-       }
-   }
+   open class Item(val name: String, val price: Int)class Noodles : Item("Noodles", 10) {    override fun toString(): String {        return name    }}class Vegetables(vararg val toppings: String) : Item("Vegetables", 5) {    override fun toString(): String {        if (toppings.isEmpty()) {            return "$name Chef's Choice"        } else {            return name + " " + toppings.joinToString()        }    }}class Order(val orderNumber: Int) {    private val itemList = mutableListOf<Item>()    fun addItem(newItem: Item): Order {        itemList.add(newItem)        return this    }    fun addAll(newItems: List<Item>): Order {        itemList.addAll(newItems)        return this    }    fun print() {        println("Order #${orderNumber}")        var total = 0        for (item in itemList) {            println("${item}: $${item.price}")            total += item.price        }        println("Total: $${total}")    }}fun main() {    val ordersList = mutableListOf<Order>()    // Add an item to an order    val order1 = Order(1)    order1.addItem(Noodles())    ordersList.add(order1)    // Add multiple items individually    val order2 = Order(2)    order2.addItem(Noodles())    order2.addItem(Vegetables())    ordersList.add(order2)    // Add a list of items at one time    val order3 = Order(3)    val items = listOf(Noodles(), Vegetables("Carrots", "Beans", "Celery"))    order3.addAll(items)    ordersList.add(order3)    // Use builder pattern    val order4 = Order(4)        .addItem(Noodles())        .addItem(Vegetables("Cabbage", "Onion"))    ordersList.add(order4)    // Create and add order directly    ordersList.add(        Order(5)            .addItem(Noodles())            .addItem(Noodles())            .addItem(Vegetables("Spinach"))    )    // Print out each order    for (order in ordersList) {        order.print()        println()    }}
    ```
 
 
@@ -3494,17 +2748,13 @@ Kotlin 提供了相关功能来帮助您通过 Kotlin  标准库更轻松地管�
 - 使用 `while` 循环可反复执行代码块，直到表达式的结果为 false 并退出循环。
 
 ```
-while (expression) {
-// While the expression is true, execute this code block
-}
+while (expression) {// While the expression is true, execute this code block}
 ```
 
 - 使用 `for` 循环可遍历列表中的所有项：
 
 ```
-for (item in myList) {
-// Execute this code block for each element of the list
-}
+for (item in myList) {// Execute this code block for each element of the list}
 ```
 
 - 利用 `vararg` 修饰符可向函数或构造函数传递可变数量的参数。
@@ -3521,34 +2771,13 @@ for (item in myList) {
 自我肯定话语的文字稿
 
 ```
-I am strong.
-I believe in myself.
-Each day is a new opportunity to grow and be a better version of myself.
-Every challenge in my life is an opportunity to learn from.
-I have so much to be grateful for.
-Good things are always coming into my life.
-New opportunities await me at every turn.
-I have the courage to follow my heart.
-Things will unfold at precisely the right time.
-I will be present in all the moments that this day brings.
+I am strong.I believe in myself.Each day is a new opportunity to grow and be a better version of myself.Every challenge in my life is an opportunity to learn from.I have so much to be grateful for.Good things are always coming into my life.New opportunities await me at every turn.I have the courage to follow my heart.Things will unfold at precisely the right time.I will be present in all the moments that this day brings.
 ```
 
 完成后，`strings.xml` 文件应如下所示。
 
 ```
-<resources>
-    <string name="app_name">Affirmations</string>
-    <string name="affirmation1">I am strong.</string>
-    <string name="affirmation2">I believe in myself.</string>
-    <string name="affirmation3">Each day is a new opportunity to grow and be a better version of myself.</string>
-    <string name="affirmation4">Every challenge in my life is an opportunity to learn from.</string>
-    <string name="affirmation5">I have so much to be grateful for.</string>
-    <string name="affirmation6">Good things are always coming into my life.</string>
-    <string name="affirmation7">New opportunities await me at every turn.</string>
-    <string name="affirmation8">I have the courage to follow my heart.</string>
-    <string name="affirmation9">Things will unfold at precisely the right time.</string>
-    <string name="affirmation10">I will be present in all the moments that this day brings.</string>
-</resources>
+<resources>    <string name="app_name">Affirmations</string>    <string name="affirmation1">I am strong.</string>    <string name="affirmation2">I believe in myself.</string>    <string name="affirmation3">Each day is a new opportunity to grow and be a better version of myself.</string>    <string name="affirmation4">Every challenge in my life is an opportunity to learn from.</string>    <string name="affirmation5">I have so much to be grateful for.</string>    <string name="affirmation6">Good things are always coming into my life.</string>    <string name="affirmation7">New opportunities await me at every turn.</string>    <string name="affirmation8">I have the courage to follow my heart.</string>    <string name="affirmation9">Things will unfold at precisely the right time.</string>    <string name="affirmation10">I will be present in all the moments that this day brings.</string></resources>
 ```
 
 现在，您已添加了字符串资源，可以在代码中将其引用为 `R.string.affirmation1` 或 `R.string.affirmation2` 了。
@@ -3625,11 +2854,7 @@ I will be present in all the moments that this day brings.
 3. 在类定义前添加 `data` 关键字，使 `Affirmation` 成为数据类。这样做会出错，因为数据类必须至少定义一个属性。
 
    ```
-   Affirmation.kt
-   package com.example.affirmations.model
-   
-   data class Affirmation {
-   }
+   Affirmation.ktpackage com.example.affirmations.modeldata class Affirmation {}
    ```
 
    在创建 `Affirmation` 的实例时，您需要传入自我肯定话语字符串的资源 ID。资源 ID 是一个整数。
@@ -3639,10 +2864,7 @@ I will be present in all the moments that this day brings.
 4. 将 `val` 整数参数 `stringResourceId` 添加到 `Affirmation` 类的构造函数中。这样就可以消除错误了。
 
 ```
-package com.example.affirmations.model
-
-data class Affirmation(val stringResourceId: Int)
-
+package com.example.affirmations.modeldata class Affirmation(val stringResourceId: Int)
 ```
 
 
@@ -3684,28 +2906,7 @@ data class Affirmation(val stringResourceId: Int)
     Datasource.kt
 
     ```
-    package com.example.affirmations.data
-    
-    import com.example.affirmations.R
-    import com.example.affirmations.model.Affirmation
-    
-    class Datasource {
-    
-        fun loadAffirmations(): List<Affirmation> {
-            return listOf<Affirmation>(
-                Affirmation(R.string.affirmation1),
-                Affirmation(R.string.affirmation2),
-                Affirmation(R.string.affirmation3),
-                Affirmation(R.string.affirmation4),
-                Affirmation(R.string.affirmation5),
-                Affirmation(R.string.affirmation6),
-                Affirmation(R.string.affirmation7),
-                Affirmation(R.string.affirmation8),
-                Affirmation(R.string.affirmation9),
-                Affirmation(R.string.affirmation10)
-            )
-        }
-    }
+    package com.example.affirmations.dataimport com.example.affirmations.Rimport com.example.affirmations.model.Affirmationclass Datasource {    fun loadAffirmations(): List<Affirmation> {        return listOf<Affirmation>(            Affirmation(R.string.affirmation1),            Affirmation(R.string.affirmation2),            Affirmation(R.string.affirmation3),            Affirmation(R.string.affirmation4),            Affirmation(R.string.affirmation5),            Affirmation(R.string.affirmation6),            Affirmation(R.string.affirmation7),            Affirmation(R.string.affirmation8),            Affirmation(R.string.affirmation9),            Affirmation(R.string.affirmation10)        )    }}
     ```
 
 
@@ -3770,16 +2971,7 @@ Affirmations 应用由一个名为 `MainActivity` 的 activity 及其名为 `act
 4. 在 XML 文件中，将 `ConstraintLayout` 替换为 `FrameLayout`。完成后的布局应如下所示。
 
    ```
-   activity_main.xml
-   
-   <?xml version="1.0" encoding="utf-8"?>
-   <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-       xmlns:app="http://schemas.android.com/apk/res-auto"
-       xmlns:tools="http://schemas.android.com/tools"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       tools:context=".MainActivity">
-   </FrameLayout>
+   activity_main.xml<?xml version="1.0" encoding="utf-8"?><FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"    xmlns:tools="http://schemas.android.com/tools"    android:layout_width="match_parent"    android:layout_height="match_parent"    tools:context=".MainActivity"></FrameLayout>
    ```
 
 5. 切换到 **Design** 视图。
@@ -3815,22 +3007,7 @@ Affirmations 应用由一个名为 `MainActivity` 的 activity 及其名为 `act
     最终的 XML 布局应如下所示：
 
     ```
-    activity_main.xml
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
-    
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            app:layoutManager="LinearLayoutManager" />
-    
-    </FrameLayout>
+    activity_main.xml<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"    xmlns:tools="http://schemas.android.com/tools"    android:layout_width="match_parent"    android:layout_height="match_parent"    tools:context=".MainActivity">    <androidx.recyclerview.widget.RecyclerView        android:id="@+id/recycler_view"        android:layout_width="match_parent"        android:layout_height="match_parent"        android:scrollbars="vertical"        app:layoutManager="LinearLayoutManager" /></FrameLayout>
     ```
 
 14. 运行应用。
@@ -3867,12 +3044,7 @@ Adapter 包含多个部分，您需要编写大量代码，而且这些代码比
 请注意，您不需要对布局使用 `ViewGroup`，因为稍后我们会膨胀此列表项布局并将其作为子视图添加到父 `RecyclerView` 中。
 
 ```
-list_item.xml
-<?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/item_title"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
+list_item.xml<?xml version="1.0" encoding="utf-8"?><TextView xmlns:android="http://schemas.android.com/apk/res/android"    android:id="@+id/item_title"    android:layout_width="wrap_content"    android:layout_height="wrap_content" />
 ```
 
 或者，您也可以使用 **File > New > Layout Resource File**，将 **File name** 设为 `list_item.xml`，并以 `TextView` 作为 **Root element**。然后，更新生成的代码以匹配上面的代码。
@@ -3898,12 +3070,7 @@ list_item.xml
 6. 由于 `dataset` 仅在此类中使用，因此请将其设为 `private`。
 
    ```
-   ItemAdapter.kt
-   import com.example.affirmations.model.Affirmation
-   
-   class ItemAdapter(private val dataset: List<Affirmation>) {
-   
-   }
+   ItemAdapter.ktimport com.example.affirmations.model.Affirmationclass ItemAdapter(private val dataset: List<Affirmation>) {}
    ```
 
    `ItemAdapter` 需要有关如何解析字符串资源的信息。这些信息与有关应用的其他信息一起存储在 `Context` 对象实例中，您可将此实例传入 `ItemAdapter` 实例。
@@ -3911,9 +3078,7 @@ list_item.xml
 7. 将一个参数添加到 `ItemAdapter` 的构造函数中，该参数是名为 `context`、类型为 `Context` 的 `val`。请将其作为构造函数中的第一个参数。
 
    ```
-   class ItemAdapter(private val context: Context, private val dataset: List<Affirmation>) {
-   
-   }
+   class ItemAdapter(private val context: Context, private val dataset: List<Affirmation>) {}
    ```
 
 #### Ⅲ  创建 ViewHolder
@@ -3923,10 +3088,7 @@ list_item.xml
 1. 在 `ItemAdapter` 类中，在 `ItemAdapter` 的右花括号之前，创建一个 `ItemViewHolder` 类。
 
    ```
-   class ItemAdapter(private val context: Context, private val dataset: List<Affirmation>) {
-   
-       class ItemViewHolder()
-   }
+   class ItemAdapter(private val context: Context, private val dataset: List<Affirmation>) {    class ItemViewHolder()}
    ```
 
    - 在一个类中定义另一个类称为创建**嵌套类**。
@@ -3939,12 +3101,7 @@ list_item.xml
 4. 在 `ItemViewHolder` 内，定义类型为 `TextView` 的 `val` 属性 `textView`。为其分配您在 `list_item`.`xml` 中定义的 ID 为 `item_title` 的视图。
 
    ```
-   class ItemAdapter(private val context: Context, private val dataset: List<Affirmation>) {
-   
-       class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-           val textView: TextView = view.findViewById(R.id.item_title)
-       }
-   }
+   class ItemAdapter(private val context: Context, private val dataset: List<Affirmation>) {    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {        val textView: TextView = view.findViewById(R.id.item_title)    }}
    ```
 
 #### Ⅳ  替换 Adapter 方法
@@ -3952,15 +3109,7 @@ list_item.xml
 1. 添加代码以从抽象类 `RecyclerView.Adapter` 扩展您的 `ItemAdapter`。在尖括号中，将 `ItemAdapter.ItemViewHolder` 指定为 ViewHolder 类型。
 
    ```
-   class ItemAdapter(
-       private val context: Context,
-       private val dataset: List<Affirmation>
-   ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
-   
-       class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-           val textView: TextView = view.findViewById(R.id.item_title)
-       }
-   }
+   class ItemAdapter(    private val context: Context,    private val dataset: List<Affirmation>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {        val textView: TextView = view.findViewById(R.id.item_title)    }}
    ```
 
    您会看到一条错误消息，因为您需要从 `RecyclerView.Adapter` 实现一些抽象方法。
@@ -3974,17 +3123,7 @@ list_item.xml
    这样就会使用正确的参数创建这三个方法的桩，如下所示。
 
    ```
-   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-       TODO("Not yet implemented")
-   }
-   
-   override fun getItemCount(): Int {
-       TODO("Not yet implemented")
-   }
-   
-   override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-       TODO("Not yet implemented")
-   }
+   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {    TODO("Not yet implemented")}override fun getItemCount(): Int {    TODO("Not yet implemented")}override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {    TODO("Not yet implemented")}
    ```
 
    您应该不会再看到错误消息。接下来，您需要实现这些方法，使其能对您的应用正确发挥作用。
@@ -3998,9 +3137,7 @@ list_item.xml
 将 `getItemCount()` 替换为：
 
 ```
-override fun getItemCount(): Int {
-    return dataset.size
-}
+override fun getItemCount(): Int {    return dataset.size}
 ```
 
 下面是更简洁的编写方式：
@@ -4027,8 +3164,7 @@ override fun getItemCount() = dataset.size
 2. 获取 `LayoutInflater` 对象实例后，添加一个句点，后跟另一个方法调用以膨胀实际的列表项视图。传入 XML 布局资源 ID `R.layout.list_item` 和 `parent` 视图组。第三个布尔值参数是 `attachToRoot`。此参数需为 `false`，因为 `RecyclerView` 会在需要的时候替您将此列表项添加到视图层次结构中。
 
    ```
-   val adapterLayout = LayoutInflater.from(parent.context)
-          .inflate(R.layout.list_item, parent, false)
+   val adapterLayout = LayoutInflater.from(parent.context)       .inflate(R.layout.list_item, parent, false)
    ```
 
    现在，`adapterLayout` 存储着对列表项视图的引用（稍后我们可从中找到子视图，例如 `TextView`）。
@@ -4042,13 +3178,7 @@ override fun getItemCount() = dataset.size
    以下就是截至目前为止 `onCreateViewHolder()` 的代码。
 
    ```
-   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-       // create a new view
-       val adapterLayout = LayoutInflater.from(parent.context)
-           .inflate(R.layout.list_item, parent, false)
-   
-       return ItemViewHolder(adapterLayout)
-   }
+   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {    // create a new view    val adapterLayout = LayoutInflater.from(parent.context)        .inflate(R.layout.list_item, parent, false)    return ItemViewHolder(adapterLayout)}
    ```
 
 
@@ -4080,67 +3210,13 @@ override fun getItemCount() = dataset.size
    完成后的 `onBindViewHolder()` 方法应如下所示。
 
    ```
-   override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-       val item = dataset[position]
-       holder.textView.text =  context.resources.getString(item.stringResourceId)
-   }
+   override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {    val item = dataset[position]    holder.textView.text =  context.resources.getString(item.stringResourceId)}
    ```
 
 以下是完成后的 Adapter 代码。
 
 ```
-ItemAdapter.kt
-package com.example.affirmations.adapter
-
-import android.content.Context
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.example.affirmations.R
-import com.example.affirmations.model.Affirmation
-
-/**
- * Adapter for the [RecyclerView] in [MainActivity]. Displays [Affirmation] data object.
- */
-class ItemAdapter(
-    private val context: Context,
-    private val dataset: List<Affirmation>
-) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
-
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder.
-    // Each data item is just an Affirmation object.
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.item_title)
-    }
-
-    /**
-     * Create new views (invoked by the layout manager)
-     */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        // create a new view
-        val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item, parent, false)
-
-        return ItemViewHolder(adapterLayout)
-    }
-
-    /**
-     * Replace the contents of a view (invoked by the layout manager)
-     */
-    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = dataset[position]
-        holder.textView.text = context.resources.getString(item.stringResourceId)
-    }
-
-    /**
-     * Return the size of your dataset (invoked by the layout manager)
-     */
-    override fun getItemCount() = dataset.size
-}
+ItemAdapter.ktpackage com.example.affirmations.adapterimport android.content.Contextimport android.view.LayoutInflaterimport android.view.Viewimport android.view.ViewGroupimport android.widget.TextViewimport androidx.recyclerview.widget.RecyclerViewimport com.example.affirmations.Rimport com.example.affirmations.model.Affirmation/** * Adapter for the [RecyclerView] in [MainActivity]. Displays [Affirmation] data object. */class ItemAdapter(    private val context: Context,    private val dataset: List<Affirmation>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {    // Provide a reference to the views for each data item    // Complex data items may need more than one view per item, and    // you provide access to all the views for a data item in a view holder.    // Each data item is just an Affirmation object.    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {        val textView: TextView = view.findViewById(R.id.item_title)    }    /**     * Create new views (invoked by the layout manager)     */    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {        // create a new view        val adapterLayout = LayoutInflater.from(parent.context)            .inflate(R.layout.list_item, parent, false)        return ItemViewHolder(adapterLayout)    }    /**     * Replace the contents of a view (invoked by the layout manager)     */    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {        val item = dataset[position]        holder.textView.text = context.resources.getString(item.stringResourceId)    }    /**     * Return the size of your dataset (invoked by the layout manager)     */    override fun getItemCount() = dataset.size}
 ```
 
 现在，您已实现了 `ItemAdapter`，接下来您需要指示 `RecyclerView` 使用此 Adapter。
@@ -4184,32 +3260,7 @@ class ItemAdapter(
 8. 完成后，`MainActivity` 的代码应与下面的代码类似。
 
    ```
-   MainActivity.kt
-   package com.example.affirmations
-   
-   import android.os.Bundle
-   import androidx.appcompat.app.AppCompatActivity
-   import androidx.recyclerview.widget.RecyclerView
-   import com.example.affirmations.adapter.ItemAdapter
-   import com.example.affirmations.data.Datasource
-   
-   class MainActivity : AppCompatActivity() {
-   
-       override fun onCreate(savedInstanceState: Bundle?) {
-           super.onCreate(savedInstanceState)
-           setContentView(R.layout.activity_main)
-   
-           // Initialize data.
-           val myDataset = Datasource().loadAffirmations()
-   
-           val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-           recyclerView.adapter = ItemAdapter(this, myDataset)
-   
-           // Use this setting to improve performance if you know that changes
-           // in content do not change the layout size of the RecyclerView
-           recyclerView.setHasFixedSize(true)
-       }
-   }
+   MainActivity.ktpackage com.example.affirmationsimport android.os.Bundleimport androidx.appcompat.app.AppCompatActivityimport androidx.recyclerview.widget.RecyclerViewimport com.example.affirmations.adapter.ItemAdapterimport com.example.affirmations.data.Datasourceclass MainActivity : AppCompatActivity() {    override fun onCreate(savedInstanceState: Bundle?) {        super.onCreate(savedInstanceState)        setContentView(R.layout.activity_main)        // Initialize data.        val myDataset = Datasource().loadAffirmations()        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)        recyclerView.adapter = ItemAdapter(this, myDataset)        // Use this setting to improve performance if you know that changes        // in content do not change the layout size of the RecyclerView        recyclerView.setHasFixedSize(true)    }}
    ```
 
 9. 运行应用。屏幕上应显示自我肯定话语字符串的列表。
@@ -4258,16 +3309,7 @@ class ItemAdapter(
 3. 确保在文件的顶部且在软件包声明后面添加导入代码 `androidx.annotation.DrawableRes` 和 `androidx.annotation.StringRes`。
 
    ```
-   Affirmation.kt
-   package com.example.affirmations.model
-   
-   import androidx.annotation.DrawableRes
-   import androidx.annotation.StringRes
-   
-   data class Affirmation(
-      @StringRes val stringResourceId: Int,
-      @DrawableRes val imageResourceId: Int
-   )
+   Affirmation.ktpackage com.example.affirmations.modelimport androidx.annotation.DrawableResimport androidx.annotation.StringResdata class Affirmation(   @StringRes val stringResourceId: Int,   @DrawableRes val imageResourceId: Int)
    ```
 
 ### ③初始化带图片的自我肯定话语列表
@@ -4278,30 +3320,7 @@ class ItemAdapter(
 2. 对于每个 `Affirmation`，将图片的资源 ID 添加为参数，如 `R.drawable.image1`。
 
 ```
-Datasource.kt
-
-package com.example.affirmations.data
-
-import com.example.affirmations.R
-import com.example.affirmations.model.Affirmation
-
-class Datasource() {
-
-    fun loadAffirmations(): List<Affirmation> {
-        return listOf<Affirmation>(
-            Affirmation(R.string.affirmation1, R.drawable.image1),
-            Affirmation(R.string.affirmation2, R.drawable.image2),
-            Affirmation(R.string.affirmation3, R.drawable.image3),
-            Affirmation(R.string.affirmation4, R.drawable.image4),
-            Affirmation(R.string.affirmation5, R.drawable.image5),
-            Affirmation(R.string.affirmation6, R.drawable.image6),
-            Affirmation(R.string.affirmation7, R.drawable.image7),
-            Affirmation(R.string.affirmation8, R.drawable.image8),
-            Affirmation(R.string.affirmation9, R.drawable.image9),
-            Affirmation(R.string.affirmation10, R.drawable.image10)
-        )
-    }
-}
+Datasource.ktpackage com.example.affirmations.dataimport com.example.affirmations.Rimport com.example.affirmations.model.Affirmationclass Datasource() {    fun loadAffirmations(): List<Affirmation> {        return listOf<Affirmation>(            Affirmation(R.string.affirmation1, R.drawable.image1),            Affirmation(R.string.affirmation2, R.drawable.image2),            Affirmation(R.string.affirmation3, R.drawable.image3),            Affirmation(R.string.affirmation4, R.drawable.image4),            Affirmation(R.string.affirmation5, R.drawable.image5),            Affirmation(R.string.affirmation6, R.drawable.image6),            Affirmation(R.string.affirmation7, R.drawable.image7),            Affirmation(R.string.affirmation8, R.drawable.image8),            Affirmation(R.string.affirmation9, R.drawable.image9),            Affirmation(R.string.affirmation10, R.drawable.image10)        )    }}
 ```
 
 ### ④向列表项布局添加 ImageView
@@ -4315,20 +3334,7 @@ class Datasource() {
 2. 将 `xmlns schema` 声明行从 `TextView` 元素移至 `LinearLayout` 元素以消除错误。
 
    ```
-   list_item.xml
-   
-   <?xml version="1.0" encoding="utf-8"?>
-   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:orientation="vertical">
-   
-       <TextView
-           android:id="@+id/item_title"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content" />
-   
-   </LinearLayout>
+   list_item.xml<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"    android:layout_width="match_parent"    android:layout_height="wrap_content"    android:orientation="vertical">    <TextView        android:id="@+id/item_title"        android:layout_width="wrap_content"        android:layout_height="wrap_content" /></LinearLayout>
    ```
 
 3. 在 `LinearLayout,` 内的 `TextView,` 前面，添加资源 ID 为 `item_image` 的 `ImageView`。
@@ -4340,12 +3346,7 @@ class Datasource() {
 6. 将 `importantForAccessibility` 属性设置为 `no`，因为图片用于装饰目的。
 
    ```
-       <ImageView
-           android:layout_width="match_parent"
-           android:layout_height="194dp"
-           android:id="@+id/item_image"
-           android:importantForAccessibility="no"
-           android:scaleType="centerCrop" />
+       <ImageView        android:layout_width="match_parent"        android:layout_height="194dp"        android:id="@+id/item_image"        android:importantForAccessibility="no"        android:scaleType="centerCrop" />
    ```
 
 ### ⑤更新 ItemAdapter 以设置图片
@@ -4359,22 +3360,14 @@ class Datasource() {
    在 `textView` 属性的初始化下面，添加一个名为 `imageView.` 的 `val`。使用 `findViewById()` 查找对 `ImageView`（ID 为 `item_image`）的引用，并将其赋值给 `imageView` 属性。
 
    ```
-   ItemAdapter.kt
-   class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
-       val textView: TextView = view.findViewById(R.id.item_title)
-       val imageView: ImageView = view.findViewById(R.id.item_image)
-   }
+   ItemAdapter.ktclass ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view) {    val textView: TextView = view.findViewById(R.id.item_title)    val imageView: ImageView = view.findViewById(R.id.item_image)}
    ```
 
 4. 在 `ItemAdapter` 中查找 `onBindViewHolder()` 函数。
 
 5. 之前，您已将自我肯定话语的 `stringResourceId` 设置到 `ItemViewHolder` 中的 `textView` 上。现在，将自我肯定话语项的 `imageResourceId` 设置到列表项视图的 `ImageView` 上。
 
-       override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-           val item = dataset[position]
-           holder.textView.text = context.resources.getString(item.stringResourceId)
-           holder.imageView.setImageResource(item.imageResourceId)
-       }
+       override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {    val item = dataset[position]    holder.textView.text = context.resources.getString(item.stringResourceId)    holder.imageView.setImageResource(item.imageResourceId)}
 
 6. 运行应用并滚动浏览自我肯定话语列表。
 
@@ -4395,13 +3388,7 @@ class Datasource() {
 1. 打开 `list_item`.`xml` (**app > res > layout > item_list.xml**)，然后向现有的 `LinearLayout` 添加 `16dp` 内边距。
 
    ```
-   list_item.xml
-   
-   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:orientation="vertical"
-       android:padding="16dp">
+   list_item.xml<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"    android:layout_width="match_parent"    android:layout_height="wrap_content"    android:orientation="vertical"    android:padding="16dp">
    ```
 
 2. 向 `item_title` `TextView` 添加 `16dp` 内边距。
@@ -4409,12 +3396,7 @@ class Datasource() {
 3. 在 `TextView` 中，将 `textAppearance` 属性设置为 `?attr/textAppearanceHeadline6`。[`textAppearance`](https://developer.android.com/guide/topics/ui/look-and-feel/themes#textappearance) 是用于定义文本专用样式的属性。如需了解其他可能的预定义文本外观值，请参阅[关于常见主题属性的博文](https://medium.com/androiddevelopers/android-styling-common-theme-attributes-8f7c50c9eaba)中的 TextAppearances 部分。
 
    ```
-       <TextView
-           android:id="@+id/item_title"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:padding="16dp"
-           android:textAppearance="?attr/textAppearanceHeadline6" />
+       <TextView        android:id="@+id/item_title"        android:layout_width="wrap_content"        android:layout_height="wrap_content"        android:padding="16dp"        android:textAppearance="?attr/textAppearanceHeadline6" />
    ```
 
 4. 运行应用。您觉得列表看起来更好了吗？
@@ -4437,35 +3419,7 @@ class Datasource() {
 6. 现在，再次运行应用。使用 `MaterialCardView` 之后，您可以更好地将每句自我肯定话语区分开来了吗？
 
 ```
-list_item.xml
-<?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/item_image"
-            android:layout_width="match_parent"
-            android:layout_height="194dp"
-            android:importantForAccessibility="no"
-            android:scaleType="centerCrop" />
-
-        <TextView
-            android:id="@+id/item_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:textAppearance="?attr/textAppearanceHeadline6" />
-
-    </LinearLayout>
-
-</com.google.android.material.card.MaterialCardView>
+list_item.xml<?xml version="1.0" encoding="utf-8"?><com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"    android:layout_width="match_parent"    android:layout_height="wrap_content"    android:layout_margin="8dp">    <LinearLayout        android:layout_width="match_parent"        android:layout_height="wrap_content"        android:orientation="vertical">        <ImageView            android:id="@+id/item_image"            android:layout_width="match_parent"            android:layout_height="194dp"            android:importantForAccessibility="no"            android:scaleType="centerCrop" />        <TextView            android:id="@+id/item_title"            android:layout_width="wrap_content"            android:layout_height="wrap_content"            android:padding="16dp"            android:textAppearance="?attr/textAppearanceHeadline6" />    </LinearLayout></com.google.android.material.card.MaterialCardView>
 ```
 
 <img src="https://developer.android.com/codelabs/basic-android-kotlin-training-display-list-cards/img/82e5266c758d253e.png" alt="82e5266c758d253e.png" style="zoom:50%;" />
@@ -4492,9 +3446,7 @@ list_item.xml
 2. 针对上面定义的蓝色向该文件中添加新的颜色资源。
 
 ```
-<color name="blue_200">#FF90CAF9</color>
-<color name="blue_500">#FF2196F3</color>
-<color name="blue_700">#FF1976D2</color>
+<color name="blue_200">#FF90CAF9</color><color name="blue_500">#FF2196F3</color><color name="blue_700">#FF1976D2</color>
 ```
 
 
@@ -4512,8 +3464,7 @@ list_item.xml
 4. 添加或更改 `colorPrimaryVariant` 以使用 `@color/blue_700`。
 
    ```
-   <item name="colorPrimary">@color/blue_500</item>
-   <item name="colorPrimaryVariant">@color/blue_700</item>
+   <item name="colorPrimary">@color/blue_500</item><item name="colorPrimaryVariant">@color/blue_700</item>
    ```
 
 5. 运行应用。您应该会看到应用栏颜色变成了蓝色
@@ -4529,8 +3480,7 @@ list_item.xml
 2. 添加或更改 `colorPrimary` 和 `colorPrimaryVariant` 主题属性，如下所示。
 
    ```
-   <item name="colorPrimary">@color/blue_200</item>
-   <item name="colorPrimaryVariant">@color/blue_500</item>
+   <item name="colorPrimary">@color/blue_200</item><item name="colorPrimaryVariant">@color/blue_500</item>
    ```
 
 3. 运行应用。
@@ -4629,10 +3579,7 @@ list_item.xml
 2. 将任意代码替换为以下代码：
 
 ```
-fun main() {
-    val numbers = listOf(0, 3, 8, 4, 0, 5, 5, 8, 9, 2)
-    println("list:   ${numbers}")
-}
+fun main() {    val numbers = listOf(0, 3, 8, 4, 0, 5, 5, 8, 9, 2)    println("list:   ${numbers}")}
 ```
 
 点按绿色箭头运行程序，并查看显示的结果：
@@ -4652,8 +3599,7 @@ println("sorted: ${numbers.sorted()}")
 再次运行程序并查看结果：
 
 ```
-list:   [0, 3, 8, 4, 0, 5, 5, 8, 9, 2]
-sorted: [0, 0, 2, 3, 4, 5, 5, 8, 8, 9]
+list:   [0, 3, 8, 4, 0, 5, 5, 8, 9, 2]sorted: [0, 0, 2, 3, 4, 5, 5, 8, 8, 9]
 ```
 
 对数字进行排序后，更容易看出每个数字在列表中出现的次数或者是否根本没有显示
@@ -4667,16 +3613,13 @@ Kotlin 中另一种类型的集合是[集](https://kotlinlang.org/api/latest/jvm
 1. 将以下几行代码添加到程序中，以将列表转换为集：
 
    ```
-   val setOfNumbers = numbers.toSet()
-   println("set:    ${setOfNumbers}")
+   val setOfNumbers = numbers.toSet()println("set:    ${setOfNumbers}")
    ```
 
 2. 运行程序并查看结果：
 
    ```
-   list:   [0, 3, 8, 4, 0, 5, 5, 8, 9, 2]
-   sorted: [0, 0, 2, 3, 4, 5, 5, 8, 8, 9]
-   set:    [0, 3, 8, 4, 5, 9, 2]
+   list:   [0, 3, 8, 4, 0, 5, 5, 8, 9, 2]sorted: [0, 0, 2, 3, 4, 5, 5, 8, 8, 9]set:    [0, 3, 8, 4, 5, 9, 2]
    ```
 
    结果中包含原列表中的所有数字，但每个数字都只出现了一次。请注意，这些数字的顺序与原列表中的顺序相同，但这个顺序对集来说并不重要。
@@ -4684,8 +3627,7 @@ Kotlin 中另一种类型的集合是[集](https://kotlinlang.org/api/latest/jvm
 3. 定义一个可变集和一个不可变集，并通过添加下列几行代码使用同一组数字（但数字的顺序不同）对其进行初始化：
 
    ```
-   val set1 = setOf(1,2,3)
-   val set2 = mutableSetOf(3,2,1)
+   val set1 = setOf(1,2,3)val set2 = mutableSetOf(3,2,1)
    ```
 
 4. 添加一行代码以输出两个集是否相等：
@@ -4719,18 +3661,7 @@ Kotlin 中另一种类型的集合是[集](https://kotlinlang.org/api/latest/jvm
    您也可以尝试使用一个包含在集中的值对其进行测试。
 
    ```
-       All of the code above:
-   fun main() {
-       val numbers = listOf(0, 3, 8, 4, 0, 5, 5, 8, 9, 2)
-       println("list:   ${numbers}")
-       println("sorted: ${numbers.sorted()}")
-       val setOfNumbers = numbers.toSet()
-       println("set:    ${setOfNumbers}")
-       val set1 = setOf(1,2,3)
-       val set2 = mutableSetOf(3,2,1)
-       println("$set1 == $set2: ${set1 == set2}")
-       println("contains 7: ${setOfNumbers.contains(7)}")
-   }
+       All of the code above:fun main() {    val numbers = listOf(0, 3, 8, 4, 0, 5, 5, 8, 9, 2)    println("list:   ${numbers}")    println("sorted: ${numbers.sorted()}")    val setOfNumbers = numbers.toSet()    println("set:    ${setOfNumbers}")    val set1 = setOf(1,2,3)    val set2 = mutableSetOf(3,2,1)    println("$set1 == $set2: ${set1 == set2}")    println("contains 7: ${setOfNumbers.contains(7)}")}
    ```
 
    与数学中的集一样，在 Kotlin 中，您也可以使用 [`intersect()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/intersect.html) 或 [`union()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/union.html) 执行求两个集的交集 (∩) 或并集 (∪) 等运算。
@@ -4748,13 +3679,7 @@ Kotlin 中另一种类型的集合是[集](https://kotlinlang.org/api/latest/jvm
 1. 在 Kotlin 园地中，使用以下代码替换所有代码，以创建一个可变映射，用于存储人名及其年龄：
 
    ```
-   fun main() {
-       val peopleAges = mutableMapOf<String, Int>(
-           "Fred" to 30,
-           "Ann" to 23
-       )
-       println(peopleAges)
-   }
+   fun main() {    val peopleAges = mutableMapOf<String, Int>(        "Fred" to 30,        "Ann" to 23    )    println(peopleAges)}
    ```
 
    这将创建一个从 `String`（键）到 `Int`（值）的可变映射，初始化包含两个条目的映射，并输出项。
@@ -4780,15 +3705,7 @@ Kotlin 中另一种类型的集合是[集](https://kotlinlang.org/api/latest/jvm
    以下是上面的所有代码：
 
    ```
-   fun main() {
-       val peopleAges = mutableMapOf<String, Int>(
-           "Fred" to 30,
-           "Ann" to 23
-       )
-       peopleAges.put("Barbara", 42)
-       peopleAges["Joe"] = 51
-       println(peopleAges)
-   }
+   fun main() {    val peopleAges = mutableMapOf<String, Int>(        "Fred" to 30,        "Ann" to 23    )    peopleAges.put("Barbara", 42)    peopleAges["Joe"] = 51    println(peopleAges)}
    ```
 
 5. 运行程序并查看结果：
@@ -4881,8 +3798,7 @@ Kotlin 中另一种类型的集合是[集](https://kotlinlang.org/api/latest/jvm
 1. 在 `println()` 之后，添加以下这几行代码：
 
    ```
-   val filteredNames = peopleAges.filter { it.key.length < 4 }
-   println(filteredNames)
+   val filteredNames = peopleAges.filter { it.key.length < 4 }println(filteredNames)
    ```
 
    同样请注意，调用 `filter` 不需要圆括号，`it` 表示列表中的当前项。
@@ -4936,12 +3852,7 @@ peopleAges.forEach { print("${it.key} is ${it.value}") }
 2. 生成的输出应如下所示：
 
    ```
-   fun main() {
-       val triple: (Int) -> Int = { a: Int -> a * 3 }
-       println(triple(5))
-   }
-   
-   15
+   fun main() {    val triple: (Int) -> Int = { a: Int -> a * 3 }    println(triple(5))}15
    ```
 
    
@@ -4979,10 +3890,7 @@ peopleAges.filter { it.key.length < 4 }
 1. 在园地中，使用以下代码创建一个名称列表，并输出按名称排序的该列表：
 
    ```
-   fun main() {
-       val peopleNames = listOf("Fred", "Ann", "Barbara", "Joe")
-       println(peopleNames.sorted())
-   }
+   fun main() {    val peopleNames = listOf("Fred", "Ann", "Barbara", "Joe")    println(peopleNames.sorted())}
    ```
 
    
@@ -4996,8 +3904,7 @@ peopleAges.filter { it.key.length < 4 }
 3. 运行程序并查看结果。
 
    ```
-   [Ann, Barbara, Fred, Joe]
-   [Ann, Joe, Fred, Barbara]
+   [Ann, Barbara, Fred, Joe][Ann, Joe, Fred, Barbara]
    ```
 
 传递给 `sortedWith()` 的 lambda 有两个参数：`str1`（是一个 `String`）和 `str2`（也是一个 `String`）。其后是函数箭头，后跟函数主体。
@@ -5067,16 +3974,13 @@ costOfServiceEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view
 1. 使用以下代码替换 Kotlin 园地中的代码：
 
    ```
-   fun main() {
-       val words = listOf("about", "acute", "awesome", "balloon", "best", "brief", "class", "coffee", "creative")
-   }
+   fun main() {    val words = listOf("about", "acute", "awesome", "balloon", "best", "brief", "class", "coffee", "creative")}
    ```
 
 2. 如需获取以字母 B 开头的单词的集合，可以将 `filter` 与 lambda 表达式结合使用。添加以下几行代码：
 
    ```
-   val filteredWords = words.filter { it.startsWith("b", ignoreCase = true) }
-   println(filteredWords)
+   val filteredWords = words.filter { it.startsWith("b", ignoreCase = true) }println(filteredWords)
    ```
 
    如果字符串以指定的字符串开头，[`startsWith()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/starts-with.html) 函数将返回 true。您也可以指示它忽略大小写，因此“b”将与“b”或“B”匹配。
@@ -5090,8 +3994,7 @@ costOfServiceEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view
 4. 请注意，应用需要随机显示单词。借助 Kotlin 集合，您可以使用 [`shuffled()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/shuffled.html) 函数随机打乱集合中的项并创建集合的副本。将过滤后的单词也改为打乱顺序：
 
    ```
-   val filteredWords = words.filter { it.startsWith("b", ignoreCase = true) }
-       .shuffled()
+   val filteredWords = words.filter { it.startsWith("b", ignoreCase = true) }    .shuffled()
    ```
 
 5. 运行程序并查看新的结果：
@@ -5105,9 +4008,7 @@ costOfServiceEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view
 6. 您并不需要使用所有单词（尤其是在实际单词列表很长的情况下），只需使用几个单词即可。您可以使用 [`take()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/take.html) 函数获取集合中的前 N 个项。使过滤后的单词只包含打乱后的前两个单词：
 
    ```
-   val filteredWords = words.filter { it.startsWith("b", ignoreCase = true) }
-       .shuffled()
-       .take(2)
+   val filteredWords = words.filter { it.startsWith("b", ignoreCase = true) }    .shuffled()    .take(2)
    ```
 
 7. 运行程序并查看新的结果：
@@ -5121,10 +4022,7 @@ costOfServiceEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view
 8. 最后，对于需要对每个字母的随机单词列表进行排序的应用，与之前一样，您可以使用 [`sorted()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted.html) 函数返回包含已排序项的集合的副本：
 
    ```
-   val filteredWords = words.filter { it.startsWith("b", ignoreCase = true) }
-       .shuffled()
-       .take(2)
-       .sorted()
+   val filteredWords = words.filter { it.startsWith("b", ignoreCase = true) }    .shuffled()    .take(2)    .sorted()
    ```
 
 9. 运行程序并查看新的结果：
@@ -5136,23 +4034,13 @@ costOfServiceEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view
    上面的所有代码汇总如下：
 
    ```
-   fun main() {
-       val words = listOf("about", "acute", "awesome", "balloon", "best", "brief", "class", "coffee", "creative")
-       val filteredWords = words.filter { it.startsWith("b", ignoreCase = true) }
-           .shuffled()
-           .take(2)
-           .sorted()
-       println(filteredWords)
-   }
+   fun main() {    val words = listOf("about", "acute", "awesome", "balloon", "best", "brief", "class", "coffee", "creative")    val filteredWords = words.filter { it.startsWith("b", ignoreCase = true) }        .shuffled()        .take(2)        .sorted()    println(filteredWords)}
    ```
 
 10. 尝试更改代码，创建只含一个以字母 c 开头的随机单词的列表。您必须对上面的代码做出哪些更改
 
     ```
-    val filteredWords = words.filter { it.startsWith("c", ignoreCase = true) }
-        .shuffled()
-        .take(1)
-        .sorted()
+    val filteredWords = words.filter { it.startsWith("c", ignoreCase = true) }    .shuffled()    .take(1)    .sorted()
     ```
 
     在实际应用中，您需要对字母表中的每个字母应用过滤器，不过现在您已经知道如何生成每个字母的单词列表了！
@@ -5185,11 +4073,7 @@ costOfServiceEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view
 如果您从 GitHub 下载起始代码，那么请注意，文件夹名称为 `android-basics-kotlin-words-app-starter`。在 Android Studio 中打开项目时，请选择此文件夹。
 
 ```
-起始代码网址**：https://github.com/google-developer-training/android-basics-kotlin-words-app/tree/starter
-
-**GitHub 中的分支名称**：
-
-starter
+起始代码网址**：https://github.com/google-developer-training/android-basics-kotlin-words-app/tree/starter**GitHub 中的分支名称**：starter
 ```
 
 在继续之前，请花点时间熟悉一下项目。您应该已经熟悉了上一单元介绍的所有概念。目前，该应用由两个 activity 组成，每个 activity 均包含一个 recycler 视图和一个适配器。
@@ -5236,9 +4120,7 @@ intent 是用于表示要执行的某些操作的对象。intent 最常见（但
 1. 打开 `LetterAdapter.kt` 并向下滚动到 `onBindViewHolder()`。在用于设置按钮文本的代码行下方，为 `holder.button` 设置 `onClickListener`。
 
    ```
-   holder.button.setOnClickListener {
-   
-   }
+   holder.button.setOnClickListener {}
    ```
 
 2. 然后，获取对 `context` 的引用。
@@ -5316,9 +4198,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 1. 在 `DetailActivity` 中 `onCreate` 的上方，添加以下代码：
 
    ```
-   companion object {
-   
-   }
+   companion object {}
    ```
 
    请注意，这类似于定义类，只不过您使用的是 `object` 关键字。此外还有关键字 `companion`，这意味着它与 `DetailActivity` 类相关联，我们无需为其提供单独的类型名称。
@@ -5366,18 +4246,13 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 1. 对于此应用，您将在 Google 搜索中搜索相应单词。第一个搜索结果将是该单词的字典定义。由于每次搜索都会使用相同的基准网址，最好将其定义为自己的常量。在 `DetailActivity` 中，修改伴生对象以添加新的常量 `SEARCH_PREFIX`。这便是 Google 搜索的基准网址。
 
    ```
-   companion object {
-      const val LETTER = "letter"
-      const val SEARCH_PREFIX = "https://www.google.com/search?q="
-   }
+   companion object {   const val LETTER = "letter"   const val SEARCH_PREFIX = "https://www.google.com/search?q="}
    ```
 
 2. 然后，打开 `WordAdapter`，并在 `onBindViewHolder()` 方法中对按钮调用 `setOnClickListener()`。首先，为搜索查询创建一个 `URI`。当调用 `parse()` 以从某个 `String` 创建 `URI` 时，您需要使用字符串格式，以便将单词附加到 `SEARCH_PREFIX`。
 
    ```
-   holder.button.setOnClickListener {
-       val queryUrl: Uri = Uri.parse("${DetailActivity.SEARCH_PREFIX}${item}")
-   }
+   holder.button.setOnClickListener {    val queryUrl: Uri = Uri.parse("${DetailActivity.SEARCH_PREFIX}${item}")}
    ```
 
    如果您想了解什么是 URI，它并非拼写错误，其全称为 Uniform Resource Identifier，表示统一资源标识符。您可能已经知道，网址（全称为 Uniform Resource Locator，表示统一资源定位符）是指向某个网页的字符串。URI 是一个更为宽泛的格式术语。所有网址都是 URI，但并非所有 URI 都是网址。其他 URI（例如，电话号码对应的地址）可能会以 `tel:` 开头，但会被视为 URN（全称为 Uniform Resource Name，表示统一资源名称），而不是网址。用于表示这两种数据的数据类型被称为 `URI`。
@@ -5442,13 +4317,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 4. 打开 **res/Menu/layout_menu**。将 `layout_menu.xml` 的内容替换为以下代码：
 
    ```
-   <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
-      <item android:id="@+id/action_switch_layout"
-          android:title="@string/action_switch_layout"
-          android:icon="@drawable/ic_linear_layout"
-          app:showAsAction="always" />
-   </menu>
+   <menu xmlns:android="http://schemas.android.com/apk/res/android"   xmlns:app="http://schemas.android.com/apk/res-auto">   <item android:id="@+id/action_switch_layout"       android:title="@string/action_switch_layout"       android:icon="@drawable/ic_linear_layout"       app:showAsAction="always" /></menu>
    ```
 
    菜单文件的结构非常简单。就像布局以用于存储各个视图的布局管理器开头一样，菜单 XML 文件也以包含各个选项的菜单标记开头。
@@ -5479,14 +4348,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 2. 当用户切换按钮时，您需要将项列表转换为项网格。如果您回想一下学到的 recycler 视图相关知识，会发现有许多不同的布局管理器，其中 `GridLayoutManager` 允许在单行中显示多个项
 
    ```
-   private fun chooseLayout() {
-       if (isLinearLayoutManager) {
-           recyclerView.layoutManager = LinearLayoutManager(this)
-       } else {
-           recyclerView.layoutManager = GridLayoutManager(this, 4)
-       }
-       recyclerView.adapter = LetterAdapter()
-   }
+   private fun chooseLayout() {    if (isLinearLayoutManager) {        recyclerView.layoutManager = LinearLayoutManager(this)    } else {        recyclerView.layoutManager = GridLayoutManager(this, 4)    }    recyclerView.adapter = LetterAdapter()}
    ```
 
    此处使用了 `if` 语句来分配布局管理器。除了设置 `layoutManager` 之外，此代码还会分配适配器。`LetterAdapter` 既用于列表布局，也用于网格布局。
@@ -5494,22 +4356,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 3. 您最初使用 XML 设置菜单时，您为其提供的是静态图标。但是，切换布局后，您应更新图标以反映新的功能，即可切换回列表布局。在此，您只需根据下次点按按钮时将切换回的布局，设置线性和网格布局图标。
 
    ```
-   private fun setIcon(menuItem: MenuItem?) {
-      if (menuItem == null)
-          return
-   
-      // Set the drawable for the menu icon based on which LayoutManager is currently in use
-   
-      // An if-clause can be used on the right side of an assignment if all paths return a value.
-      // The following code is equivalent to
-      // if (isLinearLayoutManager)
-      //     menu.icon = ContextCompat.getDrawable(this, R.drawable.ic_grid_layout)
-      // else menu.icon = ContextCompat.getDrawable(this, R.drawable.ic_linear_layout)
-      menuItem.icon =
-          if (isLinearLayoutManager)
-              ContextCompat.getDrawable(this, R.drawable.ic_grid_layout)
-          else ContextCompat.getDrawable(this, R.drawable.ic_linear_layout)
-   }
+   private fun setIcon(menuItem: MenuItem?) {   if (menuItem == null)       return   // Set the drawable for the menu icon based on which LayoutManager is currently in use   // An if-clause can be used on the right side of an assignment if all paths return a value.   // The following code is equivalent to   // if (isLinearLayoutManager)   //     menu.icon = ContextCompat.getDrawable(this, R.drawable.ic_grid_layout)   // else menu.icon = ContextCompat.getDrawable(this, R.drawable.ic_linear_layout)   menuItem.icon =       if (isLinearLayoutManager)           ContextCompat.getDrawable(this, R.drawable.ic_grid_layout)       else ContextCompat.getDrawable(this, R.drawable.ic_linear_layout)}
    ```
 
    图标是根据 `isLinearLayoutManager` 属性有条件地设置的。
@@ -5519,44 +4366,18 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
    - `onCreateOptionsMenu`：用于膨胀选项菜单并执行任何其他设置。
    - `onOptionsItemSelected`：用于在选中按钮后实际调用 `chooseLayout()`。
 
-1. 按以下方式替换 `onCreateOptionsMenu`：
+4. 按以下方式替换 `onCreateOptionsMenu`：
 
    ```
-   override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-      menuInflater.inflate(R.menu.layout_menu, menu)
-   
-      val layoutButton = menu?.findItem(R.id.action_switch_layout)
-      // Calls code to set the icon based on the LinearLayoutManager of the RecyclerView
-      setIcon(layoutButton)
-   
-      return true
-   }
+   override fun onCreateOptionsMenu(menu: Menu?): Boolean {   menuInflater.inflate(R.menu.layout_menu, menu)   val layoutButton = menu?.findItem(R.id.action_switch_layout)   // Calls code to set the icon based on the LinearLayoutManager of the RecyclerView   setIcon(layoutButton)   return true}
    ```
 
    这里没有什么特别的。膨胀过布局之后，您需要调用 `setIcon()` 以确保系统根据布局准确显示图标。此方法会返回一个 `Boolean`（此处返回的是 `true`），因为您想要创建选项菜单。
 
-2. 只需再添加另外几行代码，即可实现 `onOptionsItemSelected`，如下所示。
+5. 只需再添加另外几行代码，即可实现 `onOptionsItemSelected`，如下所示。
 
    ```
-   override fun onOptionsItemSelected(item: MenuItem): Boolean {
-      return when (item.itemId) {
-          R.id.action_switch_layout -> {
-              // Sets isLinearLayoutManager (a Boolean) to the opposite value
-              isLinearLayoutManager = !isLinearLayoutManager
-              // Sets layout and icon
-              chooseLayout()
-              setIcon(item)
-   
-              return true
-          }
-          //  Otherwise, do nothing and use the core event handling
-   
-          // when clauses require that all possible paths be accounted for explicitly,
-          //  for instance both the true and false cases if the value is a Boolean,
-          //  or an else to catch all unhandled cases.
-          else -> super.onOptionsItemSelected(item)
-      }
-   }
+   override fun onOptionsItemSelected(item: MenuItem): Boolean {   return when (item.itemId) {       R.id.action_switch_layout -> {           // Sets isLinearLayoutManager (a Boolean) to the opposite value           isLinearLayoutManager = !isLinearLayoutManager           // Sets layout and icon           chooseLayout()           setIcon(item)           return true       }       //  Otherwise, do nothing and use the core event handling       // when clauses require that all possible paths be accounted for explicitly,       //  for instance both the true and false cases if the value is a Boolean,       //  or an else to catch all unhandled cases.       else -> super.onOptionsItemSelected(item)   }}
    ```
 
    每次点按菜单项时，系统都会调用此方法，因此务必要检查点按的是哪个菜单项。您在上面使用了 `when` 语句。如果 `id` 与 `action_switch_layout` 菜单项匹配，您就会否定 `isLinearLayoutManager` 的值。然后，调用 `chooseLayout()` 和 `setIcon()`，以便相应地更新界面。
@@ -5564,16 +4385,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
    在运行应用之前，还需要完成一项操作。由于布局管理器和适配器现在是在 `chooseLayout()` 中设置的，您应替换 `onCreate()` 中的相应代码以调用新的方法。完成更改后，`onCreate()` 应如下所示。
 
    ```
-   override fun onCreate(savedInstanceState: Bundle?) {
-      super.onCreate(savedInstanceState)
-   
-      val binding = ActivityMainBinding.inflate(layoutInflater)
-      setContentView(binding.root)
-   
-      recyclerView = binding.recyclerView
-      // Sets the LinearLayoutManager of the recyclerview
-      chooseLayout()
-   }
+   override fun onCreate(savedInstanceState: Bundle?) {   super.onCreate(savedInstanceState)   val binding = ActivityMainBinding.inflate(layoutInflater)   setContentView(binding.root)   recyclerView = binding.recyclerView   // Sets the LinearLayoutManager of the recyclerview   chooseLayout()}
    ```
 
    现在，运行您的应用，您应该能够使用菜单按钮在列表视图和网格视图之间进行切换。
@@ -5631,9 +4443,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 2. 打开 `MainActivity.kt` 并检查此 activity 的 `onCreate()` 方法：
 
    ```
-   override fun onCreate(savedInstanceState: Bundle?) {
-   ...
-   }
+   override fun onCreate(savedInstanceState: Bundle?) {...}
    ```
 
    在 activity 生命周期图中，您可能认出了 `onCreate()` 方法，因为您之前使用过此回调。这便是每个 activity 都必须实现的方法。您可使用 `onCreate()` 方法为 activity 执行所有一次性初始化。例如，在 `onCreate()` 中，您可以膨胀布局、定义点击监听器或设置视图绑定。
@@ -5705,9 +4515,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 2. 开始输入 `onStart` 以搜索所需的方法。如需滚动到下一个匹配项，请使用向下箭。从列表中选择 `onStart()`，然后点击 **OK** 插入样板替换代码。代码如下所示：
 
    ```
-   override fun onStart() {
-       super.onStart()
-   }
+   override fun onStart() {    super.onStart()}
    ```
 
 3. 在 `MainActivity.kt` 的顶层（也就是类声明 `class` `MainActivity.` 的上方）添加以下常量。
@@ -5719,10 +4527,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 4. 在 `onStart()` 方法中，添加一条日志消息：
 
    ```
-   override fun onStart() {
-      super.onStart()
-      Log.d(TAG, "onStart Called")
-   }
+   override fun onStart() {   super.onStart()   Log.d(TAG, "onStart Called")}
    ```
 
 5. 编译并运行 DessertClicker 应用，然后打开 **Logcat** 窗格。在搜索字段中输入 `D/MainActivity`，以过滤日志。请注意，`onCreate()` 和 `onStart()` 方法会依次调用，并且您的 activity 会显示在屏幕上。
@@ -5730,9 +4535,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 6. 按设备上的主屏幕按钮，然后使用“最近使用的应用”屏幕返回相应 activity。请注意，activity 会从上次停止的位置恢复，同时使用所有相同的值，并且 `onStart()` 会再次记录到 Logcat 中。另请注意，系统通常不会再次调用 `onCreate()` 方法。
 
    ```
-   16:19:59.125 31107-31107/com.example.android.dessertclicker D/MainActivity: onCreate Called
-   16:19:59.372 31107-31107/com.example.android.dessertclicker D/MainActivity: onStart Called
-   16:20:11.319 31107-31107/com.example.android.dessertclicker D/MainActivity: onStart Called
+   16:19:59.125 31107-31107/com.example.android.dessertclicker D/MainActivity: onCreate Called16:19:59.372 31107-31107/com.example.android.dessertclicker D/MainActivity: onStart Called16:20:11.319 31107-31107/com.example.android.dessertclicker D/MainActivity: onStart Called
    ```
 
 **注意**：在尝试使用设备并观察生命周期回调时，您可能会发现在设备旋转时出现了异常行为。此 Codelab 后面会介绍此行为。
@@ -5746,38 +4549,13 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 1. 替换 `MainActivity` 中其余的生命周期方法，然后为每种方法添加日志语句。代码如下：
 
    ```
-   override fun onResume() {
-      super.onResume()
-      Log.d(TAG, "onResume Called")
-   }
-   
-   override fun onPause() {
-      super.onPause()
-      Log.d(TAG, "onPause Called")
-   }
-   
-   override fun onStop() {
-      super.onStop()
-      Log.d(TAG, "onStop Called")
-   }
-   
-   override fun onDestroy() {
-      super.onDestroy()
-      Log.d(TAG, "onDestroy Called")
-   }
-   
-   override fun onRestart() {
-      super.onRestart()
-      Log.d(TAG, "onRestart Called")
-   }
+   override fun onResume() {   super.onResume()   Log.d(TAG, "onResume Called")}override fun onPause() {   super.onPause()   Log.d(TAG, "onPause Called")}override fun onStop() {   super.onStop()   Log.d(TAG, "onStop Called")}override fun onDestroy() {   super.onDestroy()   Log.d(TAG, "onDestroy Called")}override fun onRestart() {   super.onRestart()   Log.d(TAG, "onRestart Called")}
    ```
 
 2. 再次编译并运行 DessertClicker，然后检查 Logcat。这一次请注意，除了 `onCreate()` 和 `onStart()` 之外，还有一条有关 `onResume()` 生命周期回调的日志消息。
 
    ```
-   2020-10-16 10:27:33.244 22064-22064/com.example.android.dessertclicker D/MainActivity: onCreate Called
-   2020-10-16 10:27:33.453 22064-22064/com.example.android.dessertclicker D/MainActivity: onStart Called
-   2020-10-16 10:27:33.454 22064-22064/com.example.android.dessertclicker D/MainActivity: onResume Called
+   2020-10-16 10:27:33.244 22064-22064/com.example.android.dessertclicker D/MainActivity: onCreate Called2020-10-16 10:27:33.453 22064-22064/com.example.android.dessertclicker D/MainActivity: onStart Called2020-10-16 10:27:33.454 22064-22064/com.example.android.dessertclicker D/MainActivity: onResume Called
    ```
 
    当 activity 从头开始启动时，您会看到系统按顺序调用以下三个生命周期回调：
@@ -5801,9 +4579,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 1. 编译并运行 DessertClicker 应用（如果该应用尚未运行）。正如您所看到的，当 activity 首次启动时，系统会调用 `onCreate()`、`onStart()` 和 `onResume()` 回调。
 
    ```
-   2020-10-16 10:27:33.244 22064-22064/com.example.android.dessertclicker D/MainActivity: onCreate Called
-   2020-10-16 10:27:33.453 22064-22064/com.example.android.dessertclicker D/MainActivity: onStart Called
-   2020-10-16 10:27:33.454 22064-22064/com.example.android.dessertclicker D/MainActivity: onResume Called
+   2020-10-16 10:27:33.244 22064-22064/com.example.android.dessertclicker D/MainActivity: onCreate Called2020-10-16 10:27:33.453 22064-22064/com.example.android.dessertclicker D/MainActivity: onStart Called2020-10-16 10:27:33.454 22064-22064/com.example.android.dessertclicker D/MainActivity: onResume Called
    ```
 
 2. 多次点按纸杯蛋糕。
@@ -5811,9 +4587,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 3. 点按设备上的**返回**按钮。请注意，在 Logcat 中，系统将按上述顺序调用 `onPause()`、`onStop()` 和 `onDestroy()`。
 
    ```
-   2020-10-16 10:31:53.850 22064-22064/com.example.android.dessertclicker D/MainActivity: onPause Called
-   2020-10-16 10:31:54.620 22064-22064/com.example.android.dessertclicker D/MainActivity: onStop Called
-   2020-10-16 10:31:54.622 22064-22064/com.example.android.dessertclicker D/MainActivity: onDestroy Called
+   2020-10-16 10:31:53.850 22064-22064/com.example.android.dessertclicker D/MainActivity: onPause Called2020-10-16 10:31:54.620 22064-22064/com.example.android.dessertclicker D/MainActivity: onStop Called2020-10-16 10:31:54.622 22064-22064/com.example.android.dessertclicker D/MainActivity: onDestroy Called
    ```
 
    在本示例中，使用**返回**按钮会导致 activity（和应用）完全关闭。执行 `onDestroy()` 方法意味着相应 activity 已完全关闭，可以进行垃圾回收。[垃圾回收](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science))是指自动清理您不再使用的对象。调用 `onDestroy()` 后，系统会知道这些资源是可丢弃的，然后开始清理这部分内存。 如果您的代码手动调用该 activity 的 [`finish()`](https://developer.android.com/reference/android/app/Activity.html#finish()) 方法，或者用户强行退出该应用（例如，用户强行退出，或在“最近使用的应用”屏幕关闭该应用），您的 activity  也可能会完全关闭。如果您的应用长时间没有在屏幕上显示，Android 系统也可能会自行关闭您的 activity。Android  这样做是为了节省电量，同时允许其他应用使用您应用的资源。
@@ -5823,10 +4597,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 4. 返回 DessertClicker 应用，方法是在[概览屏幕](https://support.google.com/android/answer/9079644?hl=zh-CN)中找到所有打开的应用。（注意，这也称为“最近使用的应用”屏幕或“最近用过的应用”）中找到所有打开的应用。以下是 Logcat 中的日志：
 
    ```
-   2020-10-16 10:31:54.622 22064-22064/com.example.android.dessertclicker D/MainActivity: onDestroy Called
-   2020-10-16 10:38:00.733 22064-22064/com.example.android.dessertclicker D/MainActivity: onCreate Called
-   2020-10-16 10:38:00.787 22064-22064/com.example.android.dessertclicker D/MainActivity: onStart Called
-   2020-10-16 10:38:00.788 22064-22064/com.example.android.dessertclicker D/MainActivity: onResume Called
+   2020-10-16 10:31:54.622 22064-22064/com.example.android.dessertclicker D/MainActivity: onDestroy Called2020-10-16 10:38:00.733 22064-22064/com.example.android.dessertclicker D/MainActivity: onCreate Called2020-10-16 10:38:00.787 22064-22064/com.example.android.dessertclicker D/MainActivity: onStart Called2020-10-16 10:38:00.788 22064-22064/com.example.android.dessertclicker D/MainActivity: onResume Called
    ```
 
    相应 activity 在上一步中已被销毁，因此当您返回该应用时，Android 会启动一个新的 activity 并调用 `onCreate()`、`onStart()` 和 `onResume()` 方法。请注意，前一个 activity 中的 DessertClicker 日志并未保留。
@@ -5855,8 +4626,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 按设备上的**主屏幕**按钮，然后在 Android Studio 中观察 Logcat。返回主屏幕的操作会将您的应用置于后台，而不是完全关闭应用。请注意，系统会调用 `onPause()` 方法和 `onStop()` 方法，但不会调用 `onDestroy()`。
 
 ```
-2020-10-16 10:41:05.383 22064-22064/com.example.android.dessertclicker D/MainActivity: onPause Called
-2020-10-16 10:41:05.966 22064-22064/com.example.android.dessertclicker D/MainActivity: onStop Called
+2020-10-16 10:41:05.383 22064-22064/com.example.android.dessertclicker D/MainActivity: onPause Called2020-10-16 10:41:05.966 22064-22064/com.example.android.dessertclicker D/MainActivity: onStop Called
 ```
 
 在调用 `onPause()` 后，该应用不会再获得焦点。在 `onStop()` 之后，该应用将不再显示在屏幕上。虽然该 activity 已停止，但 `Activity` 对象仍位于内存中（在后台）。该 activity 尚未销毁。用户可能会返回该应用，因此 Android 会保留您的 activity 资源。![b488b32801220b79.png](https://developer.android.com/codelabs/basic-android-kotlin-training-activity-lifecycle/img/b488b32801220b79.png)
@@ -5864,9 +4634,7 @@ extra 属性为 `Bundle` 类型，您可能已经猜到，它提供了一种访�
 使用“最近使用的应用”屏幕返回该应用。请注意，在 Logcat 中，该 activity 使用 `onRestart()` 和 `onStart()` 重启，然后使用 `onResume()` 恢复。
 
 ```
-2020-10-16 10:42:18.144 22064-22064/com.example.android.dessertclicker D/MainActivity: onRestart Called
-2020-10-16 10:42:18.158 22064-22064/com.example.android.dessertclicker D/MainActivity: onStart Called
-2020-10-16 10:42:18.158 22064-22064/com.example.android.dessertclicker D/MainActivity: onResume Called
+2020-10-16 10:42:18.144 22064-22064/com.example.android.dessertclicker D/MainActivity: onRestart Called2020-10-16 10:42:18.158 22064-22064/com.example.android.dessertclicker D/MainActivity: onStart Called2020-10-16 10:42:18.158 22064-22064/com.example.android.dessertclicker D/MainActivity: onResume Called
 ```
 
 当该 activity 返回前台时，系统不会再次调用 `onCreate()` 方法。相应 activity 对象未被销毁，因此不需要重新创建。系统会调用 `onRestart()` 方法，而不是 `onCreate()`。请注意，这一次该 activity 返回前台时，系统会保留 **Desserts Sold** 数值。
@@ -5940,18 +4708,7 @@ activity 生命周期管理中的另一个用例也很重要：配置变更会�
 3. 检查 Logcat 中的输出。用 `MainActivity` 过滤输出。
 
    ```
-   2021-09-23 22:26:53.941 6636-6636/com.example.android.dessertclicker D/MainActivity: onPause Called
-   2021-09-23 22:26:53.944 6636-6636/com.example.android.dessertclicker D/MainActivity: onStop Called
-   2021-09-23 22:26:53.945 6636-6636/com.example.android.dessertclicker D/MainActivity: onDestroy Called
-   2021-09-23 22:26:53.987 6636-6636/com.example.android.dessertclicker D/MainActivity: onCreate Called
-   2021-09-23 22:26:54.046 6636-6636/com.example.android.dessertclicker D/MainActivity: onStart Called
-   2021-09-23 22:26:54.048 6636-6636/com.example.android.dessertclicker D/MainActivity: onResume Called
-   2021-09-23 22:27:13.276 6636-6636/com.example.android.dessertclicker D/MainActivity: onPause Called
-   2021-09-23 22:27:13.280 6636-6636/com.example.android.dessertclicker D/MainActivity: onStop Called
-   2021-09-23 22:27:13.281 6636-6636/com.example.android.dessertclicker D/MainActivity: onDestroy Called
-   2021-09-23 22:27:13.323 6636-6636/com.example.android.dessertclicker D/MainActivity: onCreate Called
-   2021-09-23 22:27:13.383 6636-6636/com.example.android.dessertclicker D/MainActivity: onStart Called
-   2021-09-23 22:27:13.384 6636-6636/com.example.android.dessertclicker D/MainActivity: onResume Called
+   2021-09-23 22:26:53.941 6636-6636/com.example.android.dessertclicker D/MainActivity: onPause Called2021-09-23 22:26:53.944 6636-6636/com.example.android.dessertclicker D/MainActivity: onStop Called2021-09-23 22:26:53.945 6636-6636/com.example.android.dessertclicker D/MainActivity: onDestroy Called2021-09-23 22:26:53.987 6636-6636/com.example.android.dessertclicker D/MainActivity: onCreate Called2021-09-23 22:26:54.046 6636-6636/com.example.android.dessertclicker D/MainActivity: onStart Called2021-09-23 22:26:54.048 6636-6636/com.example.android.dessertclicker D/MainActivity: onResume Called2021-09-23 22:27:13.276 6636-6636/com.example.android.dessertclicker D/MainActivity: onPause Called2021-09-23 22:27:13.280 6636-6636/com.example.android.dessertclicker D/MainActivity: onStop Called2021-09-23 22:27:13.281 6636-6636/com.example.android.dessertclicker D/MainActivity: onDestroy Called2021-09-23 22:27:13.323 6636-6636/com.example.android.dessertclicker D/MainActivity: onCreate Called2021-09-23 22:27:13.383 6636-6636/com.example.android.dessertclicker D/MainActivity: onStart Called2021-09-23 22:27:13.384 6636-6636/com.example.android.dessertclicker D/MainActivity: onResume Called
    ```
 
    请注意，设备或模拟器旋转屏幕时，系统会调用所有生命周期回调来关闭相应 activity。然后，在重新创建 activity 时，系统会调用所有生命周期回调来启动相应 activity。
@@ -5975,11 +4732,7 @@ activity 生命周期管理中的另一个用例也很重要：配置变更会�
 1. 在 `MainActivity` 中，替换 `onSaveInstanceState()` 回调，并添加日志语句。
 
    ```
-   override fun onSaveInstanceState(outState: Bundle) {
-      super.onSaveInstanceState(outState)
-   
-      Log.d(TAG, "onSaveInstanceState Called")
-   }
+   override fun onSaveInstanceState(outState: Bundle) {   super.onSaveInstanceState(outState)   Log.d(TAG, "onSaveInstanceState Called")}
    ```
 
    **注意**：`onSaveInstanceState()` 有两个替换项，一个仅包含 `outState` 参数，另一个包含 `outState` 和 `outPersistentState` 参数。请使用上述代码中包含单个 `outState` 参数的那个替换项。
@@ -5987,13 +4740,7 @@ activity 生命周期管理中的另一个用例也很重要：配置变更会�
 2. 编译并运行应用，然后点击**主屏幕**按钮，使其进入后台。请注意，`onSaveInstanceState()` 回调是紧接着 `onPause()` 和 `onStop()` 发生的：
 
    ```
-   2021-09-23 22:37:16.588 12321-12321/com.example.android.dessertclicker D/MainActivity: onPause Called
-   2021-09-23 22:37:16.591 12321-12321/com.example.android.dessertclicker D/MainActivity: onStop Called
-   2021-09-23 22:37:16.592 12321-12321/com.example.android.dessertclicker D/MainActivity: onSaveInstanceState Called
-   2021-09-23 22:37:16.592 12321-12321/com.example.android.dessertclicker D/MainActivity: onDestroy Called
-   2021-09-23 22:37:16.636 12321-12321/com.example.android.dessertclicker D/MainActivity: onCreate Called
-   2021-09-23 22:37:16.719 12321-12321/com.example.android.dessertclicker D/MainActivity: onStart Called
-   2021-09-23 22:37:16.720 12321-12321/com.example.android.dessertclicker D/MainActivity: onResume Called
+   2021-09-23 22:37:16.588 12321-12321/com.example.android.dessertclicker D/MainActivity: onPause Called2021-09-23 22:37:16.591 12321-12321/com.example.android.dessertclicker D/MainActivity: onStop Called2021-09-23 22:37:16.592 12321-12321/com.example.android.dessertclicker D/MainActivity: onSaveInstanceState Called2021-09-23 22:37:16.592 12321-12321/com.example.android.dessertclicker D/MainActivity: onDestroy Called2021-09-23 22:37:16.636 12321-12321/com.example.android.dessertclicker D/MainActivity: onCreate Called2021-09-23 22:37:16.719 12321-12321/com.example.android.dessertclicker D/MainActivity: onStart Called2021-09-23 22:37:16.720 12321-12321/com.example.android.dessertclicker D/MainActivity: onResume Called
    ```
 
    
@@ -6001,8 +4748,7 @@ activity 生命周期管理中的另一个用例也很重要：配置变更会�
 3. 在文件顶部（就在类定义之前）添加下列常量：
 
    ```
-   const val KEY_REVENUE = "revenue_key"
-   const val KEY_DESSERT_SOLD = "dessert_sold_key"
+   const val KEY_REVENUE = "revenue_key"const val KEY_DESSERT_SOLD = "dessert_sold_key"
    ```
 
    您将使用这些键将数据保存到实例状态 bundle 以及从中检索数据。
@@ -6044,9 +4790,7 @@ activity 状态可以在 `onCreate(Bundle)` 或 [`onRestoreInstanceState(Bundle)
 2. 将此代码添加到 `onCreate()`（紧跟在设置 `binding` 变量的代码之后）：
 
    ```
-   if (savedInstanceState != null) {
-      revenue = savedInstanceState.getInt(KEY_REVENUE, 0)
-   }
+   if (savedInstanceState != null) {   revenue = savedInstanceState.getInt(KEY_REVENUE, 0)}
    ```
 
    通过测试是否有 `null`，可以确定 bundle 中是否存在数据，或者 bundle 是否为 `null`，进而告知您应用是重新启动过，还是在关闭后重新创建过。此测试是从 bundle 恢复数据的常见模式。
@@ -6061,10 +4805,7 @@ activity 状态可以在 `onCreate(Bundle)` 或 [`onRestoreInstanceState(Bundle)
 3. 添加 `getInt()` 方法，以恢复收入和已售甜点数量。
 
    ```
-   if (savedInstanceState != null) {
-      revenue = savedInstanceState.getInt(KEY_REVENUE, 0)
-      dessertsSold = savedInstanceState.getInt(KEY_DESSERT_SOLD, 0)
-   }
+   if (savedInstanceState != null) {   revenue = savedInstanceState.getInt(KEY_REVENUE, 0)   dessertsSold = savedInstanceState.getInt(KEY_DESSERT_SOLD, 0)}
    ```
 
 4. 编译并运行应用。按纸杯蛋糕至少五次，直到屏幕画面切换到甜甜圈。
@@ -6076,12 +4817,7 @@ activity 状态可以在 `onCreate(Bundle)` 或 [`onRestoreInstanceState(Bundle)
 6. 在 `MainActivity` 中，检查 `showCurrentDessert()` 方法。请注意，此方法会根据当前已售的甜点数量以及 `allDesserts` 变量中的甜点清单，决定在 activity 中显示哪张甜点图片。
 
    ```
-   for (dessert in allDesserts) {
-      if (dessertsSold >= dessert.startProductionAmount) {
-          newDessert = dessert
-      }
-       else break
-   }
+   for (dessert in allDesserts) {   if (dessertsSold >= dessert.startProductionAmount) {       newDessert = dessert   }    else break}
    ```
 
    此方法依赖于已售甜点的数量来选择正确的图片。因此，您无需执行任何操作，即可在 `onSaveInstanceState()` 中将对图片的引用存储到 bundle 内。在该 bundle 中，您已经存储了已售甜点的数量。
@@ -6089,11 +4825,7 @@ activity 状态可以在 `onCreate(Bundle)` 或 [`onRestoreInstanceState(Bundle)
 7. 在 `onCreate()` 中，在用于从 bundle 恢复状态的代码块中，调用 `showCurrentDessert()`：
 
    ```
-    if (savedInstanceState != null) {
-      revenue = savedInstanceState.getInt(KEY_REVENUE, 0)
-      dessertsSold = savedInstanceState.getInt(KEY_DESSERT_SOLD, 0)
-      showCurrentDessert()
-   }
+    if (savedInstanceState != null) {   revenue = savedInstanceState.getInt(KEY_REVENUE, 0)   dessertsSold = savedInstanceState.getInt(KEY_DESSERT_SOLD, 0)   showCurrentDessert()}
    ```
 
 8. 编译并运行应用，然后旋转屏幕。请注意，现在，已售甜点数量和总收入的值以及甜点图片均已正确恢复。
@@ -6208,25 +4940,13 @@ fragment 就是可重复使用的应用界面片段。与 activity 类似，frag
    **LetterListFragment.kt**
 
    ```
-   package com.example.wordsapp
-   
-   import androidx.fragment.app.Fragment
-   
-   class LetterListFragment : Fragment() {
-   
-   }
+   package com.example.wordsappimport androidx.fragment.app.Fragmentclass LetterListFragment : Fragment() {}
    ```
 
    **WordListFragment.kt**
 
    ```
-   package com.example.wordsapp
-   
-   import androidx.fragment.app.Fragment
-   
-   class WordListFragment : Fragment() {
-   
-   }
+   package com.example.wordsappimport androidx.fragment.app.Fragmentclass WordListFragment : Fragment() {}
    ```
 
 3. 将 `activity_main.xml` 的内容复制到 `fragment_letter_list.xml` 中，并将 `activity_detail.xml` 的内容复制到 `fragment_word_list.xml` 中。将 `fragment_letter_list.xml` 中的 `tools:context` 更新为 `.LetterListFragment`，并将 `fragment_word_list.xml` 中的 `tools:context` 更新为 `.WordListFragment`。
@@ -6236,42 +4956,13 @@ fragment 就是可重复使用的应用界面片段。与 activity 类似，frag
    **fragment_letter_list.xml**
 
    ```
-   <?xml version="1.0" encoding="utf-8"?>
-   <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:tools="http://schemas.android.com/tools"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      tools:context=".WordListFragment">
-   
-      <androidx.recyclerview.widget.RecyclerView
-          android:id="@+id/recycler_view"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:clipToPadding="false"
-          android:padding="16dp" />
-   
-   </FrameLayout>
+   <?xml version="1.0" encoding="utf-8"?><FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"   xmlns:tools="http://schemas.android.com/tools"   android:layout_width="match_parent"   android:layout_height="match_parent"   tools:context=".WordListFragment">   <androidx.recyclerview.widget.RecyclerView       android:id="@+id/recycler_view"       android:layout_width="match_parent"       android:layout_height="match_parent"       android:clipToPadding="false"       android:padding="16dp" /></FrameLayout>
    ```
 
    **fragment_word_list.xml**
 
    ```
-   <?xml version="1.0" encoding="utf-8"?>
-   <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:tools="http://schemas.android.com/tools"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      tools:context=".WordListFragment">
-   
-      <androidx.recyclerview.widget.RecyclerView
-          android:id="@+id/recycler_view"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:clipToPadding="false"
-          android:padding="16dp"
-          tools:listitem="@layout/item_view" />
-   
-   </FrameLayout>
+   <?xml version="1.0" encoding="utf-8"?><FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"   xmlns:tools="http://schemas.android.com/tools"   android:layout_width="match_parent"   android:layout_height="match_parent"   tools:context=".WordListFragment">   <androidx.recyclerview.widget.RecyclerView       android:id="@+id/recycler_view"       android:layout_width="match_parent"       android:layout_height="match_parent"       android:clipToPadding="false"       android:padding="16dp"       tools:listitem="@layout/item_view" /></FrameLayout>
    ```
 
 ### ④ 实现 LetterListFragment
@@ -6305,23 +4996,13 @@ fragment 就是可重复使用的应用界面片段。与 activity 类似，frag
 3. 如需实现 `onCreate()`，只需调用 `setHasOptionsMenu()` 即可。
 
    ```
-   override fun onCreate(savedInstanceState: Bundle?) {
-      super.onCreate(savedInstanceState)
-      setHasOptionsMenu(true)
-   }
+   override fun onCreate(savedInstanceState: Bundle?) {   super.onCreate(savedInstanceState)   setHasOptionsMenu(true)}
    ```
 
 4. 请记住，使用 fragment 时，布局会在 `onCreateView()` 中膨胀。通过膨胀视图、设置 `_binding` 的值并返回根视图，可实现 `onCreateView()`
 
    ```
-   override fun onCreateView(
-      inflater: LayoutInflater, container: ViewGroup?,
-      savedInstanceState: Bundle?
-   ): View? {
-      _binding = FragmentLetterListBinding.inflate(inflater, container, false)
-      val view = binding.root
-      return view
-   }
+   override fun onCreateView(   inflater: LayoutInflater, container: ViewGroup?,   savedInstanceState: Bundle?): View? {   _binding = FragmentLetterListBinding.inflate(inflater, container, false)   val view = binding.root   return view}
    ```
 
 5. 在 `binding` 属性下，为 recycler 视图创建一个属性。
@@ -6333,71 +5014,25 @@ fragment 就是可重复使用的应用界面片段。与 activity 类似，frag
 6. 然后，在 `onViewCreated()` 中设置 `recyclerView` 属性的值，并调用 `chooseLayout()`，就像在 `MainActivity` 中一样。您很快就会将 `chooseLayout()` 方法移至 `LetterListFragment` 中，所以不用担心会出错。
 
    ```
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-      recyclerView = binding.recyclerView
-      chooseLayout()
-   }
+   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {   recyclerView = binding.recyclerView   chooseLayout()}
    ```
 
 7. 最后，在 `onDestroyView()` 中，将 `_binding` 属性重置为 `null`，因为相应视图已不存在
 
    ```
-   override fun onDestroyView() {
-      super.onDestroyView()
-      _binding = null
-   }
+   override fun onDestroyView() {   super.onDestroyView()   _binding = null}
    ```
 
 8. 唯一需要注意的一点是，在使用 fragment 时，`onCreateOptionsMenu()` 方法存在一些细微差别。虽然 `Activity` 类具有名为 `menuInflater` 的全局属性，但 fragment 没有此属性。菜单膨胀器会转而传入 `onCreateOptionsMenu()` 中。另请注意，用于 fragment 的 `onCreateOptionsMenu()` 方法不需要返回语句。按如下所示实现该方法：
 
    ```
-   override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-      inflater.inflate(R.menu.layout_menu, menu)
-   
-      val layoutButton = menu.findItem(R.id.action_switch_layout)
-      setIcon(layoutButton)
-   }
+   override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {   inflater.inflate(R.menu.layout_menu, menu)   val layoutButton = menu.findItem(R.id.action_switch_layout)   setIcon(layoutButton)}
    ```
 
 9. 将 `chooseLayout()`、`setIcon()` 和 `onOptionsItemSelected()` 剩下的代码按原样从 `MainActivity` 中移出。唯一需要注意的区别是，由于与 activity 不同，fragment 不是 [`Context`](https://developer.android.com/reference/android/content/Context)。不能传入 `this`（引用 fragment 对象）作为布局管理器的上下文。不过，fragment 提供了 `context` 属性，您可以改用此属性。其余代码与 `MainActivity` 相同。
 
    ```
-   private fun chooseLayout() {
-      when (isLinearLayoutManager) {
-          true -> {
-              recyclerView.layoutManager = LinearLayoutManager(context)
-              recyclerView.adapter = LetterAdapter()
-          }
-          false -> {
-              recyclerView.layoutManager = GridLayoutManager(context, 4)
-              recyclerView.adapter = LetterAdapter()
-          }
-      }
-   }
-   
-   private fun setIcon(menuItem: MenuItem?) {
-      if (menuItem == null)
-          return
-   
-      menuItem.icon =
-          if (isLinearLayoutManager)
-              ContextCompat.getDrawable(this.requireContext(), R.drawable.ic_grid_layout)
-          else ContextCompat.getDrawable(this.requireContext(), R.drawable.ic_linear_layout)
-   }
-   
-   override fun onOptionsItemSelected(item: MenuItem): Boolean {
-      return when (item.itemId) {
-          R.id.action_switch_layout -> {
-              isLinearLayoutManager = !isLinearLayoutManager
-              chooseLayout()
-              setIcon(item)
-   
-              return true
-          }
-   
-          else -> super.onOptionsItemSelected(item)
-      }
-   }
+   private fun chooseLayout() {   when (isLinearLayoutManager) {       true -> {           recyclerView.layoutManager = LinearLayoutManager(context)           recyclerView.adapter = LetterAdapter()       }       false -> {           recyclerView.layoutManager = GridLayoutManager(context, 4)           recyclerView.adapter = LetterAdapter()       }   }}private fun setIcon(menuItem: MenuItem?) {   if (menuItem == null)       return   menuItem.icon =       if (isLinearLayoutManager)           ContextCompat.getDrawable(this.requireContext(), R.drawable.ic_grid_layout)       else ContextCompat.getDrawable(this.requireContext(), R.drawable.ic_linear_layout)}override fun onOptionsItemSelected(item: MenuItem): Boolean {   return when (item.itemId) {       R.id.action_switch_layout -> {           isLinearLayoutManager = !isLinearLayoutManager           chooseLayout()           setIcon(item)           return true       }       else -> super.onOptionsItemSelected(item)   }}
    ```
 
 10. 最后，从 `MainActivity` 复制 `isLinearLayoutManager` 属性。将此属性放在 `recyclerView` 属性声明的正下方。
@@ -6409,12 +5044,7 @@ fragment 就是可重复使用的应用界面片段。与 activity 类似，frag
 11. 现在，所有功能都已迁移至 `LetterListFragment`，因此所有 `MainActivity` 类都需要膨胀布局，使 fragment 在视图中显示。请直接删除 `MainActivity` 中除 `onCreate()` 以外的所有内容。更改后，`MainActivity` 应仅包含以下内容。
 
     ```
-    override fun onCreate(savedInstanceState: Bundle?) {
-       super.onCreate(savedInstanceState)
-    
-       val binding = ActivityMainBinding.inflate(layoutInflater)
-       setContentView(binding.root)
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {   super.onCreate(savedInstanceState)   val binding = ActivityMainBinding.inflate(layoutInflater)   setContentView(binding.root)}
     ```
 
 
@@ -6438,10 +5068,7 @@ fragment 就是可重复使用的应用界面片段。与 activity 类似，frag
 1. 首先，将伴生对象复制到 `WordListFragment`。
 
    ```
-   companion object {
-      val LETTER = "letter"
-      val SEARCH_PREFIX = "https://www.google.com/search?q="
-   }
+   companion object {   val LETTER = "letter"   val SEARCH_PREFIX = "https://www.google.com/search?q="}
    ```
 
 2. 然后，在 `LetterAdapter` 内用于执行 intent 的 `onClickListener()` 中，您需要更新对 `putExtra()` 的调用，也就是将 `DetailActivity.LETTER` 替换为 `WordListFragment.LETTER`。
@@ -6471,48 +5098,25 @@ fragment 就是可重复使用的应用界面片段。与 activity 类似，frag
 6. 然后膨胀布局，同时分配 `_binding` 变量并返回根视图。请记住，对于 fragment，您需要在 `onCreateView()`（而非 `onCreate()`）中执行此操作。
 
    ```
-   override fun onCreateView(
-      inflater: LayoutInflater,
-      container: ViewGroup?,
-      savedInstanceState: Bundle?
-   ): View? {
-      _binding = FragmentWordListBinding.inflate(inflater, container, false)
-      return binding.root
-   }
+   override fun onCreateView(   inflater: LayoutInflater,   container: ViewGroup?,   savedInstanceState: Bundle?): View? {   _binding = FragmentWordListBinding.inflate(inflater, container, false)   return binding.root}
    ```
 
 7. 接下来，您需要实现 `onViewCreated()`。这与在 `DetailActivity` 的 `onCreateView()` 中配置 `recyclerView` 几乎完全相同。不过，由于 fragment 无法直接访问该 intent，因此您需要使用 `activity.intent` 引用它。但是，您必须在 `onCreateView()` 中执行此操作，因为无法保证该 activity 在生命周期的早期就存在。
 
    ```
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-      val recyclerView = binding.recyclerView
-      recyclerView.layoutManager = LinearLayoutManager(requireContext())
-      recyclerView.adapter = WordAdapter(activity?.intent?.extras?.getString(LETTER).toString(), requireContext())
-   
-      recyclerView.addItemDecoration(
-          DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-      )
-   }
+   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {   val recyclerView = binding.recyclerView   recyclerView.layoutManager = LinearLayoutManager(requireContext())   recyclerView.adapter = WordAdapter(activity?.intent?.extras?.getString(LETTER).toString(), requireContext())   recyclerView.addItemDecoration(       DividerItemDecoration(context, DividerItemDecoration.VERTICAL)   )}
    ```
 
 8. 最后，您可以在 `onDestroyView()` 中重置 `_binding` 变量。
 
    ```
-   override fun onDestroyView() {
-      super.onDestroyView()
-      _binding = null
-   }
+   override fun onDestroyView() {   super.onDestroyView()   _binding = null}
    ```
 
 9. 在所有这些功能移至 WordListFragment 后，您现在可以从 DetailActivity 中删除此代码。剩下的应该就是 onCreate() 方法。
 
    ```
-   override fun onCreate(savedInstanceState: Bundle?) {
-      super.onCreate(savedInstanceState)
-   
-      val binding = ActivityDetailBinding.inflate(layoutInflater)
-      setContentView(binding.root)
-   }
+   override fun onCreate(savedInstanceState: Bundle?) {   super.onCreate(savedInstanceState)   val binding = ActivityDetailBinding.inflate(layoutInflater)   setContentView(binding.root)}
    ```
 
 
@@ -6536,9 +5140,7 @@ fragment 就是可重复使用的应用界面片段。与 activity 类似，frag
 4. 最后，由于 `DetailActivity` 不再存在，请从 `AndroidManifest.xml` 中移除以下内容。
 
    ```
-   <activity
-      android:name=".DetailActivity"
-      android:parentActivityName=".MainActivity" />
+   <activity   android:name=".DetailActivity"   android:parentActivityName=".MainActivity" />
    ```
 
    
@@ -6560,19 +5162,7 @@ Android Jetpack 提供了 Navigation 组件，可帮助您在应用中处理任�
 1. 在项目级 `build.gradle` 文件的 **buildscript > ext** 中，在 `material_version` 下，将 `nav_version` 设置为 `2.3.1`。
 
    ```
-   buildscript {
-       ext {
-           appcompat_version = "1.2.0"
-           constraintlayout_version = "2.0.2"
-           core_ktx_version = "1.3.2"
-           kotlin_version = "1.3.72"
-           material_version = "1.2.1"
-           nav_version = "2.3.1"
-       }
-   
-       ...
-   
-   }
+   buildscript {    ext {        appcompat_version = "1.2.0"        constraintlayout_version = "2.0.2"        core_ktx_version = "1.3.2"        kotlin_version = "1.3.72"        material_version = "1.2.1"        nav_version = "2.3.1"    }    ...}
    ```
 
    
@@ -6580,8 +5170,7 @@ Android Jetpack 提供了 Navigation 组件，可帮助您在应用中处理任�
 2. 在应用级 `build.gradle` 文件中，将以下内容添加到依赖项组中。
 
    ```
-   implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
-   implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+   implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
    ```
 
    
@@ -6603,12 +5192,7 @@ classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
 1. 在应用级 `build.gradle` 文件中，在顶部的 `plugins` 中添加 `androidx.navigation.safeargs.kotlin`。
 
 ```
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-    id 'androidx.navigation.safeargs.kotlin'
-}
+plugins {    id 'com.android.application'    id 'kotlin-android'    id 'kotlin-kapt'    id 'androidx.navigation.safeargs.kotlin'}
 ```
 
 1. 在修改 Gradle 文件后，您可能会在顶部看到一个黄色的横幅，要求您同步项目。点击 **Sync Now** 并等待一两分钟的时间，此时 Gradle 会更新项目依赖项，以反映您所做的更改。
@@ -6640,19 +5224,13 @@ plugins {
    将下面的代码：
 
    ```
-       <androidx.recyclerview.widget.RecyclerView
-           android:id="@+id/recycler_view"
-           ...
-           android:padding="16dp" />
+       <androidx.recyclerview.widget.RecyclerView        android:id="@+id/recycler_view"        ...        android:padding="16dp" />
    ```
 
    替换为此代码：
 
    ```
-   <androidx.fragment.app.FragmentContainerView
-      android:id="@+id/nav_host_fragment"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent" />
+   <androidx.fragment.app.FragmentContainerView   android:id="@+id/nav_host_fragment"   android:layout_width="match_parent"   android:layout_height="match_parent" />
    ```
 
 2. 在 id 属性下，添加 `name` 属性并将其设置为 `androidx.navigation.fragment.NavHostFragment`。虽然您可以为此属性指定特定的 fragment，但将其设置为 `NavHostFragment` 可让 `FragmentContainerView` 在 fragment 之间导航。
@@ -6676,12 +5254,7 @@ plugins {
 5. 最后，由于您使用应用命名空间添加了两个属性，因此请务必向 `FrameLayout` 添加 xmlns:app 属性。
 
    ```
-   <xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:tools="http://schemas.android.com/tools"
-      xmlns:app="http://schemas.android.com/apk/res-auto"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      tools:context=".MainActivity">
+   <xmlns:android="http://schemas.android.com/apk/res/android"   xmlns:tools="http://schemas.android.com/tools"   xmlns:app="http://schemas.android.com/apk/res-auto"   android:layout_width="match_parent"   android:layout_height="match_parent"   tools:context=".MainActivity">
    ```
 
 以上就是在 activity_main.xml 中进行的所有更改。接下来，您需要创建 `nav_graph` 文件。
@@ -6772,9 +5345,7 @@ holder.view.findNavController().navigate(action)
 2. 然后，在 `onCreate()` 中调用 `setContentView()` 后，引用 `nav_host_fragment`（这是 `FragmentContainerView` 的 ID），并将其分配给您的 `navController` 属性。
 
    ```
-   val navHostFragment = supportFragmentManager
-       .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-   navController = navHostFragment.navController
+   val navHostFragment = supportFragmentManager    .findFragmentById(R.id.nav_host_fragment) as NavHostFragmentnavController = navHostFragment.navController
    ```
 
 3. 然后，在 `onCreate()` 中调用 `setupActionBarWithNavController()`，同时传入 `navController`。这样可确保操作栏（应用栏）按钮（例如 `LetterListFragment` 中的菜单选项）可见。
@@ -6786,9 +5357,7 @@ holder.view.findNavController().navigate(action)
 4. 最后，实现 `onSupportNavigateUp()`。除了在 XML 中将 `defaultNavHost` 设置为 `true`，此方法还支持您处理**向上**按钮。不过，您的 activity 需要提供相应实现。
 
    ```
-   override fun onSupportNavigateUp(): Boolean {
-      return navController.navigateUp() || super.onSupportNavigateUp()
-   }
+   override fun onSupportNavigateUp(): Boolean {   return navController.navigateUp() || super.onSupportNavigateUp()}
    ```
 
 此时，所有组件就已准备就绪，支持用户使用 fragment 进行导航。不过，由于现在使用 fragment 而不是 intent 来执行导航，因此您在 `WordListFragment` 中使用的字母的 intent extra 将不再有效。在下一步中，您将通过更新 `WordListFragment` 来获取 `letter` 参数。
@@ -6816,14 +5385,7 @@ holder.view.findNavController().navigate(action)
 2. 然后替换 `onCreate()`（不是 `onCreateView()` 或 `onViewCreated()`!），并添加以下内容。
 
    ```
-   override fun onCreate(savedInstanceState: Bundle?) {
-       super.onCreate(savedInstanceState)
-   
-       arguments?.let {
-           letterId = it.getString(LETTER).toString()
-       }
-   
-   }
+   override fun onCreate(savedInstanceState: Bundle?) {    super.onCreate(savedInstanceState)    arguments?.let {        letterId = it.getString(LETTER).toString()    }}
    ```
 
    由于 `arguments` 有可能是可选的，请注意您调用了 `let()` 并传入了 lambda。此代码将执行，并假设 `arguments` 不为 null，同时传入 `it` 参数的非 null 参数。不过，如果 `arguments` 为 `null`，该 lambda 不会执行。
@@ -7040,8 +5602,7 @@ Android 系统可能会根据某些用户互动情况或因内存不足等系统
 2. 为了在应用中使用 `ViewModel`，请验证 `dependencies` 块内是否有 ViewModel 库依赖项。我们已代您完成此步骤。
 
    ```
-   // ViewModel
-   implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+   // ViewModelimplementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
    ```
 
    请务必使用[最新版本](https://developer.android.com/jetpack/androidx/releases/lifecycle)的库。
@@ -7055,8 +5616,7 @@ Android 系统可能会根据某些用户互动情况或因内存不足等系统
 5. 将 `GameViewModel` 更改为由 `ViewModel` 派生的子类。`ViewModel` 是一个抽象类，因此您需要对它进行扩展才能在应用中使用它。请参阅下面的 `GameViewModel` 类定义。
 
    ```
-   class GameViewModel : ViewModel() {
-   }
+   class GameViewModel : ViewModel() {}
    ```
 
 #### Ⅰ将 ViewModel 附加到 fragment
@@ -7092,8 +5652,7 @@ Kotlin 中的属性委托可以帮助您将 getter-setter 的责任移交给另�
 delegate 属性使用 `by` 子句和 delegate 类实例进行定义：
 
 ```
-// Syntax for property delegation
-var <property-name> : <property-type> by <delegate-class>()
+// Syntax for property delegationvar <property-name> : <property-type> by <delegate-class>()
 ```
 
 在应用中，如果您如下使用默认的 `GameViewModel` 构造函数初始化视图模型：
@@ -7117,12 +5676,7 @@ private val viewModel = GameViewModel()
 1. 将数据变量 `score`、`currentWordCount`、`currentScrambledWord` 移至 `GameViewModel` 类。
 
    ```
-   class GameViewModel : ViewModel() {
-   
-       private var score = 0
-       private var currentWordCount = 0
-       private var currentScrambledWord = "test"
-   ...
+   class GameViewModel : ViewModel() {    private var score = 0    private var currentWordCount = 0    private var currentScrambledWord = "test"...
    ```
 
 2. 请注意有关未解析的引用的错误。这是因为这些属性仅对 `ViewModel` 可见，界面控制器无法对其进行访问。接下来，您将修复这些错误。
@@ -7142,16 +5696,7 @@ private val viewModel = GameViewModel()
 对于 getter 和 setter 方法，您可以替换其中一个方法或同时替换两个方法，并提供您自己的自定义行为。为了实现后备属性，您需要替换 getter 方法以返回只读版本的数据。后备属性示例：
 
 ```
-// Declare private mutable variable that can only be modified
-// within the class it is declared.
-private var _count = 0
-
-// Declare another public immutable field and override its getter method.
-// Return the private property's value in the getter method.
-// When count is accessed, the get() function is called and
-// the value of _count is returned.
-val count: Int
-   get() = _count
+// Declare private mutable variable that can only be modified// within the class it is declared.private var _count = 0// Declare another public immutable field and override its getter method.// Return the private property's value in the getter method.// When count is accessed, the get() function is called and// the value of _count is returned.val count: Int   get() = _count
 ```
 
 举例而言，在您的应用中，您需要应用数据仅对 `ViewModel` 可见：
@@ -7173,17 +5718,13 @@ val count: Int
 1. 在 `GameViewModel` 中，更改 `currentScrambledWord` 声明以添加一个后备属性。现在，只能在 `GameViewModel` 中对 `_currentScrambledWord` 进行访问和修改。界面控制器 `GameFragment` 可以使用只读属性 `currentScrambledWord` 读取其值。
 
    ```
-   private var _currentScrambledWord = "test"
-   val currentScrambledWord: String
-      get() = _currentScrambledWord
+   private var _currentScrambledWord = "test"val currentScrambledWord: String   get() = _currentScrambledWord
    ```
 
 2. 在 `GameFragment` 中，更新 `updateNextWordOnScreen()` 方法以使用只读的 `viewModel` 属性 `currentScrambledWord`。
 
    ```
-   private fun updateNextWordOnScreen() {
-      binding.textViewUnscrambledWord.text = viewModel.currentScrambledWord
-   }
+   private fun updateNextWordOnScreen() {   binding.textViewUnscrambledWord.text = viewModel.currentScrambledWord}
    ```
 
 3. 在 `GameFragment` 中，删除 `onSubmitWord()` 和 `onSkipWord()` 方法内的代码。稍后您将实现这些方法。现在，您应该能够不出错误地编译代码了。
@@ -7207,13 +5748,7 @@ val count: Int
 1. 在 `GameViewModel.kt` 中，添加一个带有日志语句的 `init` 块。
 
    ```
-   class GameViewModel : ViewModel() {
-      init {
-          Log.d("GameFragment", "GameViewModel created!")
-      }
-   
-      ...
-   }
+   class GameViewModel : ViewModel() {   init {       Log.d("GameFragment", "GameViewModel created!")   }   ...}
    ```
 
    Kotlin 提供了初始化式块（也称为 `init` 块），作为对象实例初始化期间所需的初始设置代码的位置。初始化式块带有前缀 `init` 关键字，后跟花括号 `{}`。此代码块将于首次创建和初始化对象实例时运行。
@@ -7223,61 +5758,37 @@ val count: Int
 3. 在 `onCleared()` 内添加日志语句，以跟踪 `GameViewModel` 生命周期。
 
    ```
-   override fun onCleared() {
-       super.onCleared()
-       Log.d("GameFragment", "GameViewModel destroyed!")
-   }
+   override fun onCleared() {    super.onCleared()    Log.d("GameFragment", "GameViewModel destroyed!")}
    ```
 
 4. 在 `GameFragment` 中的 `onCreateView()` 内，获得对绑定对象的引用后，添加日志语句以记录 fragment 的创建。首次创建 fragment 时以及每次因任何事件（例如配置更改）而重新创建 fragment 时，都会触发 `onCreateView()` 回调。
 
    ```
-   override fun onCreateView(
-      inflater: LayoutInflater, container: ViewGroup?,
-      savedInstanceState: Bundle?
-   ): View {
-      binding = GameFragmentBinding.inflate(inflater, container, false)
-      Log.d("GameFragment", "GameFragment created/re-created!")
-      return binding.root
-   }
+   override fun onCreateView(   inflater: LayoutInflater, container: ViewGroup?,   savedInstanceState: Bundle?): View {   binding = GameFragmentBinding.inflate(inflater, container, false)   Log.d("GameFragment", "GameFragment created/re-created!")   return binding.root}
    ```
 
 5. 在 `GameFragment` 中，替换 `onDetach()` 回调方法，相应的 activity 和 fragment 被销毁时会调用该回调方法。
 
    ```
-   override fun onDetach() {
-       super.onDetach()
-       Log.d("GameFragment", "GameFragment destroyed!")
-   }
+   override fun onDetach() {    super.onDetach()    Log.d("GameFragment", "GameFragment destroyed!")}
    ```
 
 6. 在 Android Studio 中，运行应用，打开 **Logcat** 窗口并按 `GameFragment` 进行过滤。请注意，创建了 `GameFragment` 和 `GameViewModel`。
 
    ```
-   com.example.android.unscramble D/GameFragment: GameFragment created/re-created!
-   com.example.android.unscramble D/GameFragment: GameViewModel created!
+   com.example.android.unscramble D/GameFragment: GameFragment created/re-created!com.example.android.unscramble D/GameFragment: GameViewModel created!
    ```
 
 7. 在您的设备上或模拟器中启用自动屏幕旋转设置，并更改几次屏幕方向。`GameFragment` 每次都被销毁并重新创建，而 `GameViewModel` 只创建了一次，并不是每次调用都重新创建或销毁。
 
    ```
-   com.example.android.unscramble D/GameFragment: GameFragment created/re-created!
-   com.example.android.unscramble D/GameFragment: GameViewModel created!
-   com.example.android.unscramble D/GameFragment: GameFragment destroyed!
-   com.example.android.unscramble D/GameFragment: GameFragment created/re-created!
-   com.example.android.unscramble D/GameFragment: GameFragment destroyed!
-   com.example.android.unscramble D/GameFragment: GameFragment created/re-created!
-   com.example.android.unscramble D/GameFragment: GameFragment destroyed!
-   com.example.android.unscramble D/GameFragment: GameFragment created/re-created!
-   com.example.android.unscramble D/GameFragment: GameFragment destroyed!
-   com.example.android.unscramble D/GameFragment: GameFragment created/re-created!
+   com.example.android.unscramble D/GameFragment: GameFragment created/re-created!com.example.android.unscramble D/GameFragment: GameViewModel created!com.example.android.unscramble D/GameFragment: GameFragment destroyed!com.example.android.unscramble D/GameFragment: GameFragment created/re-created!com.example.android.unscramble D/GameFragment: GameFragment destroyed!com.example.android.unscramble D/GameFragment: GameFragment created/re-created!com.example.android.unscramble D/GameFragment: GameFragment destroyed!com.example.android.unscramble D/GameFragment: GameFragment created/re-created!com.example.android.unscramble D/GameFragment: GameFragment destroyed!com.example.android.unscramble D/GameFragment: GameFragment created/re-created!
    ```
 
 8. 退出游戏或使用返回箭头退出应用。`GameViewModel` 会被销毁，`onCleared()` 回调会被调用。`GameFragment` 会被销毁。
 
    ```
-   com.example.android.unscramble D/GameFragment: GameViewModel destroyed!
-   com.example.android.unscramble D/GameFragment: GameFragment destroyed!
+   com.example.android.unscramble D/GameFragment: GameViewModel destroyed!com.example.android.unscramble D/GameFragment: GameFragment destroyed!
    ```
 
 
@@ -7306,8 +5817,7 @@ val count: Int
 2. 添加名为 `currentWord` 的另一个类变量，用于存储玩家正在尝试理顺的单词。请使用 `lateinit` 关键字，因为您稍后才会初始化此属性。
 
    ```
-   private var wordsList: MutableList<String> = mutableListOf()
-   private lateinit var currentWord: String
+   private var wordsList: MutableList<String> = mutableListOf()private lateinit var currentWord: String
    ```
 
 3. 添加一个名为 `getNextWord()` 的新 `private` 方法，该方法不带参数也不返回任何内容。
@@ -7315,61 +5825,31 @@ val count: Int
 4. 从 `allWordsList` 中获取一个随机单词并将其赋值给 `currentWord`。
 
    ```
-   private fun getNextWord() {
-      currentWord = allWordsList.random()
-   }
+   private fun getNextWord() {   currentWord = allWordsList.random()}
    ```
 
 5. 在 `getNextWord()` 中，将 `currentWord` 字符串转换为字符数组，并将其赋值给名为 `tempWord` 的新 `val`。为了打乱单词的字母顺序，请使用 Kotlin 方法 [`shuffle()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/shuffle.html) 打乱此数组中的字符。
 
    ```
-   val tempWord = currentWord.toCharArray()
-   tempWord.shuffle()
-   
+   val tempWord = currentWord.toCharArray()tempWord.shuffle()
    ```
 
 6. 有时，打乱的字符顺序与原单词相同。在 shuffle 调用前后添加以下 `while` 循环，以便继续该循环直至乱序词与原单词不同。
 
    ```
-   while (tempWord.toString().equals(currentWord, false)) {
-       tempWord.shuffle()
-   }
+   while (tempWord.toString().equals(currentWord, false)) {    tempWord.shuffle()}
    ```
 
 7. 添加一个 `if-else` 块，用于检查某个单词是否已用过。如果 `wordsList` 包含 `currentWord`，就调用 `getNextWord()`。如果不包含，就使用新打乱字母顺序的单词更新 `_currentScrambledWord` 的值，增加单词数，然后将新单词添加到 `wordsList` 中。
 
    ```
-   if (wordsList.contains(currentWord)) {
-       getNextWord()
-   } else {
-       _currentScrambledWord = String(tempWord)
-       ++currentWordCount
-       wordsList.add(currentWord)
-   }
+   if (wordsList.contains(currentWord)) {    getNextWord()} else {    _currentScrambledWord = String(tempWord)    ++currentWordCount    wordsList.add(currentWord)}
    ```
 
 8. 以下是完成后的 `getNextWord()` 方法，供您参考。
 
    ```
-   /*
-   * Updates currentWord and currentScrambledWord with the next word.
-   */
-   private fun getNextWord() {
-      currentWord = allWordsList.random()
-      val tempWord = currentWord.toCharArray()
-      tempWord.shuffle()
-   
-      while (tempWord.toString().equals(currentWord, false)) {
-          tempWord.shuffle()
-      }
-      if (wordsList.contains(currentWord)) {
-          getNextWord()
-      } else {
-          _currentScrambledWord = String(tempWord)
-          ++currentWordCount
-          wordsList.add(currentWord)
-      }
-   }
+   /** Updates currentWord and currentScrambledWord with the next word.*/private fun getNextWord() {   currentWord = allWordsList.random()   val tempWord = currentWord.toCharArray()   tempWord.shuffle()   while (tempWord.toString().equals(currentWord, false)) {       tempWord.shuffle()   }   if (wordsList.contains(currentWord)) {       getNextWord()   } else {       _currentScrambledWord = String(tempWord)       ++currentWordCount       wordsList.add(currentWord)   }}
    ```
 
 
@@ -7383,10 +5863,7 @@ val count: Int
 2. 如需在应用启动时显示乱序词，需要调用 `getNextWord()` 方法，该方法会进而更新 `currentScrambledWord`。在 `GameViewModel` 的 `init` 块内，调用 `getNextWord()` 方法。
 
    ```
-   init {
-       Log.d("GameFragment", "GameViewModel created!")
-       getNextWord()
-   }
+   init {    Log.d("GameFragment", "GameViewModel created!")    getNextWord()}
    ```
 
 3. 将 `lateinit` 修饰符添加到 `_currentScrambledWord` 属性上。明确指定数据类型为 `String`，因为此时不会提供初始值。
@@ -7410,16 +5887,7 @@ val count: Int
 1. 在 `GameViewModel` 类中，添加名为 `nextWord().` 的另一个方法。从列表中获取下一个单词，如果单词数少于 `MAX_NO_OF_WORDS`，就返回 `true`。
 
 ```
-/*
-* Returns true if the current word count is less than MAX_NO_OF_WORDS.
-* Updates the next word.
-*/
-fun nextWord(): Boolean {
-    return if (currentWordCount < MAX_NO_OF_WORDS) {
-        getNextWord()
-        true
-    } else false
-}
+/** Returns true if the current word count is less than MAX_NO_OF_WORDS.* Updates the next word.*/fun nextWord(): Boolean {    return if (currentWordCount < MAX_NO_OF_WORDS) {        getNextWord()        true    } else false}
 ```
 
 
@@ -7452,20 +5920,13 @@ fun nextWord(): Boolean {
 1. 首先，向 `score` 变量添加一个后备属性。在 `GameViewModel` 中，对 `score` 变量声明做以下更改。
 
    ```
-   private var _score = 0
-   val score: Int
-      get() = _score
+   private var _score = 0val score: Int   get() = _score
    ```
 
 2. 在 `GameFragment` 中，添加一个名为 `showFinalScoreDialog()` 的私有函数。若要创建 `MaterialAlertDialog`，请使用 `MaterialAlertDialogBuilder` 类逐步构建对话框的各个部分。使用 fragment 的 [`requireContext()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#requireContext()) 方法调用传入内容的 [`MaterialAlertDialogBuilder`](https://developer.android.com/reference/com/google/android/material/dialog/MaterialAlertDialogBuilder) 构造函数。`requireContext()` 方法会返回一个非 null `Context`。
 
    ```
-   /*
-   * Creates and shows an AlertDialog with the final score.
-   */
-   private fun showFinalScoreDialog() {
-      MaterialAlertDialogBuilder(requireContext())
-   }
+   /** Creates and shows an AlertDialog with the final score.*/private fun showFinalScoreDialog() {   MaterialAlertDialogBuilder(requireContext())}
    ```
 
    顾名思义，[`Context`](https://developer.android.com/reference/android/content/Context.html) 表示应用、activity 或 fragment 的上下文或当前状态。它包含有关 activity、fragment 或应用的信息。通常，它用于获取对资源、数据库和其他系统服务的访问权限。在此步骤中，您将传递 fragment 上下文以创建提醒对话框。
@@ -7475,8 +5936,7 @@ fun nextWord(): Boolean {
 3. 添加代码以对提醒对话框设置标题，使用 `strings.xml` 中的字符串资源。
 
    ```
-   MaterialAlertDialogBuilder(requireContext())
-      .setTitle(getString(R.string.congratulations))
+   MaterialAlertDialogBuilder(requireContext())   .setTitle(getString(R.string.congratulations))
    ```
 
 4. 设置消息以显示最终得分，使用您先前添加的只读版本得分变量 (`viewModel.score`)。
@@ -7494,12 +5954,7 @@ fun nextWord(): Boolean {
 6. 使用 `setNegativeButton()` 和 `setPositiveButton()` 方法，添加两个文本按钮 **EXIT** 和 **PLAY AGAIN**。从 lambda 分别调用 `exitGame()` 和 `restartGame()`。
 
    ```
-      .setNegativeButton(getString(R.string.exit)) { _, _ ->
-           exitGame()
-       }
-       .setPositiveButton(getString(R.string.play_again)) { _, _ ->
-           restartGame()
-       }
+      .setNegativeButton(getString(R.string.exit)) { _, _ ->        exitGame()    }    .setPositiveButton(getString(R.string.play_again)) { _, _ ->        restartGame()    }
    ```
 
    您可能不熟悉此语法，但这是 `setNegativeButton(getString(R.string.exit), { _, _ -> exitGame()})` 的简写形式，其中 `setNegativeButton()` 方法接受两个参数：一个 `String` 和一个函数 `DialogInterface.OnClickListener()`，后者可以用一个 lambda 来表示。当传入的最后一个参数是函数时，您可以将 lambda 表达式放在圆括号外。这称为[尾随 lambda 语法](https://kotlinlang.org/docs/reference/lambdas.html#passing-a-lambda-to-the-last-parameter)。这两种代码编写方式（将 lambda 放在圆括号内和圆括号外）均可接受。这一点同样适用于 `setPositiveButton` 函数。
@@ -7515,22 +5970,7 @@ fun nextWord(): Boolean {
 8. 以下是完整的 `showFinalScoreDialog()` 方法，供您参考。
 
    ```
-   /*
-   * Creates and shows an AlertDialog with the final score.
-   */
-   private fun showFinalScoreDialog() {
-      MaterialAlertDialogBuilder(requireContext())
-          .setTitle(getString(R.string.congratulations))
-          .setMessage(getString(R.string.you_scored, viewModel.score))
-          .setCancelable(false)
-          .setNegativeButton(getString(R.string.exit)) { _, _ ->
-              exitGame()
-          }
-          .setPositiveButton(getString(R.string.play_again)) { _, _ ->
-              restartGame()
-          }
-          .show()
-   }
+   /** Creates and shows an AlertDialog with the final score.*/private fun showFinalScoreDialog() {   MaterialAlertDialogBuilder(requireContext())       .setTitle(getString(R.string.congratulations))       .setMessage(getString(R.string.you_scored, viewModel.score))       .setCancelable(false)       .setNegativeButton(getString(R.string.exit)) { _, _ ->           exitGame()       }       .setPositiveButton(getString(R.string.play_again)) { _, _ ->           restartGame()       }       .show()}
    ```
 
 
@@ -7546,13 +5986,7 @@ fun nextWord(): Boolean {
 2. 添加对 `viewModel.nextWord()` 方法返回值的检查。如为 `true`，表示还有其他单词可用，所以使用 `updateNextWordOnScreen()` 更新屏幕上的乱序词。否则，表示游戏已结束，所以显示包含最终得分的提醒对话框。
 
    ```
-   private fun onSubmitWord() {
-       if (viewModel.nextWord()) {
-           updateNextWordOnScreen()
-       } else {
-           showFinalScoreDialog()
-       }
-   }
+   private fun onSubmitWord() {    if (viewModel.nextWord()) {        updateNextWordOnScreen()    } else {        showFinalScoreDialog()    }}
    ```
 
 3. 运行应用！玩一下游戏，猜几个单词。请注意，您尚未实现 **Skip** 按钮，因此无法跳过单词。
@@ -7571,9 +6005,7 @@ fun nextWord(): Boolean {
 1. 在 `GameViewModel` 中添加一个名为 `increaseScore()` 的新私有方法，该方法不带参数也不返回任何值。将 `score` 变量增加 `SCORE_INCREASE`。
 
    ```
-   private fun increaseScore() {
-      _score += SCORE_INCREASE
-   }
+   private fun increaseScore() {   _score += SCORE_INCREASE}
    ```
 
 2. 在 `GameViewModel` 中，添加一个名为 `isUserWordCorrect()` 的辅助方法，该方法返回 `Boolean` 并接受 `String`（玩家猜出的单词）作为参数。
@@ -7581,13 +6013,7 @@ fun nextWord(): Boolean {
 3. 在 `isUserWordCorrect()` 中，确认玩家猜出的单词是否正确，如果正确就增加得分。这将更新提醒对话框中的最终得分。
 
    ```
-   fun isUserWordCorrect(playerWord: String): Boolean {
-      if (playerWord.equals(currentWord, true)) {
-          increaseScore()
-          return true
-      }
-      return false
-   }
+   fun isUserWordCorrect(playerWord: String): Boolean {   if (playerWord.equals(currentWord, true)) {       increaseScore()       return true   }   return false}
    ```
 
 
@@ -7601,11 +6027,7 @@ fun nextWord(): Boolean {
 如需在文本字段中显示错误，可在代码中动态设置错误消息，也可在布局文件中静态设置错误消息。下面显示的是在代码中设置和重置错误的示例：
 
 ```
-// Set error text
-passwordLayout.error = getString(R.string.error)
-
-// Clear error text
-passwordLayout.error = null
+// Set error textpasswordLayout.error = getString(R.string.error)// Clear error textpasswordLayout.error = null
 ```
 
 您会发现，起始代码中已定义了辅助方法 `setErrorTextField(error: Boolean)` 来帮助您设置和重置文本字段中显示的错误。根据您是否要在文本字段中显示错误，以 `true` 或 `false` 作为输入参数调用此方法。
@@ -7613,15 +6035,7 @@ passwordLayout.error = null
 起始代码中的代码段
 
 ```
-private fun setErrorTextField(error: Boolean) {
-   if (error) {
-       binding.textField.isErrorEnabled = true
-       binding.textField.error = getString(R.string.try_again)
-   } else {
-       binding.textField.isErrorEnabled = false
-       binding.textInputEditText.text = null
-   }
-}
+private fun setErrorTextField(error: Boolean) {   if (error) {       binding.textField.isErrorEnabled = true       binding.textField.error = getString(R.string.try_again)   } else {       binding.textField.isErrorEnabled = false       binding.textInputEditText.text = null   }}
 ```
 
 在此任务中，您将实现 `onSubmitWord()` 方法。单词提交后，对照原单词进行检查，确认用户猜出的单词是否正确。如果单词正确，就转到下一个单词（如果游戏结束，就显示对话框）。如果单词不正确，就在文本字段中显示错误，同时继续显示当前单词。
@@ -7629,10 +6043,7 @@ private fun setErrorTextField(error: Boolean) {
 1. 在 `GameFragment,` 中的 `onSubmitWord()` 开头，创建一个名为 `playerWord` 的 `val`。通过在 `binding` 变量中从文本字段提取玩家猜出的单词，将此单词存储在该值中。
 
    ```
-   private fun onSubmitWord() {
-       val playerWord = binding.textInputEditText.text.toString()
-       ...
-   }
+   private fun onSubmitWord() {    val playerWord = binding.textInputEditText.text.toString()    ...}
    ```
 
    
@@ -7644,37 +6055,13 @@ private fun setErrorTextField(error: Boolean) {
 4. 将现有代码移至 `if` 块内。
 
    ```
-   private fun onSubmitWord() {
-       val playerWord = binding.textInputEditText.text.toString()
-   
-       if (viewModel.isUserWordCorrect(playerWord)) {
-           setErrorTextField(false)
-           if (viewModel.nextWord()) {
-               updateNextWordOnScreen()
-           } else {
-               showFinalScoreDialog()
-           }
-       }
-   }
+   private fun onSubmitWord() {    val playerWord = binding.textInputEditText.text.toString()    if (viewModel.isUserWordCorrect(playerWord)) {        setErrorTextField(false)        if (viewModel.nextWord()) {            updateNextWordOnScreen()        } else {            showFinalScoreDialog()        }    }}
    ```
 
 5. 如果用户猜出的单词不正确，就在文本字段中显示错误消息。将 `else` 块添加到上面的 `if` 块，然后调用 `setErrorTextField()` 并传入 `true`。完成后的 `onSubmitWord()` 方法应如下所示：
 
    ```
-   private fun onSubmitWord() {
-       val playerWord = binding.textInputEditText.text.toString()
-   
-       if (viewModel.isUserWordCorrect(playerWord)) {
-           setErrorTextField(false)
-           if (viewModel.nextWord()) {
-               updateNextWordOnScreen()
-           } else {
-               showFinalScoreDialog()
-           }
-       } else {
-           setErrorTextField(true)
-       }
-   }
+   private fun onSubmitWord() {    val playerWord = binding.textInputEditText.text.toString()    if (viewModel.isUserWordCorrect(playerWord)) {        setErrorTextField(false)        if (viewModel.nextWord()) {            updateNextWordOnScreen()        } else {            showFinalScoreDialog()        }    } else {        setErrorTextField(true)    }}
    ```
 
 6. 运行应用。玩一下游戏，猜几个单词。如果玩家猜出的单词正确，那么点击 **Submit** 按钮时单词会被清除，否则会显示“Try again!”消息。请注意，**Skip** 按钮仍然不起作用。您将在下一个任务中添加此实现。
@@ -7692,17 +6079,7 @@ private fun setErrorTextField(error: Boolean) {
 1. 与 `onSubmitWord()` 类似，在 `nextWord()` 方法中添加一个条件。如为 `true`，就在屏幕上显示单词并重置文本字段。如为 `false`，并且本局游戏中再没有剩下的单词，就显示包含最终得分的提醒对话框。
 
    ```
-   /*
-   * Skips the current word without changing the score.
-   */
-   private fun onSkipWord() {
-       if (viewModel.nextWord()) {
-           setErrorTextField(false)
-           updateNextWordOnScreen()
-       } else {
-           showFinalScoreDialog()
-       }
-   }
+   /** Skips the current word without changing the score.*/private fun onSkipWord() {    if (viewModel.nextWord()) {        setErrorTextField(false)        updateNextWordOnScreen()    } else {        showFinalScoreDialog()    }}
    ```
 
 2. 运行应用。玩游戏。请注意，**Skip** 和 **Submit** 按钮运行正常。非常好！
@@ -7717,36 +6094,19 @@ private fun setErrorTextField(error: Boolean) {
 2. 添加后备字段。
 
 ```
-private var _currentWordCount = 0
-val currentWordCount: Int
-   get() = _currentWordCount
+private var _currentWordCount = 0val currentWordCount: Int   get() = _currentWordCount
 ```
 
 1. 在 `GameFragment` 中的 `onCreateView()` 内，在 return 语句上方添加另一个日志，用于输出应用数据，即单词、得分和单词数。
 
 ```
-Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
-       "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
+Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +       "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
 ```
 
 1. 在 Android Studio 中，打开 **Logcat**，按 `GameFragment` 进行过滤。运行应用并玩一下游戏，猜几个单词。更改设备的屏幕方向。fragment（界面控制器）会被销毁并重新创建。查看日志。现在，您可以看到得分和单词数增加！
 
 ```
-com.example.android.unscramble D/GameFragment: GameFragment created/re-created!
-com.example.android.unscramble D/GameFragment: GameViewModel created!
-com.example.android.unscramble D/GameFragment: Word: oimfnru Score: 0 WordCount: 1
-com.example.android.unscramble D/GameFragment: GameFragment destroyed!
-com.example.android.unscramble D/GameFragment: GameFragment created/re-created!
-com.example.android.unscramble D/GameFragment: Word: ofx Score: 80 WordCount: 5
-com.example.android.unscramble D/GameFragment: GameFragment destroyed!
-com.example.android.unscramble D/GameFragment: GameFragment created/re-created!
-com.example.android.unscramble D/GameFragment: Word: ofx Score: 80 WordCount: 5
-com.example.android.unscramble D/GameFragment: GameFragment destroyed!
-com.example.android.unscramble D/GameFragment: GameFragment created/re-created!
-com.example.android.unscramble D/GameFragment: Word: nvoiil Score: 160 WordCount: 9
-com.example.android.unscramble D/GameFragment: GameFragment destroyed!
-com.example.android.unscramble D/GameFragment: GameFragment created/re-created!
-com.example.android.unscramble D/GameFragment: Word: nvoiil Score: 160 WordCount: 9
+com.example.android.unscramble D/GameFragment: GameFragment created/re-created!com.example.android.unscramble D/GameFragment: GameViewModel created!com.example.android.unscramble D/GameFragment: Word: oimfnru Score: 0 WordCount: 1com.example.android.unscramble D/GameFragment: GameFragment destroyed!com.example.android.unscramble D/GameFragment: GameFragment created/re-created!com.example.android.unscramble D/GameFragment: Word: ofx Score: 80 WordCount: 5com.example.android.unscramble D/GameFragment: GameFragment destroyed!com.example.android.unscramble D/GameFragment: GameFragment created/re-created!com.example.android.unscramble D/GameFragment: Word: ofx Score: 80 WordCount: 5com.example.android.unscramble D/GameFragment: GameFragment destroyed!com.example.android.unscramble D/GameFragment: GameFragment created/re-created!com.example.android.unscramble D/GameFragment: Word: nvoiil Score: 160 WordCount: 9com.example.android.unscramble D/GameFragment: GameFragment destroyed!com.example.android.unscramble D/GameFragment: GameFragment created/re-created!com.example.android.unscramble D/GameFragment: Word: nvoiil Score: 160 WordCount: 9
 ```
 
 请注意，屏幕方向更改期间，应用数据在 `ViewModel` 中得以保留。在后续 Codelab 中，您将使用 `LiveData` 和数据绑定更新界面中的得分值和单词数。
@@ -7760,25 +6120,13 @@ com.example.android.unscramble D/GameFragment: Word: nvoiil Score: 160 WordCount
 2. 为了重置应用数据，请在 `GameViewModel` 中添加一个名为 `reinitializeData()` 的方法。将得分和单词数设为 `0`。清空单词列表并调用 `getNextWord()` 方法。
 
    ```
-   /*
-   * Re-initializes the game data to restart the game.
-   */
-   fun reinitializeData() {
-      _score = 0
-      _currentWordCount = 0
-      wordsList.clear()
-      getNextWord()
-   }
+   /** Re-initializes the game data to restart the game.*/fun reinitializeData() {   _score = 0   _currentWordCount = 0   wordsList.clear()   getNextWord()}
    ```
 
 3. 在 `GameFragment` 中的 `restartGame()` 方法顶部，调用新创建的 `reinitializeData()` 方法。
 
    ```
-   private fun restartGame() {
-      viewModel.reinitializeData()
-      setErrorTextField(false)
-      updateNextWordOnScreen()
-   }
+   private fun restartGame() {   viewModel.reinitializeData()   setErrorTextField(false)   updateNextWordOnScreen()}
    ```
 
 4. 再次运行应用。玩游戏。到达恭喜对话框时，点击 **Play Again**。现在，您应该能够成功地再玩一次游戏！
@@ -7860,20 +6208,13 @@ com.example.android.unscramble D/GameFragment: Word: nvoiil Score: 160 WordCount
 3. 将后备字段 `currentScrambledWord` 的类型更改为 `LiveData<String>`，因为它不可变。Android Studio 会显示一些错误，您将在后续步骤中修复这些错误。
 
    ```
-   val currentScrambledWord:LiveDate<String>
-      get() = _currentScrambledWord
+   val currentScrambledWord:LiveDate<String>   get() = _currentScrambledWord
    ```
 
 4. 要访问 `LiveData` 对象中的数据，请使用 `value` 属性。在 `GameViewModel` 中，在 `getNextWord()` 方法内的 `else` 块中，将 **`_currentScrambledWord`** 的引用更改为 **`_currentScrambledWord.value`**。
 
    ```
-   private fun getNextWord() {
-    ...
-      } else {
-          _currentScrambledWord.value = String(tempWord)
-          ...
-      }
-   }
+   private fun getNextWord() { ...   } else {       _currentScrambledWord.value = String(tempWord)       ...   }}
    ```
 
 
@@ -7889,25 +6230,13 @@ com.example.android.unscramble D/GameFragment: Word: nvoiil Score: 160 WordCount
 2. 在 `onSubmitWord()` 中，修改以下空 `if-else` 块。完整的方法应如下所示。
 
    ```
-   private fun onSubmitWord() {
-       val playerWord = binding.textInputEditText.text.toString()
-   
-       if (viewModel.isUserWordCorrect(playerWord)) {
-           setErrorTextField(false)
-           if (!viewModel.nextWord()) {
-               showFinalScoreDialog()
-           }
-       } else {
-           setErrorTextField(true)
-       }
-   }
+   private fun onSubmitWord() {    val playerWord = binding.textInputEditText.text.toString()    if (viewModel.isUserWordCorrect(playerWord)) {        setErrorTextField(false)        if (!viewModel.nextWord()) {            showFinalScoreDialog()        }    } else {        setErrorTextField(true)    }}
    ```
 
 3. 为 `currentScrambledWord` `LiveData` 附加一个观察器。在 `GameFragment` 中的 `onViewCreated()` 回调末尾，对 `currentScrambledWord` 调用 [`observe()`](https://developer.android.com/reference/androidx/lifecycle/LiveData#observe(androidx.lifecycle.LifecycleOwner, androidx.lifecycle.Observer)) 方法。
 
    ```
-   // Observe the currentScrambledWord LiveData.
-   viewModel.currentScrambledWord.observe()
+   // Observe the currentScrambledWord LiveData.viewModel.currentScrambledWord.observe()
    ```
 
    Android Studio 将显示一个关于缺少参数的错误。您将在下一步中修复该错误。
@@ -7917,20 +6246,13 @@ com.example.android.unscramble D/GameFragment: Word: nvoiil Score: 160 WordCount
 5. 添加 lambda 作为第二个参数，并以 `newWord` 作为函数参数。`newWord` 将包含新乱序词的值。
 
    ```
-   // Observe the scrambledCharArray LiveData, passing in the LifecycleOwner and the observer.
-   viewModel.currentScrambledWord.observe(viewLifecycleOwner,
-      { newWord ->
-      })
+   // Observe the scrambledCharArray LiveData, passing in the LifecycleOwner and the observer.viewModel.currentScrambledWord.observe(viewLifecycleOwner,   { newWord ->   })
    ```
 
 6. 在 lambda 表达式的函数主体中，将 `newWord` 赋值给乱序词文本视图。
 
    ```
-   // Observe the scrambledCharArray LiveData, passing in the LifecycleOwner and the observer.
-   viewModel.currentScrambledWord.observe(viewLifecycleOwner,
-      { newWord ->
-          binding.textViewUnscrambledWord.text = newWord
-      })
+   // Observe the scrambledCharArray LiveData, passing in the LifecycleOwner and the observer.viewModel.currentScrambledWord.observe(viewLifecycleOwner,   { newWord ->       binding.textViewUnscrambledWord.text = newWord   })
    ```
 
 7. 编译并运行应用。游戏应用的运行应该和之前完全一样，但现在乱序词的文本视图会在 `LiveData` 观察器中自动更新，而不是在 `updateNextWordOnScreen()` 方法中更新。
@@ -7950,35 +6272,19 @@ com.example.android.unscramble D/GameFragment: Word: nvoiil Score: 160 WordCount
 3. 将后备字段类型更改为 `LiveData<Int>.`。
 
    ```
-   private val _score = MutableLiveData(0)
-   val score: LiveData<Int>
-      get() = _score
-   
-   private val _currentWordCount = MutableLiveData(0)
-   val currentWordCount: LiveData<Int>
-      get() = _currentWordCount
+   private val _score = MutableLiveData(0)val score: LiveData<Int>   get() = _scoreprivate val _currentWordCount = MutableLiveData(0)val currentWordCount: LiveData<Int>   get() = _currentWordCount
    ```
 
 4. 在 `GameViewModel` 中的 `reinitializeData()` 方法的开头，将 `_score` 和 `_currentWordCount` 的引用分别更改为 `_score.``value` 和 `_currentWordCount.``value`。
 
    ```
-   fun reinitializeData() {
-       _score.value = 0
-       _currentWordCount.value = 0
-       wordsList.clear()
-       getNextWord()
-   }
+   fun reinitializeData() {    _score.value = 0    _currentWordCount.value = 0    wordsList.clear()    getNextWord()}
    ```
 
 5. 在 `GameViewModel` 中的 `nextWord()` 方法内，将 `_currentWordCount` 的引用更改为 `_currentWordCount.``value!!`。
 
    ```
-   fun nextWord(): Boolean {
-       return if (_currentWordCount.value!! < MAX_NO_OF_WORDS) {
-              getNextWord()
-              true
-          } else false
-      }
+   fun nextWord(): Boolean {    return if (_currentWordCount.value!! < MAX_NO_OF_WORDS) {           getNextWord()           true       } else false   }
    ```
 
 6. 在 `GameViewModel` 中的 `increaseScore()` 和 `getNextWord()` 方法内，将 `_score` 和 `_currentWordCount` 的引用分别更改为 `_score.``value` 和 `_currentWordCount.``value`。Android Studio 会显示错误，因为 `_score` 不再是整数而是 `LiveData`，您将在后续步骤中修复该错误。
@@ -7986,9 +6292,7 @@ com.example.android.unscramble D/GameFragment: Word: nvoiil Score: 160 WordCount
 7. 使用 [`plus()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/plus.html) Kotlin 函数来增加 `_score` 的值，该函数会以确保 null 安全的形式执行加法。
 
    ```
-   private fun increaseScore() {
-       _score.value = (_score.value)?.plus(SCORE_INCREASE)
-   }
+   private fun increaseScore() {    _score.value = (_score.value)?.plus(SCORE_INCREASE)}
    ```
 
 8. 同样，使用 [`inc()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/inc.html) Kotlin 函数，以确保 Null 安全的形式将值加一。
@@ -8008,27 +6312,19 @@ com.example.android.unscramble D/GameFragment: Word: nvoiil Score: 160 WordCount
    移除：
 
    ```
-   binding.score.text = getString(R.string.score, 0)
-   binding.wordCount.text = getString(R.string.word_count, 0, MAX_NO_OF_WORDS)
+   binding.score.text = getString(R.string.score, 0)binding.wordCount.text = getString(R.string.word_count, 0, MAX_NO_OF_WORDS)
    ```
 
 2. 在 `GameFragment` 中的 `onViewCreated()` 方法的末尾，为 `score` 附加观察器。将 `viewLifecycleOwner` 作为第一个参数传入观察器，并传入 lambda 表达式作为第二个参数。在 lambda 表达式内，将新得分作为参数传递，并在函数主体内将新得分设为文本视图。
 
    ```
-   viewModel.score.observe(viewLifecycleOwner,
-      { newScore ->
-          binding.score.text = getString(R.string.score, newScore)
-      })
+   viewModel.score.observe(viewLifecycleOwner,   { newScore ->       binding.score.text = getString(R.string.score, newScore)   })
    ```
 
 3. 在 `onViewCreated()` 方法的末尾，附加 `currentWordCount` `LiveData` 的观察器。将 `viewLifecycleOwner` 作为第一个参数传入观察器，并传入 lambda 表达式作为第二个参数。在 lambda 表达式内，将新单词数作为参数传递，并在函数主体中将新单词数连同 `MAX_NO_OF_WORDS` 一起设为文本视图。
 
    ```
-   viewModel.currentWordCount.observe(viewLifecycleOwner,{
-           newWordCount ->
-       binding.wordCount.text = getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)
-   
-   })
+   viewModel.currentWordCount.observe(viewLifecycleOwner,{        newWordCount ->    binding.wordCount.text = getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)})
    ```
 
    在生命周期所有者（即 `GameFragment`）的整个生命周期内，当 `ViewModel` 内的得分和单词数值更改时，就会触发新观察器。
@@ -8054,10 +6350,7 @@ com.example.android.unscramble D/GameFragment: Word: nvoiil Score: 160 WordCount
 示例：
 
 ```
-binding.textViewUnscrambledWord.text = newWord
-binding.score.text = getString(R.string.score, newScore)
-binding.wordCount.text =
-                  getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)
+binding.textViewUnscrambledWord.text = newWordbinding.score.text = getString(R.string.score, newScore)binding.wordCount.text =                  getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)
 ```
 
 使用视图绑定时，您无法在视图（布局文件）中引用应用数据。这一点可以通过[数据绑定](https://developer.android.com/topic/libraries/data-binding)来实现。
@@ -8091,17 +6384,13 @@ android:text="@{gameViewModel.currentScrambledWord}"
    将
 
    ```
-   buildFeatures {
-      viewBinding = true
-   }
+   buildFeatures {   viewBinding = true}
    ```
 
    替换为
 
    ```
-   buildFeatures {
-      dataBinding = true
-   }
+   buildFeatures {   dataBinding = true}
    ```
 
    当 Android Studio 提示时，执行 Gradle 同步。
@@ -8109,11 +6398,7 @@ android:text="@{gameViewModel.currentScrambledWord}"
 2. 若要在任何 Kotlin 项目中使用数据绑定，应当应用 `kotlin-kapt` 插件。我们已在 `build.gradle(Module)` 文件中代您完成此步骤。
 
    ```
-   plugins {
-      id 'com.android.application'
-      id 'kotlin-android'
-      id 'kotlin-kapt'
-   }
+   plugins {   id 'com.android.application'   id 'kotlin-android'   id 'kotlin-kapt'}
    ```
 
    上述步骤会为应用中的每个布局 XML 文件自动生成绑定类。如果布局文件名是 `activity_main.xml`，那么自动生成的类将被命名为 `ActivityMainBinding`。
@@ -8133,23 +6418,7 @@ android:text="@{gameViewModel.currentScrambledWord}"
 3. 您的布局应如下所示：
 
    ```
-   <layout xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto"
-      xmlns:tools="http://schemas.android.com/tools">
-   
-      <data>
-   
-      </data>
-   
-      <ScrollView
-          android:layout_width="match_parent"
-          android:layout_height="match_parent">
-   
-          <androidx.constraintlayout.widget.ConstraintLayout
-            ...
-          </androidx.constraintlayout.widget.ConstraintLayout>
-      </ScrollView>
-   </layout>
+   <layout xmlns:android="http://schemas.android.com/apk/res/android"   xmlns:app="http://schemas.android.com/apk/res-auto"   xmlns:tools="http://schemas.android.com/tools">   <data>   </data>   <ScrollView       android:layout_width="match_parent"       android:layout_height="match_parent">       <androidx.constraintlayout.widget.ConstraintLayout         ...       </androidx.constraintlayout.widget.ConstraintLayout>   </ScrollView></layout>
    ```
 
 4. 在 `GameFragment` 中的 `onCreateView()` 方法开头，将 `binding` 变量的实例化更改为使用数据绑定。
@@ -8177,11 +6446,7 @@ android:text="@{gameViewModel.currentScrambledWord}"
 1. 在 `game_fragment.xml` 中的 `<data>` 标记内添加名为 `<variable>` 的子标记内，声明一个名为 `gameViewModel`、类型为 `GameViewModel` 的属性。您将使用此属性将 `ViewModel` 中的数据绑定到布局。
 
    ```
-   <data>
-      <variable
-          name="gameViewModel"
-          type="com.example.android.unscramble.ui.game.GameViewModel" />
-   </data>
+   <data>   <variable       name="gameViewModel"       type="com.example.android.unscramble.ui.game.GameViewModel" /></data>
    ```
 
    请注意，类型 `gameViewModel` 包含软件包名称。请确保此软件包名称与应用中的软件包名称匹配。
@@ -8189,33 +6454,19 @@ android:text="@{gameViewModel.currentScrambledWord}"
 2. 在 `gameViewModel` 声明下的 `<data>` 标记内，添加类型为 `Integer` 的另一个变量，并将其命名为 `maxNoOfWords`。您将使用此变量绑定到 ViewModel 中的变量，以存储每局游戏的单词数。
 
    ```
-   <data>
-      ...
-      <variable
-          name="maxNoOfWords"
-          type="int" />
-   </data>
+   <data>   ...   <variable       name="maxNoOfWords"       type="int" /></data>
    ```
 
 3. 在 `GameFragment` 中的 `onViewCreated()` 方法开头，初始化布局变量 `gameViewModel` 和 `maxNoOfWords`。
 
    ```
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-      super.onViewCreated(view, savedInstanceState)
-   
-      binding.gameViewModel = viewModel
-   
-      binding.maxNoOfWords = MAX_NO_OF_WORDS
-   ...
-   }
+   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {   super.onViewCreated(view, savedInstanceState)   binding.gameViewModel = viewModel   binding.maxNoOfWords = MAX_NO_OF_WORDS...}
    ```
 
 4. `LiveData` 是生命周期感知型可观察对象，因此您必须将生命周期所有者传递给布局。在 `GameFragment` 中的 `onViewCreated()` 方法内，在绑定变量的初始化下方添加以下代码。
 
    ```
-      // Specify the fragment view as the lifecycle owner of the binding.
-      // This is used so that the binding can observe LiveData updates
-      binding.lifecycleOwner = viewLifecycleOwner
+      // Specify the fragment view as the lifecycle owner of the binding.   // This is used so that the binding can observe LiveData updates   binding.lifecycleOwner = viewLifecycleOwner
    ```
 
    回想一下，您在实现 `LiveData` 观察器时实现过类似功能。您当时将 `viewLifecycleOwner` 作为一个参数传递给 `LiveData` 观察器。
@@ -8235,9 +6486,7 @@ android:text="@{gameViewModel.currentScrambledWord}"
 示例：
 
 ```
-<TextView android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@{user.firstName}" />
+<TextView android:layout_width="wrap_content"          android:layout_height="wrap_content"          android:text="@{user.firstName}" />
 ```
 
 #### 第 1 步：向当前单词添加绑定表达式
@@ -8247,11 +6496,7 @@ android:text="@{gameViewModel.currentScrambledWord}"
 1. 在 `game_fragment.xml` 中，将 `text` 属性添加到 `textView_unscrambled_word` 文本视图。使用新的布局变量 `gameViewModel`，并将 `@{gameViewModel.currentScrambledWord}` 赋值给 `text` 属性。
 
    ```
-   <TextView
-      android:id="@+id/textView_unscrambled_word"
-      ...
-      android:text="@{gameViewModel.currentScrambledWord}"
-      .../>
+   <TextView   android:id="@+id/textView_unscrambled_word"   ...   android:text="@{gameViewModel.currentScrambledWord}"   .../>
    ```
 
 2. 在 `GameFragment` 中，移除 `currentScrambledWord` 的 `LiveData` 观察器代码：fragment 中不再需要此观察器代码。布局会直接收到对 `LiveData` 所做更改的更新。
@@ -8259,10 +6504,7 @@ android:text="@{gameViewModel.currentScrambledWord}"
    移除
 
    ```
-   viewModel.currentScrambledWord.observe(viewLifecycleOwner,
-      { newWord ->
-          binding.textViewUnscrambledWord.text = newWord
-      })
+   viewModel.currentScrambledWord.observe(viewLifecycleOwner,   { newWord ->       binding.textViewUnscrambledWord.text = newWord   })
    ```
 
 3. 运行应用，此时应用应该像以前一样工作。不过，现在乱序词文本视图使用绑定表达式来更新界面，而非使用 `LiveData` 观察器。
@@ -8288,9 +6530,7 @@ android:padding="@{@dimen/largePadding}"
 示例：
 
 ```
-android:text="@{@string/example_resource(user.lastName)}"
-strings.xml
-<string name="example_resource">Last Name: %s</string>
+android:text="@{@string/example_resource(user.lastName)}"strings.xml<string name="example_resource">Last Name: %s</string>
 ```
 
 在上面的示例中，`example_resource` 是带有 `%s` 占位符的字符串资源。您将 `user.lastName` 作为资源参数传入绑定表达式，其中 `user` 是布局变量。
@@ -8300,21 +6540,13 @@ strings.xml
 1. 在 `game_fragment.xml` 中，使用以下绑定表达式更新 `word_count` 文本视图的 `text` 属性。使用 `word_count` 字符串资源并传入 `gameViewModel.currentWordCount` 和 `maxNoOfWords` 作为资源参数。
 
    ```
-   <TextView
-      android:id="@+id/word_count"
-      ...
-      android:text="@{@string/word_count(gameViewModel.currentWordCount, maxNoOfWords)}"
-      .../>
+   <TextView   android:id="@+id/word_count"   ...   android:text="@{@string/word_count(gameViewModel.currentWordCount, maxNoOfWords)}"   .../>
    ```
 
 2. 使用以下绑定表达式更新 `score` 文本视图的 `text` 属性。使用 `score` 字符串资源并传入 `gameViewModel.score` 作为资源参数。
 
    ```
-   <TextView
-      android:id="@+id/score"
-      ...
-      android:text="@{@string/score(gameViewModel.score)}"
-      ... />
+   <TextView   android:id="@+id/score"   ...   android:text="@{@string/score(gameViewModel.score)}"   ... />
    ```
 
 3. 从 `GameFragment` 中移除 `LiveData` 观察器。您不再需要这些观察器，绑定表达式会在相应的 `LiveData` 更改时更新界面。
@@ -8322,19 +6554,10 @@ strings.xml
    移除：
 
    ```
-   viewModel.score.observe(viewLifecycleOwner,
-      { newScore ->
-          binding.score.text = getString(R.string.score, newScore)
-      })
-   
-   viewModel.currentWordCount.observe(viewLifecycleOwner,
-      { newWordCount ->
-          binding.wordCount.text =
-              getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)
-      })
+   viewModel.score.observe(viewLifecycleOwner,   { newScore ->       binding.score.text = getString(R.string.score, newScore)   })viewModel.currentWordCount.observe(viewLifecycleOwner,   { newWordCount ->       binding.wordCount.text =           getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)   })
    ```
 
-1. 运行应用并玩一下游戏，猜几个单词。现在，您的代码使用 `LiveData` 和绑定表达式来更新界面。
+4. 运行应用并玩一下游戏，猜几个单词。现在，您的代码使用 `LiveData` 和绑定表达式来更新界面。
 
 <img src="https://developer.android.com/codelabs/basic-android-kotlin-training-livedata/img/7880e60dc0a6f95c.png" alt="7880e60dc0a6f95c.png" style="zoom: 50%;" />           <img src="https://developer.android.com/codelabs/basic-android-kotlin-training-livedata/img/9ef2fdf21ffa5c99.png" alt="9ef2fdf21ffa5c99.png" style="zoom: 50%;" />
 
@@ -8357,21 +6580,7 @@ strings.xml
 7. 在 `GameViewModel,` 中，使用以下代码修改 `currentScrambledWord` 变量的声明方式：
 
 ```
-val currentScrambledWord: LiveData<Spannable> = Transformations.map(_currentScrambledWord) {
-    if (it == null) {
-        SpannableString("")
-    } else {
-        val scrambledWord = it.toString()
-        val spannable: Spannable = SpannableString(scrambledWord)
-        spannable.setSpan(
-            TtsSpan.VerbatimBuilder(scrambledWord).build(),
-            0,
-            scrambledWord.length,
-            Spannable.SPAN_INCLUSIVE_INCLUSIVE
-        )
-        spannable
-    }
-}
+val currentScrambledWord: LiveData<Spannable> = Transformations.map(_currentScrambledWord) {    if (it == null) {        SpannableString("")    } else {        val scrambledWord = it.toString()        val spannable: Spannable = SpannableString(scrambledWord)        spannable.setSpan(            TtsSpan.VerbatimBuilder(scrambledWord).build(),            0,            scrambledWord.length,            Spannable.SPAN_INCLUSIVE_INCLUSIVE        )        spannable    }}
 ```
 
 此变量现在是一个 `LiveData<Spannable>` 而不是 `LiveData<String>`。您不必费心了解其工作原理的所有细节，只需要知道，该实现使用 `LiveData` 转换将当前乱序词 `String` 转换为可由无障碍服务进行相应处理的 Spannable 字符串。在下一个 Codelab 中，您将详细了解 `LiveData` 转换，这种转换能让您根据相应 `LiveData` 的值返回不同的 `LiveData` 实例。
@@ -8719,17 +6928,7 @@ class MainActivity : AppCompatActivity() {
 8. 由于这些 setter 方法需要从视图模型外部进行调用，因此请将其保留为 `public` 方法（这意味着，在 `fun` 关键字之前不需要 `private` 或其他可见性修饰符）。Kotlin 中的默认可见性修饰符为 `public`。
 
    ```
-   fun setQuantity(numberCupcakes: Int) {
-       _quantity.value = numberCupcakes
-   }
-   
-   fun setFlavor(desiredFlavor: String) {
-       _flavor.value = desiredFlavor
-   }
-   
-   fun setDate(pickupDate: String) {
-       _date.value = pickupDate
-   }
+   fun setQuantity(numberCupcakes: Int) {    _quantity.value = numberCupcakes}fun setFlavor(desiredFlavor: String) {    _flavor.value = desiredFlavor}fun setDate(pickupDate: String) {    _date.value = pickupDate}
    ```
 
 9. 构建并运行您的应用，以确保没有编译错误。界面中应该还没有明显的变化。
@@ -8764,8 +6963,7 @@ Kotlin 中的属性委托可以帮助您将 getter-setter 的责任移交给另�
 委托属性使用 `by` 子句和委托类实例进行定义：
 
 ```
-// Syntax for property delegation
-var <property-name> : <property-type> by <delegate-class>()
+// Syntax for property delegationvar <property-name> : <property-type> by <delegate-class>()
 ```
 
 1. 在 `StartFragment` 类中，以类变量的形式获取对共享视图模型的引用。使用 `fragment-ktx` 库中的 `by activityViewModels()` Kotlin 属性委托。
@@ -8777,8 +6975,7 @@ var <property-name> : <property-type> by <delegate-class>()
    您可能需要导入下面这些新类：
 
    ```
-   import androidx.fragment.app.activityViewModels
-   import com.example.cupcake.model.OrderViewModel
+   import androidx.fragment.app.activityViewModelsimport com.example.cupcake.model.OrderViewModel
    ```
 
 2. 针对 `FlavorFragment`、`PickupFragment` 和 `SummaryFragment` 类重复执行上面的步骤，您将在此 Codelab 的后面几部分中使用此 `sharedViewModel` 实例。
@@ -8786,30 +6983,19 @@ var <property-name> : <property-type> by <delegate-class>()
 3. 返回 `StartFragment` 类，您现在可以使用视图模型了。在 `orderCupcake()` 方法的开头，调用共享视图模型中的 `setQuantity()` 方法以更新数量，然后再导航到口味 fragment。
 
    ```
-   fun orderCupcake(quantity: Int) {
-       sharedViewModel.setQuantity(quantity)
-       findNavController().navigate(R.id.action_startFragment_to_flavorFragment)
-   }
+   fun orderCupcake(quantity: Int) {    sharedViewModel.setQuantity(quantity)    findNavController().navigate(R.id.action_startFragment_to_flavorFragment)}
    ```
 
 4. 在 `OrderViewModel` 类中，添加以下方法来检查是否已设置订购的纸杯蛋糕口味。在后面的步骤中，您将在 `StartFragment` 类中使用此方法。
 
    ```
-   fun hasNoFlavorSet(): Boolean {
-       return _flavor.value.isNullOrEmpty()
-   }
+   fun hasNoFlavorSet(): Boolean {    return _flavor.value.isNullOrEmpty()}
    ```
 
 5. 在 `StartFragment` 类中的 `orderCupcake()` 方法内，设置数量后，将默认口味设置为“Vanilla”（如果未设置口味），然后再导航到口味 fragment。完整的方法将如下所示：
 
    ```
-   fun orderCupcake(quantity: Int) {
-       sharedViewModel.setQuantity(quantity)
-       if (sharedViewModel.hasNoFlavorSet()) {
-           sharedViewModel.setFlavor(getString(R.string.vanilla))
-       }
-       findNavController().navigate(R.id.action_startFragment_to_flavorFragment)
-   }
+   fun orderCupcake(quantity: Int) {    sharedViewModel.setQuantity(quantity)    if (sharedViewModel.hasNoFlavorSet()) {        sharedViewModel.setFlavor(getString(R.string.vanilla))    }    findNavController().navigate(R.id.action_startFragment_to_flavorFragment)}
    ```
 
 6. 构建应用以确保没有编译错误。不过，界面中应该没有明显的变化。
@@ -8829,17 +7015,7 @@ var <property-name> : <property-type> by <delegate-class>()
 1. 在 `layout/fragment_flavor.xml` 中，在根 `<layout>` 标记内添加一个 `<data>` 标记。添加一个名为 `viewModel` 且类型为 `com.example.cupcake.model.OrderViewModel` 的布局变量。请确保类型属性中的软件包名称与应用中的共享视图模型类 `OrderViewModel` 的软件包名称相符。
 
    ```
-   <layout ...>
-   
-       <data>
-           <variable
-               name="viewModel"
-               type="com.example.cupcake.model.OrderViewModel" />
-       </data>
-   
-       <ScrollView ...>
-   
-       ...
+   <layout ...>    <data>        <variable            name="viewModel"            type="com.example.cupcake.model.OrderViewModel" />    </data>    <ScrollView ...>    ...
    ```
 
 2. 同样，针对 `fragment_pickup.xml` 和 `fragment_summary.xml` 重复执行上面的步骤以添加 `viewModel` 布局变量。您将在后面几部分中使用此变量。您不需要在 `fragment_start.xml` 中添加此代码，因为此布局不使用共享视图模型。
@@ -8847,10 +7023,7 @@ var <property-name> : <property-type> by <delegate-class>()
 3. 在 `FlavorFragment` 类中的 `onViewCreated()` 内，将视图模型实例与布局中的共享视图模型实例绑定。在 `binding?.``apply` 代码块内添加以下代码。
 
    ```
-   binding?.apply {
-       viewModel = sharedViewModel
-       ...
-   }
+   binding?.apply {    viewModel = sharedViewModel    ...}
    ```
 
    **apply 作用域函数**
@@ -8860,26 +7033,13 @@ var <property-name> : <property-type> by <delegate-class>()
    **示例**：
 
    ```
-   clark.apply {
-       firstName = "Clark"
-       lastName = "James"
-       age = 18
-   }
-   
-   // The equivalent code without apply scope function would look like the following.
-   
-   clark.firstName = "Clark"
-   clark.lastName = "James"
-   clark.age = 18
+   clark.apply {    firstName = "Clark"    lastName = "James"    age = 18}// The equivalent code without apply scope function would look like the following.clark.firstName = "Clark"clark.lastName = "James"clark.age = 18
    ```
 
 4. 针对 `PickupFragment` 和 `SummaryFragment` 类中的 `onViewCreated()` 方法重复执行相同的步骤。
 
    ```
-   binding?.apply {
-       viewModel = sharedViewModel
-       ...
-   }
+   binding?.apply {    viewModel = sharedViewModel    ...}
    ```
 
 5. 在 `fragment_flavor.xml` 中，根据视图模型中的 `flavor` 值，使用新布局变量 `viewModel` 来设置单选按钮的 `checked` 属性。如果由单选按钮表示的口味与视图模型中保存的口味相同，则将单选按钮显示为选中状态 (`checked` = true)。**Vanilla** `RadioButton` 的选中状态的绑定表达式将如下所示：
@@ -8893,39 +7053,7 @@ var <property-name> : <property-type> by <delegate-class>()
    **注意**：切记，绑定表达式以 `@` 符号开头并用花括号 `{}` 括起来。
 
    ```
-   <RadioGroup
-      ...>
-   
-      <RadioButton
-          android:id="@+id/vanilla"
-          ...
-          android:checked="@{viewModel.flavor.equals(@string/vanilla)}"
-          .../>
-   
-      <RadioButton
-          android:id="@+id/chocolate"
-          ...
-          android:checked="@{viewModel.flavor.equals(@string/chocolate)}"
-          .../>
-   
-      <RadioButton
-          android:id="@+id/red_velvet"
-          ...
-          android:checked="@{viewModel.flavor.equals(@string/red_velvet)}"
-          .../>
-   
-      <RadioButton
-          android:id="@+id/salted_caramel"
-          ...
-          android:checked="@{viewModel.flavor.equals(@string/salted_caramel)}"
-          .../>
-   
-      <RadioButton
-          android:id="@+id/coffee"
-          ...
-          android:checked="@{viewModel.flavor.equals(@string/coffee)}"
-          .../>
-   </RadioGroup>
+   <RadioGroup   ...>   <RadioButton       android:id="@+id/vanilla"       ...       android:checked="@{viewModel.flavor.equals(@string/vanilla)}"       .../>   <RadioButton       android:id="@+id/chocolate"       ...       android:checked="@{viewModel.flavor.equals(@string/chocolate)}"       .../>   <RadioButton       android:id="@+id/red_velvet"       ...       android:checked="@{viewModel.flavor.equals(@string/red_velvet)}"       .../>   <RadioButton       android:id="@+id/salted_caramel"       ...       android:checked="@{viewModel.flavor.equals(@string/salted_caramel)}"       .../>   <RadioButton       android:id="@+id/coffee"       ...       android:checked="@{viewModel.flavor.equals(@string/coffee)}"       .../></RadioGroup>
    ```
 
 
@@ -8937,39 +7065,7 @@ var <property-name> : <property-type> by <delegate-class>()
 1. 在 `fragment_flavor.xml` 中，使用监听器绑定向单选按钮添加事件监听器。使用不带参数的 lambda 表达式，并通过传入相应的口味字符串资源对 `viewModel`.`setFlavor()` 方法进行调用。
 
 ```
-<RadioGroup
-   ...>
-
-   <RadioButton
-       android:id="@+id/vanilla"
-       ...
-       android:onClick="@{() -> viewModel.setFlavor(@string/vanilla)}"
-       .../>
-
-   <RadioButton
-       android:id="@+id/chocolate"
-       ...
-       android:onClick="@{() -> viewModel.setFlavor(@string/chocolate)}"
-       .../>
-
-   <RadioButton
-       android:id="@+id/red_velvet"
-       ...
-       android:onClick="@{() -> viewModel.setFlavor(@string/red_velvet)}"
-       .../>
-
-   <RadioButton
-       android:id="@+id/salted_caramel"
-       ...
-       android:onClick="@{() -> viewModel.setFlavor(@string/salted_caramel)}"
-       .../>
-
-   <RadioButton
-       android:id="@+id/coffee"
-       ...
-       android:onClick="@{() -> viewModel.setFlavor(@string/coffee)}"
-       .../>
-</RadioGroup>
+<RadioGroup   ...>   <RadioButton       android:id="@+id/vanilla"       ...       android:onClick="@{() -> viewModel.setFlavor(@string/vanilla)}"       .../>   <RadioButton       android:id="@+id/chocolate"       ...       android:onClick="@{() -> viewModel.setFlavor(@string/chocolate)}"       .../>   <RadioButton       android:id="@+id/red_velvet"       ...       android:onClick="@{() -> viewModel.setFlavor(@string/red_velvet)}"       .../>   <RadioButton       android:id="@+id/salted_caramel"       ...       android:onClick="@{() -> viewModel.setFlavor(@string/salted_caramel)}"       .../>   <RadioButton       android:id="@+id/coffee"       ...       android:onClick="@{() -> viewModel.setFlavor(@string/coffee)}"       .../></RadioGroup>
 ```
 
 运行应用，请注意 **Vanilla** 选项在口味 fragment 中默认处于选中状态。
@@ -9007,9 +7103,7 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 1. 在 `OrderViewModel` 类中，添加以下名为 `getPickupOptions()` 的函数，以创建并返回取货日期列表。在该方法中，创建一个名为 `options` 的 `val` 变量，并将其初始化为 `mutableListOf``<String>()`。
 
    ```
-   private fun getPickupOptions(): List<String> {
-      val options = mutableListOf<String>()
-   }
+   private fun getPickupOptions(): List<String> {   val options = mutableListOf<String>()}
    ```
 
 2. 使用 `SimpleDateFormat` 创建格式设置工具字符串，并传递模式字符串 `"E MMM d"` 和语言区域。在模式字符串中，`E` 代表星期几，它解析为“**Tue Dec 10**”。
@@ -9029,10 +7123,7 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 4. 构建一个日期列表，从当前日期开始，还有接下来的三个日期。由于您需要 4 个日期选项，因此请重复此代码块 4 次。此 [`repeat`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/repeat.html) 代码块会设置日期的格式，将其添加到日期选项列表，然后让日历按 1 天递增。
 
    ```
-   repeat(4){
-   	options.add(formatter.format(calendar.time))
-   	calendar.add(Calendar.DATE, 1)
-   }
+   repeat(4){	options.add(formatter.format(calendar.time))	calendar.add(Calendar.DATE, 1)}
    ```
 
    
@@ -9040,17 +7131,7 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 5. 在方法的末尾返回更新后的 `options`。下面是您完成的方法：
 
    ```
-   private fun getPickupOptions(): List<String> {
-      val options = mutableListOf<String>()
-      val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
-      val calendar = Calendar.getInstance()
-      // Create a list of dates starting with the current date and the following 3 dates
-      repeat(4) {
-          options.add(formatter.format(calendar.time))
-          calendar.add(Calendar.DATE, 1)
-      }
-      return options
-   }
+   private fun getPickupOptions(): List<String> {   val options = mutableListOf<String>()   val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())   val calendar = Calendar.getInstance()   // Create a list of dates starting with the current date and the following 3 dates   repeat(4) {       options.add(formatter.format(calendar.time))       calendar.add(Calendar.DATE, 1)   }   return options}
    ```
 
 6. 在 `OrderViewModel` 类中，添加一个名为 `dateOptions` 的类属性，它是一个 `val`。使用您刚刚创建的 `getPickupOptions()` 方法对其进行初始化。
@@ -9086,42 +7167,13 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 3. 对于同一单选按钮，将 `text` 属性值设置为 `dateOptions` 列表中的第一个字符串。
 
    ```
-   <RadioButton
-      android:id="@+id/option0"
-      ...
-      android:checked="@{viewModel.date.equals(viewModel.dateOptions[0])}"
-      android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[0])}"
-      android:text="@{viewModel.dateOptions[0]}"
-      ...
-      />
+   <RadioButton   android:id="@+id/option0"   ...   android:checked="@{viewModel.date.equals(viewModel.dateOptions[0])}"   android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[0])}"   android:text="@{viewModel.dateOptions[0]}"   ...   />
    ```
 
 4. 针对其他单选按钮重复执行上面的步骤，相应地更改 `dateOptions` 的索引。
 
    ```
-   <RadioButton
-      android:id="@+id/option1"
-      ...
-      android:checked="@{viewModel.date.equals(viewModel.dateOptions[1])}"
-      android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[1])}"
-      android:text="@{viewModel.dateOptions[1]}"
-      ... />
-   
-   <RadioButton
-      android:id="@+id/option2"
-      ...
-      android:checked="@{viewModel.date.equals(viewModel.dateOptions[2])}"
-      android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[2])}"
-      android:text="@{viewModel.dateOptions[2]}"
-      ... />
-   
-   <RadioButton
-      android:id="@+id/option3"
-      ...
-      android:checked="@{viewModel.date.equals(viewModel.dateOptions[3])}"
-      android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[3])}"
-      android:text="@{viewModel.dateOptions[3]}"
-      ... />
+   <RadioButton   android:id="@+id/option1"   ...   android:checked="@{viewModel.date.equals(viewModel.dateOptions[1])}"   android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[1])}"   android:text="@{viewModel.dateOptions[1]}"   ... /><RadioButton   android:id="@+id/option2"   ...   android:checked="@{viewModel.date.equals(viewModel.dateOptions[2])}"   android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[2])}"   android:text="@{viewModel.dateOptions[2]}"   ... /><RadioButton   android:id="@+id/option3"   ...   android:checked="@{viewModel.date.equals(viewModel.dateOptions[3])}"   android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[3])}"   android:text="@{viewModel.dateOptions[3]}"   ... />
    ```
 
 5. 运行应用，您应该会看到接下来几天作为可用的取货选项。您的屏幕截图会因您的当前日期而异。请注意，默认情况下未选中任何选项。您将在下一步中实现此行为。
@@ -9133,11 +7185,7 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 7. 向类中添加一个 `init` 代码块，并从其调用新方法 `resetOrder()`。
 
    ```
-   init{
-   
-   	resetOrder()
-   
-   }
+   init{	resetOrder()}
    ```
 
    
@@ -9145,17 +7193,7 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 8. 从类的属性声明中移除初始值。现在，创建 `OrderViewModel` 的实例时，您使用 `init` 代码块来初始化属性。
 
    ```
-   private val _quantity = MutableLiveData<Int>()
-   val quantity: LiveData<Int> = _quantity
-   
-   private val _flavor = MutableLiveData<String>()
-   val flavor: LiveData<String> = _flavor
-   
-   private val _date = MutableLiveData<String>()
-   val date: LiveData<String> = _date
-   
-   private val _price = MutableLiveData<Double>()
-   val price: LiveData<Double> = _price
+   private val _quantity = MutableLiveData<Int>()val quantity: LiveData<Int> = _quantityprivate val _flavor = MutableLiveData<String>()val flavor: LiveData<String> = _flavorprivate val _date = MutableLiveData<String>()val date: LiveData<String> = _dateprivate val _price = MutableLiveData<Double>()val price: LiveData<Double> = _price
    ```
 
 9. 再次运行应用，请注意，默认情况下选中了今天的日期。
@@ -9171,17 +7209,7 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 1. 在 `fragment_summary.xml` 中，确保您已声明视图模型数据变量 `viewModel`。
 
    ```
-   <layout ...>
-   
-       <data>
-           <variable
-               name="viewModel"
-               type="com.example.cupcake.model.OrderViewModel" />
-       </data>
-   
-       <ScrollView ...>
-   
-       ...
+   <layout ...>    <data>        <variable            name="viewModel"            type="com.example.cupcake.model.OrderViewModel" />    </data>    <ScrollView ...>    ...
    ```
 
 2. 在 `SummaryFragment` 的 `onViewCreated()` 中，确保已初始化 `binding.viewModel`。
@@ -9189,21 +7217,7 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 3. 在 `fragment_summary.xml` 中，读取视图模型中的数据，以使用订单摘要详情更新屏幕。通过添加以下文本属性，更新数量、口味和日期 `TextViews`。数量的类型为 `Int`，因此您需要将其转换为字符串。
 
    ```
-   <TextView
-      android:id="@+id/quantity"
-      ...
-      android:text="@{viewModel.quantity.toString()}"
-      ... />
-   <TextView
-      android:id="@+id/flavor"
-      ...
-      android:text="@{viewModel.flavor}"
-      ... />
-   <TextView
-      android:id="@+id/date"
-      ...
-      android:text="@{viewModel.date}"
-      ... />
+   <TextView   android:id="@+id/quantity"   ...   android:text="@{viewModel.quantity.toString()}"   ... /><TextView   android:id="@+id/flavor"   ...   android:text="@{viewModel.flavor}"   ... /><TextView   android:id="@+id/date"   ...   android:text="@{viewModel.date}"   ... />
    ```
 
 4. 运行并测试应用以验证您选择的订单选项是否显示在订单摘要中。
@@ -9230,14 +7244,7 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 1. 打开 `OrderViewModel.kt`，将每个纸杯蛋糕的价格存储在一个变量中。在文件的顶部将其声明为一个顶级专用常量，该声明在类定义之外（但在 import 语句之后）。使用 `const` 修饰符，如需将其设为只读，请使用 `val`。
 
    ```
-   package ...
-   
-   import ...
-   
-   private const val PRICE_PER_CUPCAKE = 2.00
-   
-   class OrderViewModel : ViewModel() {
-       ...
+   package ...import ...private const val PRICE_PER_CUPCAKE = 2.00class OrderViewModel : ViewModel() {    ...
    ```
 
    回想一下，常量值（在 Kotlin 中使用 `const` 关键字标记）不会更改，并且该值在编译时已知。如需详细了解常量，请参阅相应的[文档](https://kotlinlang.org/docs/reference/properties.html#compile-time-constants)。
@@ -9245,9 +7252,7 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 2. 现在，您已经定义了每个纸杯蛋糕的价格，接下来创建一个辅助方法来计算价格。此方法可以为 `private`，因为它只在此类中使用。您将在下一项任务中更改价格逻辑以包含当天取货费用。
 
    ```
-   private fun updatePrice() {
-       _price.value = (quantity.value ?: 0) * PRICE_PER_CUPCAKE
-   }
+   private fun updatePrice() {    _price.value = (quantity.value ?: 0) * PRICE_PER_CUPCAKE}
    ```
 
    这行代码用每个纸杯蛋糕的价格乘以订购的纸杯蛋糕数量。对于圆括号中的代码，由于 `quantity.value` 的值可以为 null，因此使用 elvis 运算符 (`?:`)。elvis 运算符 (`?:`) 表示如果左侧的表达式不为 null，则使用该表达式。否则，如果左侧的表达式为 null，则使用 elvis 运算符右侧的表达式（在本例中为 `0`）。
@@ -9257,10 +7262,7 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 3. 在同一 `OrderViewModel` 类中，设置数量后更新价格变量。在 `setQuantity()` 函数中对新函数进行调用。
 
    ```
-   fun setQuantity(numberCupcakes: Int) {
-       _quantity.value = numberCupcakes
-       updatePrice()
-   }
+   fun setQuantity(numberCupcakes: Int) {    _quantity.value = numberCupcakes    updatePrice()}
    ```
 
 #### **将价格属性绑定到界面**
@@ -9268,39 +7270,19 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 1. 在 `fragment_flavor.xml`、`fragment_pickup.xml` 和 `fragment_summary.xml` 的布局中，确保定义了类型为 `com.example.cupcake.model.OrderViewModel` 的数据变量 `viewModel`。
 
    ```
-   <layout ...>
-   
-       <data>
-           <variable
-               name="viewModel"
-               type="com.example.cupcake.model.OrderViewModel" />
-       </data>
-   
-       <ScrollView ...>
-   
-       ...
+   <layout ...>    <data>        <variable            name="viewModel"            type="com.example.cupcake.model.OrderViewModel" />    </data>    <ScrollView ...>    ...
    ```
 
 2. 在每个 fragment 类的 `onViewCreated()` 方法中，确保将 fragment 中的视图模型对象实例绑定到布局中的视图模型数据变量。
 
    ```
-   binding?.apply {
-       viewModel = sharedViewModel
-       ...
-   }
+   binding?.apply {    viewModel = sharedViewModel    ...}
    ```
 
 3. 在每个 fragment 布局中，如果价格显示在布局中，则使用 `viewModel` 变量设置价格。首先修改 `fragment_flavor.xml` 文件。对于 `subtotal` 文本视图，将 `android:text` 属性的值设置为 `"@{@string/subtotal_price(viewModel.price)}".`。此数据绑定布局表达式使用字符串资源 `@string/subtotal_price`，并传入一个参数，它是来自视图模型的价格，因此输出将显示正确的字符串，例如 **Subtotal 12.0**。
 
    ```
-   ...
-   
-   <TextView
-       android:id="@+id/subtotal"
-       android:text="@{@string/subtotal_price(viewModel.price)}"
-       ... />
-   
-   ...
+   ...<TextView    android:id="@+id/subtotal"    android:text="@{@string/subtotal_price(viewModel.price)}"    ... />...
    ```
 
    您使用的是 `strings.xml` 文件中已声明的以下字符串资源：
@@ -9317,27 +7299,13 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 5. 现在，对取货 fragment 和摘要 fragment 进行类似的更改。在 `fragment_pickup.xml` 和 `fragment_summary.xml` 布局中，修改文本视图，使其也使用 `viewModel` `price` 属性。
 
    ```
-   fragment_pickup.xml
-   ...
-   
-   <TextView
-       android:id="@+id/subtotal"
-       ...
-       android:text="@{@string/subtotal_price(viewModel.price)}"
-       ... />
-   
-   ...
-   fragment_summary.xml
+   fragment_pickup.xml...<TextView    android:id="@+id/subtotal"    ...    android:text="@{@string/subtotal_price(viewModel.price)}"    ... />...fragment_summary.xml
    ```
 
    ...
 
    ```
-   <TextView
-      android:id="@+id/total"
-      ...
-      android:text="@{@string/total_price(viewModel.price)}"
-      ... />
+   <TextView   android:id="@+id/total"   ...   android:text="@{@string/total_price(viewModel.price)}"   ... />
    ```
 
 6. 运行应用。确保订购数量为 1 个、6 个和 12 个纸杯蛋糕时订单摘要中显示的价格计算正确。前面已经提到，预计目前价格的格式设置不正确（$2 将显示为 2.0，$12 将显示为 12.0）。
@@ -9362,34 +7330,19 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 2. 在 `updatePrice()` 中，检查用户是否选择了当天取货。检查视图模型中的日期 (`_date.``value`) 是否与 `dateOptions` 列表中的第一项（始终为当天）相同。
 
    ```
-   private fun updatePrice() {
-       _price.value = (quantity.value ?: 0) * PRICE_PER_CUPCAKE
-       if (dateOptions[0] == _date.value) {
-   
-       }
-   }
+   private fun updatePrice() {    _price.value = (quantity.value ?: 0) * PRICE_PER_CUPCAKE    if (dateOptions[0] == _date.value) {    }}
    ```
 
 3. 为使这些计算更简单，引入一个临时变量 `calculatedPrice`。计算更新后的价格，并将其赋值回 `_price.``value`。
 
    ```
-   private fun updatePrice() {
-       var calculatedPrice = (quantity.value ?: 0) * PRICE_PER_CUPCAKE
-       // If the user selected the first option (today) for pickup, add the surcharge
-       if (dateOptions[0] == _date.value) {
-           calculatedPrice += PRICE_FOR_SAME_DAY_PICKUP
-       }
-       _price.value = calculatedPrice
-   }
+   private fun updatePrice() {    var calculatedPrice = (quantity.value ?: 0) * PRICE_PER_CUPCAKE    // If the user selected the first option (today) for pickup, add the surcharge    if (dateOptions[0] == _date.value) {        calculatedPrice += PRICE_FOR_SAME_DAY_PICKUP    }    _price.value = calculatedPrice}
    ```
 
 4. 从 `setDate()` 方法调用 `updatePrice()` 辅助方法以添加当天取货费用。
 
    ```
-   fun setDate(pickupDate: String) {
-       _date.value = pickupDate
-       updatePrice()
-   }
+   fun setDate(pickupDate: String) {    _date.value = pickupDate    updatePrice()}
    ```
 
 5. 运行应用，并在应用中导航。您会注意到，如果更改取货日期，不会从总价中去掉当天取货费用。这是因为，价格在视图模型中发生了变化，但没有通知绑定布局。
@@ -9411,10 +7364,7 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 1. 在 `FlavorFragment`、`PickupFragment` 和 `SummaryFragment` 类中的 `onViewCreated()` 方法内，在 `binding?.apply` 代码块中添加以下代码。这样会在绑定对象上设置生命周期所有者。通过设置生命周期所有者，应用将能够观察 `LiveData` 对象。
 
    ```
-   binding?.apply {
-       lifecycleOwner = viewLifecycleOwner
-       ...
-   }
+   binding?.apply {    lifecycleOwner = viewLifecycleOwner    ...}
    ```
 
 2. 再次运行应用。在取货屏幕中，更改取货日期，并注意价格自动更改方式的差异。当天取货费用会正确地反映在摘要屏幕中。
@@ -9453,9 +7403,7 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 2. 使用 [`Transformations.map()`](https://developer.android.com/reference/androidx/lifecycle/Transformations.html#map(androidx.lifecycle.LiveData, androidx.arch.core.util.Function)) 初始化新的变量，并传入 `_price` 和一个 lambda 函数。使用 [`NumberFormat`](https://developer.android.com/reference/kotlin/android/icu/text/NumberFormat) 类中的 `getCurrencyInstance()` 方法将价格转换为本地货币格式。转换代码将如下所示。
 
    ```
-   val price:LiveData<String> = Transformations.map(_price){
-   	NumberFormat.getCurrencyInstance().format(it)
-   }
+   val price:LiveData<String> = Transformations.map(_price){	NumberFormat.getCurrencyInstance().format(it)}
    ```
 
 3. 您需要导入 `androidx.lifecycle.Transformations` 和 `java.text.NumberFormat`
@@ -9477,43 +7425,19 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 1. 在布局文件 `fragment_start.xml` 中，添加一个名为 `startFragment` 且类型为 `com.example.cupcake.StartFragment` 的数据变量。确保 fragment 的软件包名称与应用的软件包名称相符。
 
    ```
-   <layout ...>
-   
-       <data>
-           <variable
-               name="startFragment"
-               type="com.example.cupcake.StartFragment" />
-       </data>
-       ...
-       <ScrollView ...>
+   <layout ...>    <data>        <variable            name="startFragment"            type="com.example.cupcake.StartFragment" />    </data>    ...    <ScrollView ...>
    ```
 
 2. 在 `StartFragment.kt` 的 `onViewCreated()` 方法中，将新的数据变量绑定到 fragment 实例。您可以使用 `this` 关键字来访问 fragment 内的 fragment 实例。移除 `binding?.apply` 代码块以及其中的代码。完成后的方法应如下所示
 
    ```
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-       super.onViewCreated(view, savedInstanceState)
-       binding?.startFragment = this
-   }
+   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {    super.onViewCreated(view, savedInstanceState)    binding?.startFragment = this}
    ```
 
 3. 在 `fragment_start.xml` 中，使用监听器绑定向按钮的 `onClick` 属性添加事件监听器，在 `startFragment` 上对 `orderCupcake()` 进行调用，并传入纸杯蛋糕的数量。
 
    ```
-   <Button
-       android:id="@+id/order_one_cupcake"
-       android:onClick="@{() -> startFragment.orderCupcake(1)}"
-       ... />
-   
-   <Button
-       android:id="@+id/order_six_cupcakes"
-       android:onClick="@{() -> startFragment.orderCupcake(6)}"
-       ... />
-   
-   <Button
-       android:id="@+id/order_twelve_cupcakes"
-       android:onClick="@{() -> startFragment.orderCupcake(12)}"
-       ... />
+   <Button    android:id="@+id/order_one_cupcake"    android:onClick="@{() -> startFragment.orderCupcake(1)}"    ... /><Button    android:id="@+id/order_six_cupcakes"    android:onClick="@{() -> startFragment.orderCupcake(6)}"    ... /><Button    android:id="@+id/order_twelve_cupcakes"    android:onClick="@{() -> startFragment.orderCupcake(12)}"    ... />
    ```
 
 4. 运行应用。请注意，起始 fragment 中的按钮点击处理程序按预期运行。
@@ -9523,52 +7447,19 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
    在 `fragment_flavor.xml` 中：
 
    ```
-   <layout ...>
-   
-       <data>
-           <variable
-               ... />
-   
-           <variable
-               name="flavorFragment"
-               type="com.example.cupcake.FlavorFragment" />
-       </data>
-   
-       <ScrollView ...>
+   <layout ...>    <data>        <variable            ... />        <variable            name="flavorFragment"            type="com.example.cupcake.FlavorFragment" />    </data>    <ScrollView ...>
    ```
 
    在 `fragment_pickup.xml` 中：
 
    ```
-   <layout ...>
-   
-       <data>
-           <variable
-               ... />
-   
-           <variable
-               name="pickupFragment"
-               type="com.example.cupcake.PickupFragment" />
-       </data>
-   
-       <ScrollView ...>
+   <layout ...>    <data>        <variable            ... />        <variable            name="pickupFragment"            type="com.example.cupcake.PickupFragment" />    </data>    <ScrollView ...>
    ```
 
    在 `fragment_summary.xml` 中：
 
    ```
-   <layout ...>
-   
-       <data>
-           <variable
-               ... />
-   
-           <variable
-               name="summaryFragment"
-               type="com.example.cupcake.SummaryFragment" />
-       </data>
-   
-       <ScrollView ...>
+   <layout ...>    <data>        <variable            ... />        <variable            name="summaryFragment"            type="com.example.cupcake.SummaryFragment" />    </data>    <ScrollView ...>
    ```
 
 6. 在其余 fragment 类的 `onViewCreated()` 方法中，删除用于手动设置按钮上的点击监听器的代码。
@@ -9578,43 +7469,19 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
    `FlavorFragment` 类中的 `onViewCreated()` 方法应如下所示：
 
    ```
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-       super.onViewCreated(view, savedInstanceState)
-   
-       binding?.apply {
-           lifecycleOwner = viewLifecycleOwner
-           viewModel = sharedViewModel
-           flavorFragment = this@FlavorFragment
-       }
-   }
+   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {    super.onViewCreated(view, savedInstanceState)    binding?.apply {        lifecycleOwner = viewLifecycleOwner        viewModel = sharedViewModel        flavorFragment = this@FlavorFragment    }}
    ```
 
    `PickupFragment` 类中的 `onViewCreated()` 方法应如下所示：
 
    ```
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-      super.onViewCreated(view, savedInstanceState)
-   
-      binding?.apply {
-          lifecycleOwner = viewLifecycleOwner
-          viewModel = sharedViewModel
-          pickupFragment = this@PickupFragment
-      }
-   }
+   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {   super.onViewCreated(view, savedInstanceState)   binding?.apply {       lifecycleOwner = viewLifecycleOwner       viewModel = sharedViewModel       pickupFragment = this@PickupFragment   }}
    ```
 
    `SummaryFragment` 类中生成的 `onViewCreated()` 方法应如下所示：
 
    ```
-   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-      super.onViewCreated(view, savedInstanceState)
-   
-      binding?.apply {
-          lifecycleOwner = viewLifecycleOwner
-          viewModel = sharedViewModel
-          summaryFragment = this@SummaryFragment
-      }
-   }
+   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {   super.onViewCreated(view, savedInstanceState)   binding?.apply {       lifecycleOwner = viewLifecycleOwner       viewModel = sharedViewModel       summaryFragment = this@SummaryFragment   }}
    ```
 
 8. 同样，在其他布局文件中，向按钮的 `onClick` 属性添加监听器绑定表达式。
@@ -9622,10 +7489,7 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
    在 `fragment_flavor.xml` 中：
 
    ```
-   <Button
-       android:id="@+id/next_button"
-       android:onClick="@{() -> flavorFragment.goToNextScreen()}"
-       ... />
+   <Button    android:id="@+id/next_button"    android:onClick="@{() -> flavorFragment.goToNextScreen()}"    ... />
    ```
 
    在 `fragment_pickup.xml` 中：
@@ -9666,6 +7530,608 @@ Android 中的语言区域是语言和国家/地区代码的组合。语言代�
 
 ## 16.导航和返回堆栈
 
+此 Codelab 使用上一个 Codelab 中的 **Cupcake** 应用。您可以使用完成前一个 Codelab 获得的代码，也可以从 GitHub 下载起始代码。
+
+**下载此 Codelab 的起始代码**
+
+如果您从 GitHub 下载起始代码，请注意该项目的文件夹名称为 `android-basics-kotlin-cupcake-app-viewmodel`。在 Android Studio 中打开项目时，请选择此文件夹。
+
 **起始代码网址**：
 
 https://github.com/google-developer-training/android-basics-kotlin-cupcake-app/tree/viewmodel
+
+### ①实现向上按钮行为
+
+在 **Cupcake** 应用中，应用栏会显示一个箭头，点按该箭头可返回上一屏幕。该按钮称为 **Up** 按钮，您在之前的 Codelab 中已对此有所了解。鉴于 **Up** 按钮当前无法执行任何操作，因此请先修复应用中这一导航错误。
+
+![fbdc1793f9fea6da.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/fbdc1793f9fea6da.png)
+
+1. 在 `MainActivity` 中，您应该已经获得相应代码，以便使用导航控制器设置应用栏（也称为操作栏）。将 `navController` 设为类变量，从而可以在另一种方法中使用。
+
+   ```
+   class MainActivity : AppCompatActivity(R.layout.activity_main) {
+   
+       private lateinit var navController: NavController
+   
+       override fun onCreate(savedInstanceState: Bundle?) {
+           super.onCreate(savedInstanceState)
+   
+           val navHostFragment = supportFragmentManager
+                   .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+           navController = navHostFragment.navController
+   
+           setupActionBarWithNavController(navController)
+       }
+   }
+   ```
+
+2. 在同一类中，添加代码以替换 `onSupportNavigateUp()` 函数。此代码将要求 `navController` 处理应用中的向上导航。否则，回退到处理 **Up** 按钮的超类实现（在 `AppCompatActivity` 中）。
+
+   ```
+   override fun onSupportNavigateUp(): Boolean {
+      return navController.navigateUp() || super.onSupportNavigateUp()
+   }
+   ```
+
+3. 运行应用。现在，**Up** 按钮在 `FlavorFragment`、`PickupFragment` 和 `SummaryFragment` 中应能正常工作。在导航到订单流程中的前几步时，fragment 应显示视图模型提供的正确口味和自提日期。
+
+
+
+### ②了解任务和返回堆栈
+
+现在，您将在应用的订单流程中引入 **Cancel** 按钮。用户在订单流程中的任何时刻取消订单都会使用户返回 `StartFragment`。为处理此行为，您需了解 Android 中的任务和返回堆栈。
+
+#### **任务**
+
+Android 中的 activity 存在于任务中。当您从启动器图标首次打开应用时，Android 会使用主 activity 创建一个新任务。任务是用户在执行某项作业（例如，查看电子邮件、创建纸杯蛋糕订单、拍照）时与之互动的一系列 activity。
+
+activity 排列在一个堆栈中，称为“返回堆栈”，其中，用户访问的每个新的 activity 都会推送到任务的返回堆栈中。您可以将它看作是一摞煎饼，每一张新的煎饼都会加到这摞煎饼的最上方。堆栈顶部的 activity 是用户当前正在与之互动的 activity。堆栈中位于下方的 activity 已置于后台，并且已停止。
+
+![517054e483795b46.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/517054e483795b46.png)
+
+当用户需要向后导航时，返回堆栈十分有用。Android 可以从堆栈顶部移除当前 activity，将其销毁，然后重新启动其下方的  activity。此过程是将一个 activity 从堆栈中弹出，并将前一个 activity  置于前台，以便用户与之互动。如果用户想要返回多次，Android 将一直从堆栈顶部弹出 activity，直到接近堆栈的底部。当返回堆栈中不再有 activity 时，用户会被带回设备的启动器屏幕（或启动该应用的应用）。
+
+我们来看看您使用以下 2 个 activity 实现的 **Words** 应用的版本：`MainActivity` 和 `DetailActivity`。
+
+当您首次启动应用时，系统会打开 `MainActivity` 并将其添加到任务的返回堆栈中。
+
+![4bc8f5aff4d5ee7f.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/4bc8f5aff4d5ee7f.png)
+
+当您点击某个字母时，系统会启动 `DetailActivity`，并将其推送到返回堆栈。这意味着，`DetailActivity` 已创建、启动和恢复，因此用户可以与之互动。`MainActivity` 会置于后台，并且在图表中显示为灰色的背景色。
+
+![80f7c594ae844b84.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/80f7c594ae844b84.png)
+
+如果您点按 **Back** 按钮，系统会从返回堆栈中弹出 `DetailActivity`，并销毁和完成 `DetailActivity` 实例。
+
+![80f532af817191a4.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/80f532af817191a4.png)
+
+然后，返回堆栈顶部的下一个项目 (`MainActivity`) 会进入前台。
+
+![85004712d2fbcdc1.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/85004712d2fbcdc1.png)
+
+**注意**：打开应用后，如果点按设备上的**主屏幕**，应用的整个任务都会置于后台。如果您再次点按应用的启动器图标，Android 将查看您的应用是否存在现有任务，如存在，Android 会将该任务置于前台（返回堆栈保持不变）。如果不存在现有任务，Android  将为您创建新任务，并启动主 activity，将其推送到返回堆栈。
+
+返回堆栈可以跟踪用户已打开的 activity，与此相同，返回堆栈还可以借助 Jetpack Navigation 组件跟踪用户访问过的 fragment 目的地。
+
+![fe417ac5cbca4ce7.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/fe417ac5cbca4ce7.png)
+
+借助 Navigation 库，您可以在用户按 **Back** 按钮时从返回堆栈弹出 fragment 目的地。此默认行为将自动实现，您无需实施任何操作。如果您需要自定义返回堆栈行为，您只需编写代码即可，您将为 **Cupcake** 应用执行此操作。
+
+
+
+#### **Cupcake 应用的默认行为**
+
+让我们一起看看在 **Cupcake** 应用中返回堆栈如何工作。该应用中只有一个 activity，但是用户导航有多个 fragment 目的地。因此，最好在每次点按 **Back** 按钮时，它能返回到上一个 fragment 目的地。
+
+首次打开应用时，将显示 `StartFragment` 目的地。该目的地会推送到堆栈的顶部。
+
+![cf0e80b4907d80dd.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/cf0e80b4907d80dd.png)
+
+选择要订购的纸杯蛋糕数量后，您将导航到 `FlavorFragment`（此时会被推送到返回堆栈）。
+
+![39081dcc3e537e1e.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/39081dcc3e537e1e.png)
+
+选择一种口味并点按 **Next** 即可导航到 `PickupFragment`，此时，PickupFragment 将被推送到返回堆栈。
+
+![37dca487200f8f73.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/37dca487200f8f73.png)
+
+最后，选择自提日期并点按 **Next** 后，您将导航到 `SummaryFragment`，此时，SummaryFragment 将被添加到返回堆栈的顶部。
+
+![d67689affdfae0dd.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/d67689affdfae0dd.png)
+
+如果您从 `SummaryFragment` 点按 **Back** 或 **Up** 按钮，`SummaryFragment` 将从堆栈中弹出并被销毁。
+
+![215b93fd65754017.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/215b93fd65754017.png)
+
+`PickupFragment` 现在位于返回堆栈的顶部，并向用户显示。
+
+![37dca487200f8f73.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/37dca487200f8f73.png)
+
+再次点按 **Back** 或 **Up** 按钮。系统从堆栈中弹出 `PickupFragment`，然后显示 `FlavorFragment`。
+
+再次点按 **Back** 或 **Up** 按钮。系统从堆栈中弹出 `FlavorFragment`，然后显示 `StartFragment`。
+
+当您导航回订单流程中之前的步骤时，一次只能弹出一个目的地。但在下一个任务中，您将向应用添加取消订单功能。这可能需要您一次在返回堆栈中弹出多个目的地，才能将用户返回 `StartFragment` 以开启新订单。
+
+![e3dae0f492450207.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/e3dae0f492450207.png)
+
+## 
+
+#### 修改 Cupcake 应用中的返回堆栈
+
+修改 `FlavorFragment`、`PickupFragment` 和 `SummaryFragment` 类和布局文件，以便为用户提供 Cancel 订单按钮。
+
+##### 添加导航操作
+
+首先，将导航操作添加到应用的导航图中，以便用户从后续目的地导航回 `StartFragment`。
+
+1. 转到 **res > navigation > nav_graph.xml** 文件并选择 **Design** 视图，以打开 **Navigation Editor**。
+
+2. 目前，有一个从 `startFragment` 到 `flavorFragment` 的操作，从 `flavorFragment` 到 `pickupFragment` 的操作，以及从 `pickupFragment` 到 `summaryFragment` 的操作。
+
+3. 点击并拖动即可创建从 `summaryFragment` 到 `startFragment` 的新导航操作。如需回顾如何关联导航图中的目的地，您可以查看[这些说明](https://developer.android.com/guide/navigation/navigation-getting-started#connect)。
+
+4. 从 `pickupFragment` 中，点击并拖动以创建到 `startFragment` 的新操作。
+
+5. 从 `flavorFragment` 中，点击并拖动以创建到 `startFragment` 的新操作。
+
+6. 完成后，导航图应如下所示。
+
+   ![dcbd27a08d24cfa0.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/dcbd27a08d24cfa0.png)
+
+7. 通过这些更改，用户可以从订单流程中的某个后续 fragment 遍历订单流程的开头。现在，您需要使用能够实际使用这些操作进行导航的代码。合适位置为点按 **Cancel** 按钮时。
+
+##### 向布局添加“Cancel”按钮
+
+首先，为除 `StartFragment` 以外的所有 fragment 的布局文件添加 **Cancel** 按钮。如果您已经在订单流程的第一个屏幕上，则无需取消订单。
+
+1. 打开 `fragment_flavor.xml` 布局文件。
+
+2. 使用 **Split** 视图直接修改 XML 并并排查看预览。
+
+3. 在小计文本视图和 **Next** 按钮之间添加 **Cancel** 按钮。为 Cancel 按钮分配资源 ID `@+id/cancel_button` 和文本，显示为 `@string/cancel`。
+
+   该按钮应水平放置于 **Next** 按钮旁边，使之与 Next 按钮显示在一排。对于垂直约束条件，请将 **Cancel** 按钮的顶部约束为 **Next** 按钮的顶部。对于水平约束条件，请将 **Cancel** 按钮的起始位置约束到父容器，并将其结束位置约束为 **Next** 按钮的起始位置。
+
+   此外，请将 **Cancel** 按钮的高度和宽度分别指定为 `wrap_content` 和 `0dp`，以便其可以与另外一个按钮均分屏幕宽度。请注意，在下一步之前，该按钮不会出现在 **Preview** 窗格中。
+
+   ```
+   ...
+   
+   <TextView
+       android:id="@+id/subtotal" ... />
+   
+   <Button
+       android:id="@+id/cancel_button"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:text="@string/cancel"
+       app:layout_constraintEnd_toStartOf="@id/next_button"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="@id/next_button" />
+   
+   <Button
+       android:id="@+id/next_button" ... />
+   
+   ...
+   ```
+
+4. 在 `fragment_flavor.xml` 中，您还需要将 **Next** 按钮的起始约束条件从 `app:layout_constraintStart_toStartOf="parent`" 更改为 `app:layout_constraintStart_toEndOf="@id/cancel_button"`。此外，还要在 **Cancel** 按钮上添加一个末端外边距，以便在两个按钮之间留出一些空白。现在，Android Studio 的 **Preview** 窗格中会显示 **Cancel** 按钮。
+
+   ```
+   ...
+   
+   <Button
+       android:id="@+id/cancel_button"
+       android:layout_marginEnd="@dimen/side_margin" ... />
+   
+   <Button
+       android:id="@+id/next_button"
+       app:layout_constraintStart_toEndOf="@id/cancel_button"... />
+   
+   ...
+   ```
+
+5. 就外观样式而言，使用 [Material Outlined Button](https://material.io/components/buttons/android#outlined-button) 样式（具有属性 `style="?attr/materialButtonOutlinedStyle"`），这样，**Cancel** 按钮就不会像 **Next** 按钮一样突出显示，后者是您希望用户关注的主要操作。
+
+   ```
+   <Button
+       android:id="@+id/cancel_button"
+       style="?attr/materialButtonOutlinedStyle" ... />
+   ```
+
+   现在，按钮及其位置看起来都很合适！
+
+   ![1fb41763cc255c05.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/1fb41763cc255c05.png)
+
+6. 以同样的方式，向 `fragment_pickup.xml` 布局文件添加一个 **Cancel** 按钮。同时更新 **Next** 按钮的起始约束条件。然后，预览中将显示 **Cancel** 按钮。
+
+   ```
+   ...
+   
+   <TextView
+       android:id="@+id/subtotal" ... />
+   
+   <Button
+       android:id="@+id/cancel_button"
+       style="?attr/materialButtonOutlinedStyle"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_marginEnd="@dimen/side_margin"
+       android:text="@string/cancel"
+       app:layout_constraintEnd_toStartOf="@id/next_button"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="@id/next_button" />
+   
+   <Button
+       android:id="@+id/next_button"
+       app:layout_constraintStart_toEndOf="@id/cancel_button" ... />
+   
+   ...
+   ```
+
+7. 对 `fragment_summary.xml` 文件应用类似的更改，但此 fragment 的布局略有不同。您将在父类别 `LinearLayout` 的 **Send** 按钮下添加 **Cancel** 按钮，并在两按钮之间添加一定的外边距。
+
+   <img src="https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/741c0f034397795c.png" alt="741c0f034397795c.png" style="zoom:33%;" />
+
+   ```
+   ...
+   
+       <Button
+           android:id="@+id/send_button" ... />
+   
+       <Button
+           android:id="@+id/cancel_button"
+           style="?attr/materialButtonOutlinedStyle"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="@dimen/margin_between_elements"
+           android:text="@string/cancel" />
+   
+   </LinearLayout>
+   ```
+
+8. 运行并测试应用。现在，您应该会在 `FlavorFragment`、`PickupFragment` 和 `SummaryFragment` 的布局中看到 **Cancel** 按钮。不过，点按该按钮不会执行任何操作。在下一步中为这些按钮设置点击监听器。
+
+
+
+##### 添加“Cancel”按钮点击监听器
+
+在每个 fragment 类（`StartFragment` 除外）中，添加一个支持在用户点击 **Cancel** 按钮时处理的辅助方法。
+
+1. 将此 `cancelOrder()` 方法添加到 `FlavorFragment`。显示口味选项时，如果用户决定取消订单，请通过调用 `sharedViewModel.resetOrder().` 来清除视图模型。然后使用 ID 为 `R.id.action_flavorFragment_to_startFragment.` 的导航操作导航回 `StartFragment`。
+
+   ```
+   fun cancelOrder() {    sharedViewModel.resetOrder()    findNavController().navigate(R.id.action_flavorFragment_to_startFragment)}
+   ```
+
+   如果您发现与操作资源 ID 相关的错误，则可能需要返回 `nav_graph.xml` 文件来验证您的导航操作是否也被命名为同一名称 (`action_flavorFragment_to_startFragment`)。
+
+2. 使用监听器绑定在 `fragment_flavor.xml` 布局中的 **Cancel** 按钮上设置点击监听器。点击此按钮将会调用您刚刚在 `FragmentFlavor` 类中创建的 `cancelOrder()` 方法。
+
+   ```
+   <Button    android:id="@+id/cancel_button"    android:onClick="@{() -> flavorFragment.cancelOrder()}" ... />
+   ```
+
+3. 对 `PickupFragment` 重复上述过程。向 fragment 类添加 `cancelOrder()` 方法，此举会重置订单，并从 `PickupFragment` 导航到 `StartFragment`。并在 `fragment_pickup.xml` 中，对 **Cancel** 按钮设置点击监听器，以便在点击该按钮后调用 `cancelOrder()` 方法。
+
+   ```
+   fun cancelOrder() {
+       sharedViewModel.resetOrder()
+       findNavController().navigate(R.id.action_pickupFragment_to_startFragment)
+   }
+   ```
+
+   ```
+   <Button
+       android:id="@+id/cancel_button"
+       android:onClick="@{() -> pickupFragment.cancelOrder()}" ... />
+   ```
+
+4. 为 `SummaryFragment` 中的 **Cancel** 按钮添加类似的代码，以便用户返回 `StartFragment`。如果系统未自动为您导入 `androidx.navigation.fragment.findNavController`，则您需要手动导入。并在 `fragment_summary.xml` 中，点击 **Cancel** 按钮时，调用 `SummaryFragment` 的 `cancelOrder()` 方法。
+
+   ```
+   fun cancelOrder() {
+       sharedViewModel.resetOrder()
+       findNavController().navigate(R.id.action_summaryFragment_to_startFragment)
+   }
+   ```
+
+   ```
+   <Button
+       android:id="@+id/cancel_button"
+       android:onClick="@{() -> summaryFragment.cancelOrder()}" ... />
+   ```
+
+5. 运行并测试应用以验证您刚刚添加到每个 fragment 的逻辑。创建纸杯蛋糕订单后，点按 `FlavorFragment`、`PickupFragment` 或 `SummaryFragment` 中的 **Cancel** 按钮即可返回 `StartFragment`。在创建新订单时，您会注意到之前订单中的信息已清除。
+
+   这看起来运行正常，但返回到 `StartFragment` 后，实际上存在一个向后导航错误。执行下面几个步骤重现错误。
+
+6. 浏览创建新纸杯蛋糕订单的订单流程，直到到达摘要屏幕。例如，您可以订购 12 个巧克力口味的纸杯蛋糕，然后选择未来的提货日期。
+
+7. 然后点按 **Cancel**。您将回到 `StartFragment`。
+
+8. 这看起来没问题，但如果您点按了系统自带的 **Back** 按钮，您最终将返回到订单摘要屏幕，其中将显示订单摘要：订购了 0 个纸杯蛋糕，未选择任何口味。此摘要是不正确的，不应向用户显示。
+
+   <img src="https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/1a9024cd58a0e643.png" alt="1a9024cd58a0e643.png" style="zoom:33%;" />
+
+   用户可能不希望重复执行订单流程。此外，视图模型中的所有订单数据都已清除，因此此信息没有用。在这种情况下，点按 `StartFragment` 中的 **Back** 按钮将离开 **Cupcake** 应用。
+
+   让我们一起看一下返回堆栈目前的外观，并了解一下如何修复该错误。当您通过订单摘要屏幕创建订单时，每个目的地均会推送到返回堆栈。
+
+   <img src="https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/fc88100cdf1bdd1.png" alt="fc88100cdf1bdd1.png" style="zoom: 50%;" />
+
+   您从 `SummaryFragment` 中取消了此订单。当您通过操作从 `SummaryFragment` 导航到 `StartFragment` 时，Android 在返回堆栈中添加了另一个 `StartFragment` 实例作为新的目的地。
+
+   <img src="https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/5616cb0028b63602.png" alt="5616cb0028b63602.png" style="zoom:33%;" />
+
+   因此，如果您点按 `StartFragment` 中的 **Back** 按钮，应用最终将重新显示 `SummaryFragment`（包含空白订单信息）。
+
+   如需解决此导航错误，请了解如何使用 Navigation 组件在使用操作进行导航时从返回堆栈中弹出其他目的地。
+
+
+
+#### 从返回堆栈中弹出其他目的地
+
+##### 导航操作：popUpTo 属性
+
+在导航图的导航操作中添加 `app:popUpTo` 属性后，多个目的地可以从返回堆栈中弹出，直至达到指定的目的地为止。如果您指定 `app:popUpTo="@id/startFragment"`，那么在到达 `StartFragment` 之前，返回堆栈中的目的地将被弹出，而 StartFragment 将继续保留在堆栈中。
+
+将此更改添加到您的代码中并运行应用后，您会发现，当取消订单时，您将回到 `StartFragment`。但这时，当您从 `StartFragment` 中点按 **Back** 按钮时，会再次看到 `StartFragment`（而不是退出应用）。这也不是期望出现的行为。如前所述，由于您正在导航到 `StartFragment`，Android 实际上会在返回堆栈中添加 `StartFragment` 作为新目的地，因此现在您可以在返回堆栈上有 2 个 StartFragment 实例。因此，您需要点按两次 **Back** 按钮才能退出应用。
+
+<img src="https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/dd0fedc6e231e595.png" alt="dd0fedc6e231e595.png" style="zoom: 33%;" />
+
+##### 导航操作：popUpToInclusive 属性
+
+如需修复这一新错误，须请求将所有目的地都从返回堆栈中弹出，包含 `StartFragment`。您可以通过在合适的导航操作上指定 `app:popUpTo="@id/startFragment"` 和
+
+`app:popUpToInclusive="true"` 来修复该错误。这样，在返回堆栈中您就只会有一个新的 `StartFragment` 实例。然后从 `StartFragment` 点按 **Back** 按钮一次即可退出该应用。让我们现在就执行这一更改吧。
+
+<img src="https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/cf0e80b4907d80dd.png" alt="cf0e80b4907d80dd.png" style="zoom:50%;" />
+
+##### 修改导航操作
+
+1. 打开 **res > navigation > nav_graph.xml** 文件，转到 **Navigation Editor**。
+
+2. 选择从 `summaryFragment` 到 `startFragment` 的操作，以便以蓝色突出显示。
+
+3. 展开右侧的 **Attributes**（如果尚未打开）。在您可以修改的属性列表中查找 **Pop Behavior**。
+
+   ![d762df0f167efd3a.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/d762df0f167efd3a.png)
+
+4. 在下拉列表选项中，将 **popUpTo** 设置为 `startFragment`。这意味着，返回堆栈中的所有目的地都将弹出（从堆栈顶部开始，然后向下），一直到 `startFragment`。
+
+5. 然后点击 **popUpToInclusive** 复选框，直到屏幕上显示对勾标记并标记为 **true**。这表示您要弹出最多的目的地，并包含返回堆栈中已存在的 `startFragment` 实例。这样，返回堆栈中就不会有两个 `startFragment` 实例。
+
+   ![4a403838a62ff487.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/4a403838a62ff487.png)
+
+6. 对将 `pickupFragment` 和 `flavorFragment` 连接到 `startFragment` 的操作重复执行这些更改。
+
+7. 完成后，查看导航图文件的 **Code** 视图，确认您对应用进行了正确的更改。
+
+   ```
+   <navigation
+       android:id="@+id/nav_graph" ...>
+       <fragment
+           android:id="@+id/startFragment" ...>
+           ...
+       </fragment>
+       <fragment
+           android:id="@+id/flavorFragment" ...>
+           ...
+           <action
+               android:id="@+id/action_flavorFragment_to_startFragment"
+               app:destination="@id/startFragment"
+               app:popUpTo="@id/startFragment"
+               app:popUpToInclusive="true" />
+       </fragment>
+       <fragment
+           android:id="@+id/pickupFragment" ...>
+           ...
+           <action
+               android:id="@+id/action_pickupFragment_to_startFragment"
+               app:destination="@id/startFragment"
+               app:popUpTo="@id/startFragment"
+               app:popUpToInclusive="true" />
+       </fragment>
+       <fragment
+           android:id="@+id/summaryFragment" ...>
+           <action
+               android:id="@+id/action_summaryFragment_to_startFragment"
+               app:destination="@id/startFragment"
+               app:popUpTo="@id/startFragment"
+               app:popUpToInclusive="true" />
+       </fragment>
+   </navigation>
+   ```
+
+   请注意，这 3 项操作（`action_flavorFragment_to_startFragment`、`action_pickupFragment_to_startFragment` 和 `action_summaryFragment_to_startFragment`）应该都新增了属性 `app:popUpTo="@id/startFragment"` 和 `app:popUpToInclusive="true"`。
+
+8. 现在运行该应用。浏览订单流程，然后点按 **Cancel**。当您返回到 `StartFragment` 时，点按 **Back** 按钮（仅按一次！），您将退出应用。
+
+   下面将简要概述发生了什么，当您取消订单并返回到应用的第一个屏幕时，返回堆栈中的所有 fragment 目的地都将弹出堆栈，包括 `StartFragment` 的第一个实例。完成导航操作后，在返回堆栈中会添加 `StartFragment` 作为新目的地。点按 **Back** 会将 `StartFragment` 弹出堆栈，而不会在返回堆栈中留下任何 fragment。因此，Android 会完成 activity，用户也将离开应用。
+
+   该应用的外观应如下所示：
+
+   ![5bf939ab1255fb0d.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/5bf939ab1255fb0d.png)
+
+
+
+### ③发送订单
+
+目前，该应用看起来很棒！只缺少一个部分。当您点按 `SummaryFragment` 上的“Send Order”按钮时，系统仍然会弹出 `Toast` 消息。
+
+![90ed727c7b812fd6.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/90ed727c7b812fd6.png)
+
+如果可以从应用中发送订单，该体验将十分实用。充分利用您在之前的 Codelab 中学到的知识，了解如何利用隐式 intent  将应用中的信息分享到其他应用。这样，用户就可以使用设备上的电子邮件应用分享纸杯蛋糕订单信息，从而将订单通过电子邮件发送到纸杯蛋糕店。
+
+![170d76b64ce78f56.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/170d76b64ce78f56.png)
+
+如需实现此功能，请查看上方屏幕截图中电子邮件主题和电子邮件正文的结构。
+
+您将使用 `strings.xml` 文件中已有的字符串。
+
+```
+<string name="new_cupcake_order">New Cupcake Order</string>
+<string name="order_details">Quantity: %1$s cupcakes \n Flavor: %2$s \nPickup date: %3$s \n Total: %4$s \n\n Thank you!</string>
+```
+
+`order_details` 是包含 4 种不同格式参数的字符串资源，这些参数是纸杯蛋糕实际数量、期望的口味、期望提货日期和总价的占位符。参数的编号为 1 到 4，语法为 `%1` 到 `%4`。系统也指定了参数类型（`$s` 表示此处需要字符串）。
+
+在 Kotlin 代码中，您将能够对 `R.string.order_details` 调用 `getString()`，后接 4 个参数（顺序很重要！）。例如，调用 `getString(R.string.order_details, "12", "Chocolate", "Sat Dec 12", "$24.00")` 可创建以下字符串，该字符串是您需要的电子邮件正文。
+
+```
+Quantity: 12 cupcakes
+Flavor: Chocolate
+Pickup date: Sat Dec 12
+Total: $24.00
+
+Thank you!
+```
+
+**注意**：您可能还记得，您已了解包含格式参数的字符串资源。例如，您在应用中使用的小计和总价字符串将声明为
+
+```
+<string name="subtotal_price">Subtotal %s</string>
+<string name="total_price">Total %s</string>
+```
+
+其中 `%s` 是格式化的价格字符串的占位符。
+
+1. 在 `SummaryFragment.kt` 中，修改 `sendOrder()` 方法。移除现有的 `Toast` 消息。
+
+2. 在 `sendOrder()` 方法中，构建订单摘要文本。获取共享视图模型中的订单数量、口味、日期和价格，然后创建格式化的 `order_details` 字符串。
+
+   ```
+   val orderSummary = getString(
+       R.string.order_details,
+       sharedViewModel.quantity.value.toString(),
+       sharedViewModel.flavor.value.toString(),
+       sharedViewModel.date.value.toString(),
+       sharedViewModel.price.value.toString()
+   )
+   ```
+
+3. 在 `sendOrder()` 方法中，创建一个隐式 intent，以将订单分享给其他应用。如需了解如何创建电子邮件 intent，请参阅[文档](https://developer.android.com/guide/components/intents-common#Email)。为 intent 操作指定 `Intent.ACTION_SEND`，将类型设置为 `"text/plain"`，并包含电子邮件主题 (`Intent.EXTRA_SUBJECT`) 和电子邮件正文 (`Intent.EXTRA_TEXT`) 的 intent extra。如果需要，导入 `android.content.Intent`。
+
+   ```
+   val intent = Intent(Intent.ACTION_SEND)
+       .setType("text/plain")
+       .putExtra(Intent.EXTRA_SUBJECT, getString(R.string.new_cupcake_order))
+       .putExtra(Intent.EXTRA_TEXT, orderSummary)
+   ```
+
+   额外提示：如果您自行调整此应用以适应您自己的用例，则可以预先填充电子邮件的收件人，作为纸杯蛋糕店的电子邮件地址。在 intent 中，您需要使用 intent extra [`Intent.EXTRA_EMAIL`](https://developer.android.com/reference/android/content/Intent#EXTRA_EMAIL) 指定电子邮件收件人。
+
+4. 由于这是隐式 intent，因此您无需提前了解具体由哪个组件或应用处理此 intent。用户将决定要使用哪个应用来处理  intent。不过，在使用该 intent 启动 activity 之前，请检查是否有应用能够处理该 intent。如果没有可用的应用来处理  intent，执行该项检查可防止 **Cupcake** 应用崩溃，从而提升代码的安全性。
+
+   ```
+   if (activity?.packageManager?.resolveActivity(intent, 0) != null) {
+       startActivity(intent)
+   }
+   ```
+
+   通过访问 [`PackageManager`](https://developer.android.com/reference/android/content/pm/PackageManager) 来执行该项检查，PackageManager 中说明了设备上安装了哪些应用软件包。`PackageManager` 可通过 fragment 的 `activity` 访问，前提是 `activity` 和 `packageManager` 均不为 null。使用您创建的 intent 调用 `PackageManager` 的 `resolveActivity()` 方法。如果结果不为 null，就可以放心使用您的 intent 来调用 `startActivity()`。
+
+   
+
+5. 运行您的应用以测试代码。创建纸杯蛋糕订单，然后点按 **Send Order to Another App**。当共享对话框弹出时，您可以选择 Gmail 应用，但如果您愿意，也可以选择其他应用。如果您选择 Gmail  应用，则可能需要在设备上设置一个帐号（如果您尚未设置帐号），例如，在您使用模拟器的情况下。如果电子邮件正文中未显示您的最新纸杯蛋糕订单，则可能需要先舍弃当前的电子邮件草稿。
+
+   ![170d76b64ce78f56.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/170d76b64ce78f56.png)
+
+   在测试不同场景时，如果您只订购 1 个纸杯蛋糕，可能会出现错误。订单摘要显示 **1 cupcakes**，但在英语中，这种说法存在语法错误。
+
+   ![ef046a100381bb07.png](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/ef046a100381bb07.png)
+
+   正确说法应为 **1 cupcake**（不使用复数）。如果您想根据数量值选择是使用“cupcake”还是“cupcakes”，则可以使用 Android 中的[数量字符串](https://developer.android.com/guide/topics/resources/string-resource#Plurals)。通过声明 `plurals` 资源，您可以根据具体数量指定要使用的不同字符串资源，例如采用单数或复数形式。
+
+6. 在 `strings.xml` 文件中添加一个 `cupcakes` 复数资源。
+
+   ```
+   <plurals name="cupcakes">
+       <item quantity="one">%d cupcake</item>
+       <item quantity="other">%d cupcakes</item>
+   </plurals>
+   ```
+
+   在单数情况 (`quantity="one"`) 下，将使用单数形式的字符串。在所有其他情况 (`quantity="other"`) 下，将使用复数形式的字符串。请注意，与需要字符串参数的 `%s` 不同，`%d` 需要的是整数参数，您将在格式化字符串时传入该整数参数。
+
+   在您的 Kotlin 代码中，调用
+
+   ```
+   getQuantityString(R.string.cupcakes, 1, 1)` 将返回字符串 `1 cupcake
+   getQuantityString(R.string.cupcakes, 6, 6)` 将返回字符串 `6 cupcakes
+   getQuantityString(R.string.cupcakes, 0, 0)` 将返回字符串 `0 cupcakes
+   ```
+
+   **注意**：调用 `getQuantityString()` 时，您需要传入两次数量，因为第一个数量参数将用于选择正确的复数形式字符串。第二个数量参数用于实际字符串资源的 `%d` 占位符。
+
+7. 在转到您的 Kotlin 代码之前，请更新 `strings.xml` 中的 `order_details` 字符串资源，这样复数形式的 **cupcakes** 就不会再硬编码到代码中。
+
+   ```
+   <string name="order_details">Quantity: %1$s \n Flavor: %2$s \nPickup date: %3$s \n
+           Total: %4$s \n\n Thank you!</string>
+   ```
+
+8. 在 `SummaryFragment` 类中，更新 `sendOrder()` 方法以使用新的数量字符串。最简单的方法是首先从视图模型中计算出数量，然后将其存储在变量中。由于视图模型中的 `quantity` 的类型为 `LiveData<Int>`，因此 `sharedViewModel.quantity.value` 可能为 null。如果该值为 null，使用 `0` 作为 `numberOfCupcakes` 的默认值。
+
+   ```
+   val numberOfCupcakes = sharedViewModel.quantity.value ?: 0
+   ```
+
+   [Elvis 运算符](https://kotlinlang.org/docs/reference/null-safety.html#elvis-operator) (?:) 表示如果左侧的表达式不为 null，则使用该表达式。但如果左侧的表达式为 null，请使用 Elvis 运算符右侧的表达式（在本例中为 `0`）
+
+9. 然后，像之前一样格式化 `order_details` 字符串。使用 `resources.getQuantityString(R.plurals.cupcakes, numberOfCupcakes, numberOfCupcakes)` 创建格式化的纸杯蛋糕字符串，而不是直接传入 `numberOfCupcakes` 作为数量参数。
+
+   完整的 `sendOrder()` 方法应如下所示：
+
+   ```
+   fun sendOrder() {
+       val numberOfCupcakes = sharedViewModel.quantity.value ?: 0
+       val orderSummary = getString(
+           R.string.order_details,
+           resources.getQuantityString(R.plurals.cupcakes, numberOfCupcakes, numberOfCupcakes),
+           sharedViewModel.flavor.value.toString(),
+           sharedViewModel.date.value.toString(),
+           sharedViewModel.price.value.toString()
+       )
+   
+       val intent = Intent(Intent.ACTION_SEND)
+           .setType("text/plain")
+           .putExtra(Intent.EXTRA_SUBJECT, getString(R.string.new_cupcake_order))
+           .putExtra(Intent.EXTRA_TEXT, orderSummary)
+   
+       if (activity?.packageManager?.resolveActivity(intent, 0) != null) {
+           startActivity(intent)
+       }
+   }
+   ```
+
+10. 运行并测试您的代码。检查电子邮件正文中的订单摘要显示 1 cupcake、6 cupcakes 或 12 cupcakes。
+
+    至此，您已经完成了 Cupcake 应用的全部功能！恭喜！构建该应用无疑是一个极具挑战性的任务，但这也使您在成为 Android 开发者的道路上取得了巨大的进步！现在，您将能够成功将到目前为止学到的所有概念相结合，并在此过程中学到一些新的问题解决技巧。
+
+
+
+### ④剩下的步骤
+
+现在请花些时间清理代码，这是练习您从之前的 Codelab 中学到的良好编码做法的好机会。
+
+- 优化导入
+- 重新格式化文件
+- 移除不使用或被注释掉的代码
+- 根据需要在代码中添加注释
+
+如需提升您的应用的无障碍使用性，请在启用 [Talkback](https://developer.android.com/guide/topics/ui/accessibility/testing#explore_your_app_with_talkback) 的情况下测试您的应用，以确保用户体验顺畅。在适当情况下，语音反馈有助于传达屏幕上各种元素的用途。此外，还要确保应用的所有元素都可使用滑动手势进行导航。
+
+请仔细检查您实现的用例，确保它们在您的最终应用中发挥预期的作用。示例：
+
+- 将在设备旋转时保留数据（得益于视图模型）。
+- 如果您点按 **Up** 或 **Back** 按钮，订单信息应该仍然可以在 `FlavorFragment` 和 `PickupFragment` 上正确显示。
+- 将订单发送到另一个应用将分享正确的订单详情。
+- 取消订单将清除订单中的所有信息。
+
+如果您发现任何错误，请立即修复。
+
+复核工作做得不错！
+
