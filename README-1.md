@@ -4340,3 +4340,12 @@ Quantity: 12 cupcakesFlavor: ChocolatePickup date: Sat Dec 12Total: $24.00Thank 
 
 复核工作做得不错！
 
+### ⑤总结
+
+- Android 将保留您访问的所有目的地的返回堆栈，其中，每个新目的地都将被推送到堆栈中。
+- 通过点按 **Up** 或 **Back** 按钮，您可以将目的地从返回堆栈中弹出。
+- 使用 Jetpack Navigation 组件可帮助您从返回堆栈推出和弹出 fragment 目的地，以便轻松实现默认的 **Back** 按钮行为。
+- 在导航图中为操作指定 `app:popUpTo` 属性，以便从返回堆栈中弹出目的地，直至属性值中指定的目的地弹出。
+- 在 `app:popUpTo` 中指定的目的地也从返回堆栈中弹出时，为操作指定 `app:popUpToInclusive="true"`。
+- 您可以通过使用 `Intent.ACTION_SEND` 和填充 intent extra（例如 `Intent.EXTRA_EMAIL`、`Intent.EXTRA_SUBJECT` 和 `Intent.EXTRA_TEXT` 等）来创建隐式 intent，以将内容共享到电子邮件应用。
+- 如果您想根据数量使用不同的字符串资源，例如单数或复数形式，请使用 `plurals` 资源。
