@@ -1,0 +1,134 @@
+[
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_white_box.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\white_box.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_oreo.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\oreo.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_gingerbread.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\gingerbread.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_lollipop.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\lollipop.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_froyo.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\froyo.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_nougat.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\nougat.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cupcake.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\cupcake.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\menu_main_menu.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\menu\\main_menu.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_kitkat.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\kitkat.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_donut.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\donut.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_eclair.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\eclair.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bakery_back.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\bakery_back.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_dessert_clicker.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_dessert_clicker.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_dessert_clicker_round.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_dessert_clicker_round.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_honeycomb.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\honeycomb.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icecreamsandwich.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\icecreamsandwich.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_marshmallow.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\marshmallow.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_jellybean.xml.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\drawable\\jellybean.xml"
+    },
+    {
+        "merged": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Android\\AndroidProgram\\android-basics-kotlin-dessert-clicker-app\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    }
+]
